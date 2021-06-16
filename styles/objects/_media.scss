@@ -6,8 +6,7 @@
  * Type: Boolean
  */
 
-$iota-objs-media-aligned: false;
-
+$iota-objs-media-aligned: true;
 
 /**
  * Enable / Disable reversed modifier
@@ -16,8 +15,7 @@ $iota-objs-media-aligned: false;
  * Type: Boolean
  */
 
-$iota-objs-media-rev: false;
-
+$iota-objs-media-rev: true;
 
 /**
  * Default gutter size. Use a number for a single size or
@@ -26,8 +24,8 @@ $iota-objs-media-rev: false;
  * Type: Number / Map
  */
 
-$iota-objs-media-gutter-default: $iota-global-gutter-default;
-
+// $iota-objs-media-gutter-default: $iota-global-gutter-default;
+$iota-objs-media-gutter-default: 20px;
 
 /**
  * Extra gutters map. Each gutter size will be available as
@@ -39,8 +37,11 @@ $iota-objs-media-gutter-default: $iota-global-gutter-default;
  * Type: Map
  */
 
-$iota-objs-media-gutter-extra: ();
-
+$iota-objs-media-gutter-extra: (
+  quarter: 5px,
+  half: 10px,
+  double: 40px,
+);
 
 /**
  * Enable / Disable flexbox
@@ -49,7 +50,6 @@ $iota-objs-media-gutter-extra: ();
  */
 
 $iota-objs-media-flex: $iota-global-flex;
-
 
 /**
  * Enable / Disable responsive modifier.
@@ -61,7 +61,6 @@ $iota-objs-media-flex: $iota-global-flex;
 
 $iota-objs-media-res: false;
 
-
 /**
  * Specify max-width for breakpoint to collapse at.
  *
@@ -70,20 +69,18 @@ $iota-objs-media-res: false;
 
 $iota-objs-media-collapse-at: 767px;
 
-
 /**
  * Namespace classes
  *
  * Type: String
  */
 
-$iota-objs-media-namespace          : 'media';
-$iota-objs-media-fixed-name         : 'fixed';
-$iota-objs-media-fluid-name         : 'fluid';
-$iota-objs-media-reversed-name      : 'rev';
-$iota-objs-media-align-middle-name  : 'middle';
-$iota-objs-media-align-bottom-name  : 'bottom';
-$iota-objs-media-responsive-name    : 'res';
+$iota-objs-media-namespace: "media";
+$iota-objs-media-fixed-name: "fixed";
+$iota-objs-media-fluid-name: "fluid";
+$iota-objs-media-reversed-name: "rev";
+$iota-objs-media-align-middle-name: "middle";
+$iota-objs-media-align-bottom-name: "bottom";
+$iota-objs-media-responsive-name: "res";
 
-
-@import 'node_modules/iotacss/objects/media';
+@import "node_modules/iotacss/objects/media";
