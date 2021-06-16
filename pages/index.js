@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
 import {getDatabase} from "../lib/notion";
-import {Text} from "./[id].js";
 import {AppContext} from "../context/context";
 import Layout, {siteTitle} from "../components/Layout";
 import SidePanel from "../components/sidePanel/SidePanel";
