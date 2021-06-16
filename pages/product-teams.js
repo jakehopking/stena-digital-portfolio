@@ -5,30 +5,12 @@ import {AppContext} from "../context/context";
 import Layout, {siteTitle} from "../components/Layout";
 import SidePanel from "../components/sidePanel/SidePanel";
 import OverviewPanel from "../components/sidePanel/OverviewPanel";
+import DigitalBetItem from "../components/molecules/DigitalBetItem";
 import data from "../data/data";
-import ProgressBar from "../components/atoms/ProgressBar";
 
 export const databaseId = process.env.NOTION_DB_PORTFOLIO_TRACKER;
 
 const {overviewPanelData, digitalBets} = data;
-
-const DigitalBet = ({category, state, group, label, progress, bigBet}) => {
-  // debugger;
-  return (
-    <div className="o-media o-media--quarter">
-      <div className="o-media__fixed">
-        {group}
-        {bigBet ? "True" : "False"}
-      </div>
-      <div className="o-media__fluid">
-        {category}
-        {label}
-        {state}
-        <ProgressBar value={progress} />
-      </div>
-    </div>
-  );
-};
 
 const DigitalBetList = ({data, title}) => {
   return (
@@ -37,7 +19,7 @@ const DigitalBetList = ({data, title}) => {
       <div className="digital-bet-list__list">
         {data.map((bet, idx) => {
           return (
-            <DigitalBet
+            <DigitalBetItem
               key={idx + bet.group}
               category={bet.category}
               state={bet.state}

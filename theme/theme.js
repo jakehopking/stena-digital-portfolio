@@ -7,6 +7,7 @@ export const GREY = {
   _00: "#000000",
   _02: "#18181C",
   _03: "#1F1F22",
+  _04: "#2A2A30",
   _05: "#2A2B2C",
   _08: "#3B3B44",
   _50: "#60625A",
@@ -48,6 +49,11 @@ export const COLOUR = {
       },
       panel: {
         background: GREY._02,
+      },
+      card: {
+        digitalBet: {
+          background: GREY._04,
+        },
       },
       text: {
         default: GREY._90,

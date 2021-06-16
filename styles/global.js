@@ -11,6 +11,8 @@ export const GlobalStyles = createGlobalStyle`
     --color-bg: ${({theme}) => hexToRGBA(theme.color.background)};
     --color-nav-bg: ${({theme}) => hexToRGBA(theme.color.navigation.background)};
     --color-panel-bg: ${({theme}) => hexToRGBA(theme.color.panel.background)};
+    --color-card-digitalBet: ${({theme}) =>
+      hexToRGBA(theme.color.card.digitalBet.background)};
     --color-text: ${({theme}) => hexToRGBA(theme.color.text.default)};
     --color-text-accent: ${({theme}) => hexToRGBA(theme.color.text.accent)};
     --color-grid-line: ${({theme}) => hexToRGBA(theme.color.grid.line.default)};
@@ -23,6 +25,7 @@ export const GlobalStyles = createGlobalStyle`
 
     /* Sizes */
     --radius-btn: ${SIZE.radius.button};
+    --radius-default: ${SIZE.radius.button};
     --grid-main: ${SIZE.grid.main};
 
     /* Spacing units */

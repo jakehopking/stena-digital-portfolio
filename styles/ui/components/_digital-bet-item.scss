@@ -1,0 +1,38 @@
+.digital-bet-item {
+  --padding: var(--su-3);
+  --margin: var(--su-3);
+  --radius: var(--radius-default);
+
+  padding: var(--padding);
+  border-radius: var(--radius);
+  background-color: var(--color-card-digitalBet);
+
+  & + & {
+    margin-top: var(--margin);
+  }
+
+  &--small {
+    --padding: var(--su-2);
+  }
+
+  &__icons {
+    display: flex;
+    flex-flow: column;
+  }
+
+  &__content {
+    display: flex;
+  }
+
+  &__main {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+  }
+
+  &__aside {
+    flex: 0 0 70px;
+    text-align: right;
+    margin-left: var(--su-2);
+  }
+}
