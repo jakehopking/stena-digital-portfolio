@@ -8,6 +8,7 @@ export const GREY = {
   _02: "#18181C",
   _03: "#1F1F22",
   _05: "#2A2B2C",
+  _08: "#3B3B44",
   _50: "#60625A",
   _90: "#F2F2F2",
   _100: "#FFFFFF",
@@ -27,10 +28,10 @@ export const ORANGE = {
 };
 
 export const PALLET = {
-  alpha: {...GREY},
   beta: {...BLUE},
   gamma: {...GREEN},
   delta: {...ORANGE},
+  grey: {...GREY},
 };
 
 export const COLOUR = {
@@ -52,7 +53,11 @@ export const COLOUR = {
         default: GREY._90,
         accent: BLUE._20,
       },
-      font: {stenaSans: "Stena Sans"},
+      grid: {
+        line: {
+          default: GREY._05,
+        },
+      },
     },
     // Light theme. Unused.
     light: {
@@ -95,6 +100,9 @@ export const SIZE = {
   radius: {
     default: intToPx(defaultRadius),
     button: intToPx(defaultRadius),
+  },
+  grid: {
+    main: intToPx(defaultSpacingUnit * 4),
   },
   font: {
     // small,
