@@ -28,16 +28,24 @@ export const ORANGE = {
   _00: "#FFBC10",
 };
 
+export const YELLOW = {
+  _50: "#F2C94C",
+};
+
 export const PALLET = {
-  beta: {...BLUE},
-  gamma: {...GREEN},
-  delta: {...ORANGE},
+  primary: {...BLUE},
+  secondary: {...GREEN},
+  tertiary: {...ORANGE},
   grey: {...GREY},
 };
 
 export const COLOUR = {
   theme: {
     dark: {
+      default: {
+        background: GREY._00,
+        foreground: GREY._100,
+      },
       background: GREY._03,
       button: {
         nav: {
@@ -58,6 +66,7 @@ export const COLOUR = {
       text: {
         default: GREY._90,
         accent: BLUE._20,
+        bigBet: YELLOW._50,
       },
       grid: {
         line: {
@@ -67,6 +76,10 @@ export const COLOUR = {
     },
     // Light theme. Unused.
     light: {
+      default: {
+        background: GREY._100,
+        foreground: GREY._00,
+      },
       background: GREY._90,
       button: {
         nav: {
@@ -111,6 +124,16 @@ export const SIZE = {
     main: intToPx(defaultSpacingUnit * 4),
   },
   font: {
+    size: {},
+    weight: {
+      hairline: 100,
+      thin: 200,
+      light: 300,
+      medium: 400,
+      bold: 600,
+      bolder: 700,
+      thick: 900,
+    },
     // small,
     // p,
     // h1,
