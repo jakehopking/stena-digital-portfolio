@@ -1,0 +1,13 @@
+.digital-bet-list {
+  --padding: var(--su-3) var(--su-6);
+
+  padding: var(--padding);
+
+  &__title {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-top: calc(var(--su-6) * -1.25);
+    padding-bottom: var(--su-5);
+    font-weight: var(--fw-4);
+  }
+}
