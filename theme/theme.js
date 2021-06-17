@@ -1,6 +1,7 @@
 import {intToPx} from "../utils/css";
 
-const defaultRadius = 7;
+const radiusDefault = 7;
+const radiusRound = 1000;
 const defaultSpacingUnit = 20;
 
 export const GREY = {
@@ -117,8 +118,9 @@ export const SIZE = {
     _8: intToPx(defaultSpacingUnit * 4),
   },
   radius: {
-    default: intToPx(defaultRadius),
-    button: intToPx(defaultRadius),
+    default: intToPx(radiusDefault),
+    button: intToPx(radiusDefault),
+    round: intToPx(radiusRound),
   },
   grid: {
     main: intToPx(defaultSpacingUnit * 4),

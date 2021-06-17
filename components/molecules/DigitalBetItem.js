@@ -2,11 +2,28 @@ import {useEffect, useState} from "react";
 import Circle from "../atoms/Circle";
 import ProgressBar from "../atoms/ProgressBar";
 
-const bigBetText = "Big Bet";
-
-const DigitalBetItem = ({category, state, group, label, progress, bigBet, size}) => {
+const DigitalBetItem = ({
+  bigBet,
+  category,
+  count,
+  group,
+  label,
+  progress,
+  size,
+  state,
+}) => {
   const [colors, setColors] = useState({});
+  const isSmall = Boolean(size === "small");
+  const bigBetText = "Big Bet";
 
+  const BigBet = () =>
+    bigBet && (
+      <div className={`big-bet ${isSmall ? "u-mr" : "u-mt"}`}>
+        {bigBet ? bigBetText : ""}
+      </div>
+    );
+
+  // Actually useEffect here is unnecessary. Was using getVar() prior, and hence referenced the window.
   useEffect(() => {
     setColors({
       Now: "--color-primary-0",
@@ -23,29 +40,35 @@ const DigitalBetItem = ({category, state, group, label, progress, bigBet, size})
       }`}
     >
       <div className="o-media__fixed digital-bet-item__icons">
-        <Circle color={colors[group]} />
-        <div className="big-bet">{bigBet ? bigBetText : ""}</div>
+        <Circle color={colors[group]} text={count} radius={isSmall ? 13 : 5} />
+        {!isSmall && <BigBet />}
       </div>
       <div className="o-media__fluid digital-bet-item__content">
         <div className="digital-bet-item__main">
-          <div className="digital-bet-item__category">{category}</div>
+          {!isSmall && <div className="digital-bet-item__category">{category}</div>}
           <div className="digital-bet-item__label">{label}</div>
-          <ProgressBar value={progress} className="digital-bet-item__progress" />
+          {!isSmall && (
+            <ProgressBar value={progress} className="digital-bet-item__progress" />
+          )}
         </div>
-        <div className="digital-bet-item__aside">{state}</div>
+        <div className="digital-bet-item__aside">
+          {isSmall && <BigBet />}
+          {isSmall ? <div className="digital-bet-item__category">{category}</div> : state}
+        </div>
       </div>
     </div>
   );
 };
 
 DigitalBetItem.defaultProps = {
+  bigBet: false,
   category: "Category",
-  state: "State",
+  count: null,
   group: "Group",
   label: "Label",
   progress: 50,
-  bigBet: false,
   size: "",
+  state: "State",
 };
 
 export default DigitalBetItem;

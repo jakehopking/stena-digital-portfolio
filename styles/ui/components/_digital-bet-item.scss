@@ -14,7 +14,8 @@
   }
 
   &--small {
-    --padding: var(--su-2);
+    --padding: var(--su-1) var(--su-2) var(--su-1) var(--su-1);
+    --radius: var(--radius-round);
   }
 
   &__icons {
@@ -48,5 +49,39 @@
     flex: 0 0 70px;
     text-align: right;
     margin-left: var(--su-2);
+  }
+}
+
+// Small
+.digital-bet-item--small {
+  align-items: center;
+
+  .digital-bet-item__content {
+    justify-content: space-between;
+  }
+
+  .digital-bet-item__main {
+    flex: 2 1 auto;
+    width: 100%;
+  }
+
+  .digital-bet-item__aside {
+    display: flex;
+    text-align: left;
+    flex: 1;
+    align-items: center;
+  }
+  .digital-bet-item__category {
+    white-space: nowrap;
+  }
+
+  .digital-bet-item__icons,
+  .digital-bet-item__content {
+    align-items: center;
+  }
+
+  .digital-bet-item__icons {
+    flex: 0 auto;
+    margin-right: var(--su-1);
   }
 }

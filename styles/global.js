@@ -35,6 +35,7 @@ export const GlobalStyles = createGlobalStyle`
     /* Sizes */
     --radius-btn: ${SIZE.radius.button};
     --radius-default: ${SIZE.radius.button};
+    --radius-round: ${SIZE.radius.round};
     --grid-main: ${SIZE.grid.main};
 
     /* Spacing units */

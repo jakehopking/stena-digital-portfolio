@@ -10,7 +10,7 @@ import data from "../data/data";
 
 export const databaseId = process.env.NOTION_DB_PORTFOLIO_TRACKER;
 
-const {overviewPanelData, digitalBets} = data;
+const {overviewPanelData, digitalBets, digitalBetsWithCounts} = data;
 
 const DashboardStage = ({rows, grid}) => {
   return (
@@ -29,7 +29,7 @@ const DashboardStage = ({rows, grid}) => {
             <DigitalBetList data={digitalBets} title="Next" />
           </div>
           <div className="o-grid__col u-1/3">
-            <DigitalBetList data={digitalBets} title="Future" />
+            <DigitalBetList data={digitalBetsWithCounts} title="Future" size="small" />
           </div>
         </div>
       </section>

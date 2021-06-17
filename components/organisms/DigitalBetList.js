@@ -1,6 +1,6 @@
 import DigitalBetItem from "../molecules/DigitalBetItem";
 
-const DigitalBetList = ({data, title}) => {
+const DigitalBetList = ({data, title, size}) => {
   return (
     <div className="digital-bet-list">
       <div className="digital-bet-list__title">{title}</div>
@@ -9,12 +9,14 @@ const DigitalBetList = ({data, title}) => {
           return (
             <DigitalBetItem
               key={idx + bet.group}
+              bigBet={bet.bigBet}
               category={bet.category}
-              state={bet.state}
+              count={bet.count}
               group={bet.group}
               label={bet.label}
               progress={bet.progress}
-              bigBet={bet.bigBet}
+              size={size}
+              state={bet.state}
             />
           );
         })}
@@ -24,8 +26,9 @@ const DigitalBetList = ({data, title}) => {
 };
 
 DigitalBetList.defaulProps = {
-  title: "Title",
   data: [{}],
+  size: "",
+  title: "Title",
 };
 
 export default DigitalBetList;
