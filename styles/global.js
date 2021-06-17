@@ -8,6 +8,9 @@ export const GlobalStyles = createGlobalStyle`
   /* CSS Colour variable declarations */
   html {
     /* Colours */
+    --color-default-bg: ${({theme}) => hexToRGBA(theme.color.default.background)};
+    --color-default-fg: ${({theme}) => hexToRGBA(theme.color.default.foreground)};
+    
     --color-bg: ${({theme}) => hexToRGBA(theme.color.background)};
     --color-nav-bg: ${({theme}) => hexToRGBA(theme.color.navigation.background)};
     --color-panel-bg: ${({theme}) => hexToRGBA(theme.color.panel.background)};
@@ -15,9 +18,15 @@ export const GlobalStyles = createGlobalStyle`
       hexToRGBA(theme.color.card.digitalBet.background)};
     --color-text: ${({theme}) => hexToRGBA(theme.color.text.default)};
     --color-text-accent: ${({theme}) => hexToRGBA(theme.color.text.accent)};
+    --color-bigBet: ${({theme}) => hexToRGBA(theme.color.text.bigBet)};
     --color-grid-line: ${({theme}) => hexToRGBA(theme.color.grid.line.default)};
 
-    --test: ${({theme}) => theme.variables.test + "px"};
+    /* Primary */
+    --color-primary-0: ${({theme}) => hexToRGBA(theme.pallet.primary._00)};
+    /* Secondary */
+    --color-secondary-0: ${({theme}) => hexToRGBA(theme.pallet.secondary._00)};
+    /* Tertiary */
+    --color-tertiary-0: ${({theme}) => hexToRGBA(theme.pallet.tertiary._00)};
 
     /* Buttons */
     --color-btn-nav-bg-active: ${({theme}) =>
@@ -38,6 +47,16 @@ export const GlobalStyles = createGlobalStyle`
     --su-6: ${SIZE.spacing._6};
     --su-7: ${SIZE.spacing._7};
     --su-8: ${SIZE.spacing._8};
+
+    /* Font weights */
+    --fw-0: ${SIZE.font.weight.hairline};
+    --fw-1: ${SIZE.font.weight.thin};
+    --fw-2: ${SIZE.font.weight.thin};
+    --fw-3: ${SIZE.font.weight.medium};
+    --fw-4: ${SIZE.font.weight.bold};
+    --fw-5: ${SIZE.font.weight.bolder};
+    --fw-6: ${SIZE.font.weight.thick};
+    
 
     /*** 
     * Please only use these breakpoints for reactive css variables. 
