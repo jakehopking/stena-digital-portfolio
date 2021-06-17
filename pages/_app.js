@@ -1,5 +1,4 @@
 import "../styles/main.scss";
-import variables from "../styles/ui/_colour.scss";
 import {useState, Fragment} from "react";
 import Head from "next/head";
 import {ThemeProvider} from "styled-components";
@@ -28,7 +27,6 @@ function Application({Component, pageProps}) {
           color: COLOUR.theme[theme],
           size: SIZE,
           pallet: PALLET,
-          variables,
         }}
       >
         {/* <button onClick={toggleTheme}>Switch Theme</button> */}
