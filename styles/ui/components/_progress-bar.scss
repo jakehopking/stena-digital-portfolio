@@ -1,12 +1,13 @@
 .progress-bar {
-  --height: 2px;
+  --height: 3px;
 
   display: flex;
   position: relative;
   height: var(--height);
+  background-color: var(--color-default-bg);
 
   &--small {
-    --height: 1px;
+    --height: 2px;
   }
   &--large {
     --height: 4px;
@@ -15,6 +16,6 @@
   &__bar {
     height: var(--height);
     position: absolute;
-    background-color: white;
+    background-color: var(--color-default-fg);
   }
 }
