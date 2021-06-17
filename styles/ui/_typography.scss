@@ -1,0 +1,12 @@
+.big-bet {
+  --font-size: 11px;
+
+  color: var(--color-bigBet);
+  font-size: var(--font-size);
+  font-weight: var(--fw-4);
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  &--medium {
+  }
+}
