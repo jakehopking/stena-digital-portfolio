@@ -15,7 +15,7 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* PWA primary color */}
-          <meta name="theme-color" content={PALLET.beta._00} />
+          <meta name="theme-color" content={PALLET.primary._00} />
           {this.props.styleTags}
         </Head>
         <body>
