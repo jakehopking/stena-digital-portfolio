@@ -57,6 +57,8 @@ export const GlobalStyles = createGlobalStyle`
     --fw-4: ${SIZE.font.weight.bold};
     --fw-5: ${SIZE.font.weight.bolder};
     --fw-6: ${SIZE.font.weight.thick};
+
+    /* Font weights */
     
 
     /*** 
