@@ -1,3 +1,4 @@
+// Return an rgba colour from a hex
 export const hexToRGBA = (hex, alpha = 1) => {
   let parseString = hex;
   if (hex.startsWith("#")) {
@@ -16,3 +17,17 @@ export const hexToRGBA = (hex, alpha = 1) => {
 };
 
 export const intToPx = (num) => `${num}px`;
+
+// Return the value of a css variable
+export const getVar = (cssVar) => {
+  if (typeof window !== "undefined") {
+    return getComputedStyle(document.documentElement).getPropertyValue(cssVar);
+  }
+};
+
+// Set value of new or existing css variable
+export const setVar = (cssVar, newValue) => {
+  if (typeof window !== "undefined") {
+    document.documentElement.style.setProperty(cssVar, newValue);
+  }
+};
