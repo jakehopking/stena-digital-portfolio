@@ -36,7 +36,7 @@ const data = {
     {
       bigBet: false,
       category: "Exploration pod",
-      group: "Now",
+      group: "Next",
       label: "Waste quote tool",
       progress: 25,
       state: "Discovery",
@@ -44,7 +44,7 @@ const data = {
     {
       bigBet: true,
       category: "Exploration pod",
-      group: "Now",
+      group: "Future",
       label: "Material Lab",
       progress: 50,
       state: "Investment",
