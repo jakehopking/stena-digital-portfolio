@@ -17,7 +17,10 @@ const data = {
     },
     investments: {
       label: "Investments",
-      chartData: [{}],
+      chartData: [
+        {label: "Explore", total: 5100000, funded: 4900000},
+        {label: "Exploit", total: 2400000, funded: 420000},
+      ],
     },
     roi: {
       label: "Return on investments",

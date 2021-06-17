@@ -1,4 +1,4 @@
-import LabelCount from "./LabelCount";
+import LabelCount from "../molecules/LabelCount";
 
 const OverviewSectionSimple = ({data}) => {
   return (
