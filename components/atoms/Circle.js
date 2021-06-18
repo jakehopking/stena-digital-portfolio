@@ -9,7 +9,7 @@ const Circle = ({radius, color, className, text, textColor}) => {
         <text
           x="50%"
           y="50%"
-          text-anchor="middle"
+          textAnchor="middle"
           fill={`var(${textColor})`}
           // stroke={`var(${textColor})`}
           dy=".3em"

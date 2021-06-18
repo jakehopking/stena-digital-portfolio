@@ -1,4 +1,4 @@
-const data = {
+export const data = {
   overviewPanelData: {
     projects: {
       label: "Projects",
@@ -18,8 +18,8 @@ const data = {
     investments: {
       label: "Investments",
       chartData: [
-        {label: "Explore", total: 5100000, funded: 4900000},
-        {label: "Exploit", total: 2400000, funded: 420000},
+        {label: "Explore", value: 5100000},
+        {label: "Exploit", value: 2550000},
       ],
     },
     roi: {
@@ -82,6 +82,12 @@ const data = {
       state: "Investment",
     },
   ],
+};
+
+export const colorMap = {
+  0: "--color-primary-0",
+  1: "--color-tertiary-0",
+  3: "--color-secondary-0",
 };
 
 export default data;

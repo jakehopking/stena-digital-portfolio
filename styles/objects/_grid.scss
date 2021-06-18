@@ -8,8 +8,7 @@
  * Type: Boolean
  */
 
-$iota-objs-grid-aligned: false;
-
+$iota-objs-grid-aligned: true;
 
 /**
  * Enable / Disable reversed modifier
@@ -18,8 +17,7 @@ $iota-objs-grid-aligned: false;
  * Type: Boolean
  */
 
-$iota-objs-grid-rev: false;
-
+$iota-objs-grid-rev: true;
 
 /**
  * Default gutter size. Use a number for a single size or
@@ -29,7 +27,6 @@ $iota-objs-grid-rev: false;
  */
 
 $iota-objs-grid-gutter-default: $iota-global-gutter-default;
-
 
 /**
  * Extra gutters map. Each gutter size will be available as a
@@ -44,7 +41,6 @@ $iota-objs-grid-gutter-default: $iota-global-gutter-default;
 
 $iota-objs-grid-gutter-extra: ();
 
-
 /**
  * Enable / Disable flexbox on grid.
  * 
@@ -52,7 +48,6 @@ $iota-objs-grid-gutter-extra: ();
  */
 
 $iota-objs-grid-flex: $iota-global-flex;
-
 
 /**
  * Enable / Disable equal height modifier .o-grid--equal-height.
@@ -63,19 +58,17 @@ $iota-objs-grid-flex: $iota-global-flex;
 
 $iota-objs-grid-equal-height: false;
 
-
 /**
  * Namespace classes
  *
  * Type: String
  */
 
-$iota-objs-grid-namespace         : 'grid';
-$iota-objs-grid-column-name       : 'col';
-$iota-objs-grid-align-right-name  : 'right';
-$iota-objs-grid-align-center-name : 'center';
-$iota-objs-grid-align-top-name    : 'top';
-$iota-objs-grid-namespace         : 'grid';
+$iota-objs-grid-namespace: "grid";
+$iota-objs-grid-column-name: "col";
+$iota-objs-grid-align-right-name: "right";
+$iota-objs-grid-align-center-name: "center";
+$iota-objs-grid-align-top-name: "top";
+$iota-objs-grid-namespace: "grid";
 
-
-@import 'node_modules/iotacss/objects/grid';
+@import "node_modules/iotacss/objects/grid";

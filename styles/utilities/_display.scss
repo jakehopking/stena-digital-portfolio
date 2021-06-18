@@ -6,7 +6,6 @@
 
 $iota-utils-display-res: false;
 
-
 /**
  * Breakpoints map. Overrides the breakpoints map only
  * for display utility.
@@ -16,18 +15,23 @@ $iota-utils-display-res: false;
 
 $iota-utils-display-breakpoints: $iota-global-breakpoints;
 
-
 /**
  * Namespace classes
  *
  * Type: String
  */
 
-$iota-utils-display-namespace         : '';
-$iota-utils-display-block-name        : 'block';
-$iota-utils-display-hidden-name       : 'hidden';
-$iota-utils-display-inline-name       : 'inline';
-$iota-utils-display-inline-block-name : 'inline-block';
+$iota-utils-display-namespace: "";
+$iota-utils-display-block-name: "block";
+$iota-utils-display-hidden-name: "hidden";
+$iota-utils-display-inline-name: "inline";
+$iota-utils-display-inline-block-name: "inline-block";
 
+.u-flex {
+  display: flex !important;
+}
+.u-inline-flex {
+  display: inline-flex !important;
+}
 
-@import 'node_modules/iotacss/utilities/display';
+@import "node_modules/iotacss/utilities/display";

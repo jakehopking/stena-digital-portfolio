@@ -16,6 +16,7 @@
     "fs": "^0.0.1-security",
     "iotacss": "^1.6.0",
     "lodash": "^4.17.21",
+    "millify": "^4.0.0",
     "net": "^1.0.2",
     "next": "latest",
     "npm": "^7.17.0",

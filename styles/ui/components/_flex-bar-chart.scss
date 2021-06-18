@@ -1,0 +1,46 @@
+.flex-bar-chart {
+  --flex-flow: row;
+  --radius: 100px;
+  display: flex;
+  width: 100%;
+
+  &__item {
+    display: flex;
+    flex-flow: var(--flex-flow);
+  }
+
+  &--column {
+    flex-flow: var(--flex-flow);
+  }
+
+  &__label,
+  &__value {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-4);
+  }
+
+  &__label {
+  }
+
+  &__value {
+  }
+}
+
+.flex-bar-chart--column {
+  justify-content: center;
+
+  .flex-bar-chart__item {
+    --flex-flow: column;
+    align-items: center;
+    margin: var(--su-2);
+    flex: 1 1 auto;
+  }
+
+  .flex-bar-chart__bar {
+    margin-top: auto;
+    border-start-end-radius: var(--radius);
+    border-start-start-radius: var(--radius);
+    width: 100%;
+    margin-bottom: var(--su-2);
+  }
+}
