@@ -1,6 +1,5 @@
 import OverviewSectionSimple from "./OverviewSectionSimple";
 import OverviewSectionInvestments from "./OverviewSectionInvestments";
-import FlexBarChart from "../molecules/FlexBarChart/FlexBarChart";
 
 const OverviewPanel = ({projects, team, investments, roi}) => {
   return (
