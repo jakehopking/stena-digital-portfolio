@@ -126,7 +126,17 @@ export const SIZE = {
     main: intToPx(defaultSpacingUnit * 4),
   },
   font: {
-    size: {},
+    size: {
+      xs: "0.775rem",
+      sm: "0.889rem",
+      p: "1.0rem",
+      h1: "1.802rem",
+      h2: "1.602rem",
+      h3: "1.424rem",
+      h4: "1.266rem",
+      h5: "1.125rem",
+      h6: "1.075rem",
+    },
     weight: {
       hairline: 100,
       thin: 200,
@@ -136,13 +146,5 @@ export const SIZE = {
       bolder: 700,
       thick: 900,
     },
-    // small,
-    // p,
-    // h1,
-    // h2,
-    // h3,
-    // h4,
-    // h5,
-    // h6
   },
 };

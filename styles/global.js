@@ -58,7 +58,16 @@ export const GlobalStyles = createGlobalStyle`
     --fw-5: ${SIZE.font.weight.bolder};
     --fw-6: ${SIZE.font.weight.thick};
 
-    /* Font weights */
+    /* Font sizes */
+    --fs-h1: ${SIZE.font.size.h1};
+    --fs-h2: ${SIZE.font.size.h2};
+    --fs-h3: ${SIZE.font.size.h3};
+    --fs-h4: ${SIZE.font.size.h4};
+    --fs-h5: ${SIZE.font.size.h5};
+    --fs-h6: ${SIZE.font.size.h6};
+    --fs-p: ${SIZE.font.size.p};
+    --fs-sm: ${SIZE.font.size.sm};
+    --fs-xs: ${SIZE.font.size.xs};
     
 
     /*** 
