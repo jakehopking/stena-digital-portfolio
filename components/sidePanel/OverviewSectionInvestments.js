@@ -1,6 +1,9 @@
 import FlexBarChart from "../molecules/FlexBarChart/FlexBarChart";
 
-const OverviewSectionInvestments = ({data, chartHeight}) => {
+const OverviewSectionInvestments = ({data, chartHeight, chartWidth}) => {
+  const hasWidth = Boolean(chartWidth);
+  const widthStyle = hasWidth ? {width: `${chartWidth}px`} : null;
+
   return (
     <div className="overview-panel__info u-mb-2x">
       <h3 className="overview-panel__label o-type-4 u-color-text-accent u-weight-bold u-mb-sm">
@@ -8,7 +11,7 @@ const OverviewSectionInvestments = ({data, chartHeight}) => {
       </h3>
       <div className="overview-panel__content">
         <div className="o-grid o-grid--center">
-          <div className="o-grid__col u-3/4">
+          <div className={`o-grid__col ${!hasWidth ? "u-3/4" : ""}`} style={widthStyle}>
             <FlexBarChart data={data.chartData} height={chartHeight} />
           </div>
         </div>
@@ -27,6 +30,7 @@ OverviewSectionInvestments.defaultProps = {
     ],
   },
   chartHeight: 200,
+  chartWidth: "",
 };
 
 export default OverviewSectionInvestments;

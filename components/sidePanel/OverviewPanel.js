@@ -6,7 +6,7 @@ const OverviewPanel = ({projects, team, investments, roi}) => {
     <div className="overview-panel">
       {projects && <OverviewSectionSimple data={projects} />}
       {team && <OverviewSectionSimple data={team} />}
-      {investments && <OverviewSectionInvestments data={investments} chartHeight={200} />}
+      {investments && <OverviewSectionInvestments data={investments} chartHeight={250} />}
       {/* {roi && <p>ROI</p>} */}
       <div className="overview-panel__info u-mb-2x">
         <h3 className="overview-panel__label o-type-4 u-color-text-accent u-weight-bold u-mb-xs">
