@@ -33,9 +33,12 @@ export const GlobalStyles = createGlobalStyle`
       hexToRGBA(theme.color.button.nav.background.active)};
 
     /* Sizes */
-    --radius-btn: ${SIZE.radius.button};
-    --radius-default: ${SIZE.radius.button};
+    --radius-btn: ${SIZE.radius.default};
+    --radius-default: ${SIZE.radius.default};
+    --radius-small: ${SIZE.radius.small};
     --radius-round: ${SIZE.radius.round};
+    
+    /* Graphing grid */
     --grid-main: ${SIZE.grid.main};
 
     /* Spacing units */

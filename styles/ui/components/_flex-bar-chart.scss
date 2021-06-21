@@ -1,6 +1,6 @@
 .flex-bar-chart {
   --flex-flow: row;
-  --radius: 100px;
+  --radius: var(--radius-round);
   display: flex;
   width: 100%;
 
