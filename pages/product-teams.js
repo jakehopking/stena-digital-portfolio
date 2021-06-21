@@ -6,11 +6,19 @@ import Layout, {siteTitle} from "../components/Layout";
 import SidePanel from "../components/sidePanel/SidePanel";
 import OverviewPanel from "../components/sidePanel/OverviewPanel";
 import DigitalBetList from "../components/organisms/DigitalBetList";
+import DashboardResponsiveCirclePacking from "../components/molecules/DashboardResponsiveCirclePacking";
 import data from "../data/data";
 
 export const databaseId = process.env.NOTION_DB_PORTFOLIO_TRACKER;
 
-const {overviewPanelData, digitalBets, digitalBetsWithCounts} = data;
+const {
+  overviewPanelData,
+  digitalBets,
+  digitalBetsWithCounts,
+  circlePackingOne,
+  circlePackingTwo,
+  chartTheme,
+} = data;
 
 const DashboardStage = ({rows, grid}) => {
   return (
@@ -19,7 +27,25 @@ const DashboardStage = ({rows, grid}) => {
         rows ? "dashboard-stage--rows" : grid ? "dashboard-stage--grid" : ""
       }`}
     >
-      <section className="dashboard-stage__chart"></section>
+      <section className="dashboard-stage__chart">
+        <div className="o-grid o-grid--fill">
+          <div className="o-grid__col u-1/2">
+            <DashboardResponsiveCirclePacking
+              data={circlePackingOne}
+              height={800}
+              theme={chartTheme}
+            />
+          </div>
+          <div className="o-grid__col u-1/2">
+            <DashboardResponsiveCirclePacking
+              data={circlePackingTwo}
+              height={800}
+              colorScheme="spectral"
+              theme={chartTheme}
+            />
+          </div>
+        </div>
+      </section>
       <section className="dashboard-stage__info">
         <div className="o-grid">
           <div className="o-grid__col u-1/3">
