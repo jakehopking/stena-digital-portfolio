@@ -9,5 +9,12 @@
     margin-top: calc(var(--su-6) * -1.25);
     padding-bottom: var(--su-5);
     font-weight: var(--fw-4);
+    @include text-stroke();
+    // @supports (-webkit-text-stroke: 1px black) {
+    //   & {
+    //     -webkit-text-stroke: 1px var(--color-bg);
+    //     -webkit-text-fill-color: var(--color-text);
+    //   }
+    // }
   }
 }

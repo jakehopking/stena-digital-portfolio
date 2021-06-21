@@ -1,0 +1,11 @@
+@mixin text-stroke($var: --color-bg) {
+  text-shadow: 
+    -1px -1px 0 var($var),
+     0   -1px 0 var($var),
+     1px -1px 0 var($var),
+     1px  0   0 var($var),
+     1px  1px 0 var($var),
+     0    1px 0 var($var),
+    -1px  1px 0 var($var),
+    -1px  0   0 var($var);
+}
