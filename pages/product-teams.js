@@ -32,14 +32,14 @@ const DashboardStage = ({rows, grid}) => {
           <div className="o-grid__col u-1/2">
             <DashboardResponsiveCirclePacking
               data={circlePackingOne}
-              height={800}
+              height={700}
               theme={chartTheme}
             />
           </div>
           <div className="o-grid__col u-1/2">
             <DashboardResponsiveCirclePacking
               data={circlePackingTwo}
-              height={800}
+              height={700}
               colorScheme="spectral"
               theme={chartTheme}
             />

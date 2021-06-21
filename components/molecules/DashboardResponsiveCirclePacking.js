@@ -49,7 +49,7 @@ const DashboardResponsiveCirclePacking = ({data, height, theme, colorScheme}) =>
 );
 
 DashboardResponsiveCirclePacking.defaultProps = {
-  height: 800,
+  height: 700,
   theme: "",
   colorScheme: "nivo",
 };
