@@ -89,4 +89,10 @@ $iota-global-breakpoint-separator: \@;
 
 $iota-global-delimiter: \/;
 
+$z-index: (
+  modal: 200,
+  above: 1,
+  below: -1,
+);
+
 @import "node_modules/iotacss/settings/core";
