@@ -71,4 +71,8 @@ $iota-objs-grid-align-center-name: "center";
 $iota-objs-grid-align-top-name: "top";
 $iota-objs-grid-namespace: "grid";
 
+.o-grid--fill {
+  height: 100% !important;
+}
+
 @import "node_modules/iotacss/objects/grid";
