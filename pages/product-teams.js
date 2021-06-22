@@ -7,6 +7,7 @@ import SidePanel from "../components/sidePanel/SidePanel";
 import OverviewPanel from "../components/sidePanel/OverviewPanel";
 import DigitalBetList from "../components/organisms/DigitalBetList";
 import DashboardResponsiveCirclePacking from "../components/molecules/DashboardResponsiveCirclePacking";
+import {CHART_SCHEMES, CHART_THEME} from "../theme/theme";
 import data from "../data/data";
 
 export const databaseId = process.env.NOTION_DB_PORTFOLIO_TRACKER;
@@ -17,7 +18,6 @@ const {
   digitalBetsWithCounts,
   circlePackingOne,
   circlePackingTwo,
-  chartTheme,
 } = data;
 
 const DashboardStage = ({rows, grid}) => {
@@ -33,15 +33,16 @@ const DashboardStage = ({rows, grid}) => {
             <DashboardResponsiveCirclePacking
               data={circlePackingOne}
               height={700}
-              theme={chartTheme}
+              colorScheme={CHART_SCHEMES.one}
+              theme={CHART_THEME}
             />
           </div>
           <div className="o-grid__col u-1/2">
             <DashboardResponsiveCirclePacking
               data={circlePackingTwo}
               height={700}
-              colorScheme="spectral"
-              theme={chartTheme}
+              colorScheme={CHART_SCHEMES.two}
+              theme={CHART_THEME}
             />
           </div>
         </div>

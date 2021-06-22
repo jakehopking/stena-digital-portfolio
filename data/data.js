@@ -8,13 +8,6 @@ export const data = {
   digitalBetsWithCounts,
   circlePackingOne,
   circlePackingTwo,
-  chartTheme,
-};
-
-export const colorMap = {
-  0: "--color-primary-0",
-  1: "--color-tertiary-0",
-  3: "--color-secondary-0",
 };
 
 export default data;

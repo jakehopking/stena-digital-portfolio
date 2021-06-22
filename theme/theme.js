@@ -146,3 +146,41 @@ export const SIZE = {
     },
   },
 };
+
+export const CHART_SCHEMES = {
+  one: ["rgba(0, 0, 0, 0.0)", "rgba(98, 187, 100, 1)", "rgba(235, 231, 224, 1)"],
+  two: ["rgba(0, 0, 0, 0.0)", "rgba(177, 213, 231, 1)", "rgba(137, 192, 220, 1)"],
+};
+
+export const COLOUR_MAP = {
+  0: "--color-primary-0",
+  1: "--color-tertiary-0",
+  3: "--color-secondary-0",
+};
+
+export const CHART_THEME = {
+  background: "transparent",
+  textColor: GREY._00,
+  labelTextColor: GREY._00,
+  fontSize: 12,
+  // axis: {
+  //   domain: {
+  //     line: {
+  //       stroke: "#777777",
+  //       strokeWidth: 1,
+  //     },
+  //   },
+  //   ticks: {
+  //     line: {
+  //       stroke: "#777777",
+  //       strokeWidth: 1,
+  //     },
+  //   },
+  // },
+  // grid: {
+  //   line: {
+  //     stroke: "#dddddd",
+  //     strokeWidth: 1,
+  //   },
+  // },
+};

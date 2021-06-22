@@ -1,6 +1,6 @@
 import FlexBarChartBar from "./FlexBarChartBar";
 import {greatestValue} from "../../../utils/general";
-import {colorMap} from "../../../data/data";
+import {COLOUR_MAP} from "../../../theme/theme";
 
 const FlexBarChart = ({data, height, colorMap, orientation}) => {
   const maxHeight = greatestValue(data.map((datum) => datum.value));
@@ -16,7 +16,7 @@ const FlexBarChart = ({data, height, colorMap, orientation}) => {
           value={datum.value}
           height={(datum.value / maxHeight) * 100}
           chartHeight={height}
-          fill={colorMap[index]}
+          fill={COLOUR_MAP[index]}
         />
       ))}
     </div>
@@ -24,7 +24,7 @@ const FlexBarChart = ({data, height, colorMap, orientation}) => {
 };
 
 FlexBarChart.defaultProps = {
-  colorMap: {...colorMap},
+  colorMap: {...COLOUR_MAP},
   orientation: "column",
 };
 

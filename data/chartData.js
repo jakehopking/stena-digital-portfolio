@@ -1,32 +1,3 @@
-import {COLOUR, GREY} from "../theme/theme";
-
-export const chartTheme = {
-  background: "transparent",
-  textColor: GREY._00,
-  labelTextColor: GREY._00,
-  fontSize: 12,
-  // axis: {
-  //   domain: {
-  //     line: {
-  //       stroke: "#777777",
-  //       strokeWidth: 1,
-  //     },
-  //   },
-  //   ticks: {
-  //     line: {
-  //       stroke: "#777777",
-  //       strokeWidth: 1,
-  //     },
-  //   },
-  // },
-  // grid: {
-  //   line: {
-  //     stroke: "#dddddd",
-  //     strokeWidth: 1,
-  //   },
-  // },
-};
-
 export const circlePackingOne = {
   name: "Now/Next",
   children: [
