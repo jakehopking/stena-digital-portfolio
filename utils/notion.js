@@ -1,3 +1,4 @@
+// Util to return number of rows with .properties.Name.title in database
 export const titleCount = (database) => {
   let titleCount = 0;
   database.map((post) => {
