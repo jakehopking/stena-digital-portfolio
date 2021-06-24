@@ -7,6 +7,7 @@ import SidePanel from "../components/sidePanel/SidePanel";
 import OverviewPanel from "../components/sidePanel/OverviewPanel";
 import DigitalBetList from "../components/organisms/DigitalBetList";
 import DashboardResponsiveCirclePacking from "../components/molecules/DashboardResponsiveCirclePacking";
+import {titleCount, tagsFromMultiSelect, tagsFromSelect} from "../utils/notion";
 import {CHART_SCHEMES, CHART_THEME} from "../theme/theme";
 import data from "../data/data";
 
@@ -64,8 +65,24 @@ const DashboardStage = ({rows, grid}) => {
   );
 };
 
-export default function ProductTeams({posts}) {
+export default function ProductTeams({
+  notion,
+  entryTitleCount,
+  journeyStageTags,
+  exploreExploitTags,
+  investmentTags,
+  bigBetTags,
+  statusTags,
+}) {
   // debugger;
+
+  // console.log(notion);
+  console.log(entryTitleCount);
+  console.log(journeyStageTags);
+  console.log(exploreExploitTags);
+  console.log(investmentTags);
+  console.log(bigBetTags);
+  console.log(statusTags);
 
   return (
     <Layout
@@ -83,9 +100,16 @@ export default function ProductTeams({posts}) {
 
 export const getStaticProps = async () => {
   const database = await getDatabase(databaseId);
+
   return {
     props: {
-      posts: database,
+      notion: database,
+      entryTitleCount: titleCount(database),
+      journeyStageTags: tagsFromMultiSelect(database, "Journey stage relevance"),
+      exploreExploitTags: tagsFromSelect(database, "Explore / Exploit"),
+      investmentTags: tagsFromSelect(database, "Investment"),
+      bigBetTags: tagsFromMultiSelect(database, "Big bet"),
+      statusTags: tagsFromSelect(database, "Status"),
     },
     revalidate: 1,
   };
