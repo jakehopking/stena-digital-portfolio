@@ -11,7 +11,7 @@ const FlexBarChart = ({data, height, colorMap, orientation}) => {
     >
       {data.map((datum, index) => (
         <FlexBarChartBar
-          key={datum.name + index}
+          key={datum.name + `${index}`}
           label={datum.label}
           value={datum.value}
           height={(datum.value / maxHeight) * 100}
