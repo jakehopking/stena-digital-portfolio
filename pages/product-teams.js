@@ -7,7 +7,14 @@ import SidePanel from "../components/sidePanel/SidePanel";
 import OverviewPanel from "../components/sidePanel/OverviewPanel";
 import DigitalBetList from "../components/organisms/DigitalBetList";
 import DashboardResponsiveCirclePacking from "../components/molecules/DashboardResponsiveCirclePacking";
-import {titleCount, tagsFromMultiSelect, tagsFromSelect} from "../utils/notion";
+import {
+  titleCount,
+  tagsFromMultiSelect,
+  tagsFromSelect,
+  getDatabaseColumnTitles,
+  filterByColName,
+  mappedListFromColumnSelect,
+} from "../utils/notion";
 import {CHART_SCHEMES, CHART_THEME} from "../theme/theme";
 import data from "../data/data";
 
@@ -73,16 +80,21 @@ export default function ProductTeams({
   investmentTags,
   bigBetTags,
   statusTags,
+  colNames,
+  digitalBetsList,
+  test,
 }) {
   // debugger;
 
   // console.log(notion);
-  console.log(entryTitleCount);
-  console.log(journeyStageTags);
-  console.log(exploreExploitTags);
-  console.log(investmentTags);
-  console.log(bigBetTags);
-  console.log(statusTags);
+  // console.log(entryTitleCount);
+  // console.log(journeyStageTags);
+  // console.log(exploreExploitTags);
+  // console.log(investmentTags);
+  // console.log(bigBetTags);
+  // console.log(statusTags);
+  // console.log(colNames);
+  console.log(digitalBetsList);
 
   return (
     <Layout
@@ -101,15 +113,23 @@ export default function ProductTeams({
 export const getStaticProps = async () => {
   const database = await getDatabase(databaseId);
 
+  // Filter by "status" column.
+  // TODO: Compose this and mappedListFrom... together.
+  const columnName = "Status";
+  const statusList = filterByColName(database, columnName);
+
   return {
     props: {
-      notion: database,
-      entryTitleCount: titleCount(database),
-      journeyStageTags: tagsFromMultiSelect(database, "Journey stage relevance"),
-      exploreExploitTags: tagsFromSelect(database, "Explore / Exploit"),
-      investmentTags: tagsFromSelect(database, "Investment"),
-      bigBetTags: tagsFromMultiSelect(database, "Big bet"),
-      statusTags: tagsFromSelect(database, "Status"),
+      // notion: database,
+      // entryTitleCount: titleCount(database),
+      // journeyStageTags: tagsFromMultiSelect(database, "Journey stage relevance"),
+      // exploreExploitTags: tagsFromSelect(database, "Explore / Exploit"),
+      // investmentTags: tagsFromSelect(database, "Investment"),
+      // bigBetTags: tagsFromMultiSelect(database, "Big bet"),
+      // statusTags: tagsFromSelect(database, "Status"),
+      // colNames: getDatabaseColumnTitles(database),
+      digitalBetsList: mappedListFromColumnSelect(statusList, columnName),
+      test: "",
     },
     revalidate: 1,
   };
