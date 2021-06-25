@@ -48,3 +48,29 @@ export const tagsFromSelect = (database, colTitle) => {
     });
   return tags;
 };
+
+// Util to return array of titles from Notion database
+export const getDatabaseColumnTitles = (database) => {
+  const notionColSet = new Set();
+  database.forEach((item) =>
+    Object.keys(item.properties).map((col) => notionColSet.add(col))
+  );
+  return [...notionColSet];
+};
+
+// Util to filter database by column title
+export const filterByColName = (database, colName) =>
+  database.filter((item) => item.properties[colName]);
+
+// Util that returns an array of full row objects mapped to "select" tag name from chosen column name
+// E.g. mappedListFromColumnSelect(database, "Status")
+// => {Now: [{}, {}], Next: [{}], Future: [{}, {}, {}]}
+export const mappedListFromColumnSelect = (database, columnName) => {
+  let data = {};
+  database.map((item) => {
+    const {name} = item.properties[columnName].select;
+    if (data[name] === undefined) data[name] = [];
+    data[name].push(item);
+  });
+  return data;
+};
