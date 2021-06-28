@@ -118,3 +118,13 @@ export const getMappedListFromColumnTitleSelectTags = (database, columnName) => 
   });
   return data;
 };
+
+export const getTotalCountFromTags = (object, key = "count") =>
+  Object.keys(object).reduce((acc, curr) => acc + object[curr][key], 0);
+
+// Return filtered array of objects (if tags have a " - " separator and we want to
+// filter the 0 index of the split)
+export const filterDirtyTagKeys = (object, filter) =>
+  Object.keys(object)
+    .filter((item) => item.split(" ")[0] === filter)
+    .map((key) => object[key]);
