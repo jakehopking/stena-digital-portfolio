@@ -18,9 +18,9 @@ export const isMultiSelect = (key) =>
   Boolean(key.multi_select && key.multi_select.length);
 
 // Return object of unique tags, with colour, count and id keys
-export const mappedMultiSelect = (multiSelect) => {
+export const mappedMultiSelect = (key) => {
   let tags = {};
-  multiSelect.map((tag) => {
+  key.multi_select.map((tag) => {
     const {name, color, id} = tag;
     tags[name] = {
       count: tags[name] ? tags[name].count + 1 : 1,
@@ -36,9 +36,18 @@ export const mappedMultiSelect = (multiSelect) => {
 export const getColumnMultiSelectTags = (database, colTitle) => {
   let tags = {};
   database.map((item) => {
-    const multiSelect = item.properties[colTitle].multi_select;
-    const hasMultiSelect = isMultiSelect(multiSelect);
-    if (hasMultiSelect) tags = {...mappedMultiSelect(multiSelect), ...tags};
+    const column = item.properties[colTitle];
+    // if (isMultiSelect(column)) tags = {...mappedMultiSelect(column), ...tags};
+    if (isMultiSelect(column)) {
+      column.multi_select.map((tag) => {
+        const {name, color, id} = tag;
+        tags[name] = {
+          count: tags[name] ? tags[name].count + 1 : 1,
+          color,
+          id,
+        };
+      });
+    }
   });
   return tags;
 };

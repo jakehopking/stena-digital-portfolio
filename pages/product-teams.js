@@ -90,11 +90,11 @@ export default function ProductTeams({
 
   // console.log(notion);
   // console.log(entryTitleCount);
-  // console.log(journeyStageTags);
+  console.log({journeyStageTags});
   // console.log(exploreExploitTags);
-  // console.log(investmentTags);
-  // console.log(bigBetTags);
-  // console.log(statusTags);
+  console.log({investmentTags});
+  console.log({bigBetTags});
+  console.log({statusTags});
   // console.log(colNames);
   // console.log(digitalBetsList);
 
@@ -123,11 +123,11 @@ export const getStaticProps = async () => {
     props: {
       // notion: database,
       // entryTitleCount: titleCount(database),
-      // journeyStageTags: getColumnMultiSelectTags(database, "Journey stage relevance"),
+      journeyStageTags: getColumnMultiSelectTags(database, "Journey stage relevance"),
       // exploreExploitTags: getColumnSelectTags(database, "Explore / Exploit"),
-      // investmentTags: getColumnSelectTags(database, "Investment"),
-      // bigBetTags: getColumnMultiSelectTags(database, "Big bet"),
-      // statusTags: getColumnSelectTags(database, "Status"),
+      investmentTags: getColumnSelectTags(database, "Investment"),
+      bigBetTags: getColumnMultiSelectTags(database, "Big bet"),
+      statusTags: getColumnSelectTags(database, "Status"),
       // colNames: getDatabaseColumnTitles(database),
       digitalBetsList: getMappedListFromColumnTitleSelectTags(statusList, "Status"),
       test: "",
