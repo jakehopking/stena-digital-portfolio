@@ -9,11 +9,12 @@ import DigitalBetList from "../components/organisms/DigitalBetList";
 import DashboardResponsiveCirclePacking from "../components/molecules/DashboardResponsiveCirclePacking";
 import {
   titleCount,
-  tagsFromMultiSelect,
-  tagsFromSelect,
+  getColumnMultiSelectTags,
+  getColumnSelectTags,
+  getSelectName,
   getDatabaseColumnTitles,
   filterByColName,
-  mappedListFromColumnSelect,
+  getMappedListFromColumnTitleSelectTags,
 } from "../utils/notion";
 import {CHART_SCHEMES, CHART_THEME} from "../theme/theme";
 import data from "../data/data";
@@ -28,7 +29,8 @@ const {
   circlePackingTwo,
 } = data;
 
-const DashboardStage = ({rows, grid}) => {
+const DashboardStage = ({rows, grid, digitalBetsList}) => {
+  // debugger;
   return (
     <div
       className={`dashboard-stage ${
@@ -58,13 +60,13 @@ const DashboardStage = ({rows, grid}) => {
       <section className="dashboard-stage__info">
         <div className="o-grid">
           <div className="o-grid__col u-1/3">
-            <DigitalBetList data={digitalBets} title="Now" />
+            <DigitalBetList data={digitalBetsList.Now} title="Now" />
           </div>
           <div className="o-grid__col u-1/3">
-            <DigitalBetList data={digitalBets} title="Next" />
+            <DigitalBetList data={digitalBetsList.Next} title="Next" />
           </div>
           <div className="o-grid__col u-1/3">
-            <DigitalBetList data={digitalBetsWithCounts} title="Future" size="small" />
+            <DigitalBetList data={digitalBetsList.Future} title="Future" />
           </div>
         </div>
       </section>
@@ -94,7 +96,7 @@ export default function ProductTeams({
   // console.log(bigBetTags);
   // console.log(statusTags);
   // console.log(colNames);
-  console.log(digitalBetsList);
+  // console.log(digitalBetsList);
 
   return (
     <Layout
@@ -105,7 +107,7 @@ export default function ProductTeams({
         </SidePanel>
       }
     >
-      <DashboardStage rows />
+      <DashboardStage rows digitalBetsList={digitalBetsList} />
     </Layout>
   );
 }
@@ -113,22 +115,21 @@ export default function ProductTeams({
 export const getStaticProps = async () => {
   const database = await getDatabase(databaseId);
 
-  // Filter by "status" column.
-  // TODO: Compose this and mappedListFrom... together.
-  const columnName = "Status";
-  const statusList = filterByColName(database, columnName);
+  // Filter database by "status" column.
+  // TODO: Compose this and getMappedListFromColumnSelectTags together.
+  const statusList = filterByColName(database, "Status");
 
   return {
     props: {
       // notion: database,
       // entryTitleCount: titleCount(database),
-      // journeyStageTags: tagsFromMultiSelect(database, "Journey stage relevance"),
-      // exploreExploitTags: tagsFromSelect(database, "Explore / Exploit"),
-      // investmentTags: tagsFromSelect(database, "Investment"),
-      // bigBetTags: tagsFromMultiSelect(database, "Big bet"),
-      // statusTags: tagsFromSelect(database, "Status"),
+      // journeyStageTags: getColumnMultiSelectTags(database, "Journey stage relevance"),
+      // exploreExploitTags: getColumnSelectTags(database, "Explore / Exploit"),
+      // investmentTags: getColumnSelectTags(database, "Investment"),
+      // bigBetTags: getColumnMultiSelectTags(database, "Big bet"),
+      // statusTags: getColumnSelectTags(database, "Status"),
       // colNames: getDatabaseColumnTitles(database),
-      digitalBetsList: mappedListFromColumnSelect(statusList, columnName),
+      digitalBetsList: getMappedListFromColumnTitleSelectTags(statusList, "Status"),
       test: "",
     },
     revalidate: 1,

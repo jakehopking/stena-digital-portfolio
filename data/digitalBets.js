@@ -5,7 +5,7 @@ export const digitalBets = [
     group: "Now",
     label: "Sales of consumables",
     progress: 75,
-    state: "Launch",
+    stage: "Launch",
   },
   {
     bigBet: false,
@@ -13,7 +13,7 @@ export const digitalBets = [
     group: "Next",
     label: "Waste quote tool",
     progress: 25,
-    state: "Discovery",
+    stage: "Discovery",
   },
   {
     bigBet: true,
@@ -21,7 +21,7 @@ export const digitalBets = [
     group: "Future",
     label: "Material Lab",
     progress: 50,
-    state: "Investment",
+    stage: "Investment",
   },
 ];
 
@@ -33,7 +33,7 @@ export const digitalBetsWithCounts = [
     group: "Now",
     label: "Sales of consumables",
     progress: 75,
-    state: "Launch",
+    stage: "Launch",
   },
   {
     bigBet: false,
@@ -42,7 +42,7 @@ export const digitalBetsWithCounts = [
     group: "Next",
     label: "Waste quote tool",
     progress: 25,
-    state: "Discovery",
+    stage: "Discovery",
   },
   {
     bigBet: true,
@@ -51,6 +51,6 @@ export const digitalBetsWithCounts = [
     group: "Future",
     label: "Material Lab",
     progress: 50,
-    state: "Investment",
+    stage: "Investment",
   },
 ];

@@ -10,8 +10,9 @@ const DigitalBetItem = ({
   label,
   progress,
   size,
-  state,
+  stage,
 }) => {
+  // debugger;
   const [colors, setColors] = useState({});
   const isSmall = Boolean(size === "small");
   const bigBetText = "Big Bet";
@@ -53,7 +54,7 @@ const DigitalBetItem = ({
         </div>
         <div className="digital-bet-item__aside">
           {isSmall && <BigBet />}
-          {isSmall ? <div className="digital-bet-item__category">{category}</div> : state}
+          {isSmall ? <div className="digital-bet-item__stage">{stage}</div> : stage}
         </div>
       </div>
     </div>
