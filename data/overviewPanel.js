@@ -1,19 +1,19 @@
 export const overviewPanelData = {
-  projects: {
-    label: "Projects",
-    numbers: [
-      {label: "Explore", count: 7},
-      {label: "Exploit", count: 2},
-      {label: "Big Bets", count: 4},
-    ],
-  },
-  team: {
-    label: "Team members",
-    numbers: [
-      {label: "Project team", count: 8},
-      {label: "Exploitation pod", count: 6},
-    ],
-  },
+  // projects: {
+  //   label: "Projects",
+  //   numbers: [
+  //     {label: "Explore", count: 7},
+  //     {label: "Exploit", count: 2},
+  //     {label: "Big Bets", count: 4},
+  //   ],
+  // },
+  // team: {
+  //   label: "Team members",
+  //   numbers: [
+  //     {label: "Product team", count: 8},
+  //     {label: "Exploration pod", count: 6},
+  //   ],
+  // },
   investments: {
     label: "Investments",
     chartData: [
