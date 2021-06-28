@@ -15,6 +15,8 @@ import {
   getDatabaseColumnTitles,
   filterByColName,
   getMappedListFromColumnTitleSelectTags,
+  getTotalCountFromTags,
+  filterDirtyTagKeys,
 } from "../utils/notion";
 import {CHART_SCHEMES, CHART_THEME} from "../theme/theme";
 import data from "../data/data";
@@ -84,6 +86,7 @@ export default function ProductTeams({
   statusTags,
   colNames,
   digitalBetsList,
+  totalCountBB,
   test,
 }) {
   // debugger;
@@ -91,19 +94,52 @@ export default function ProductTeams({
   // console.log(notion);
   // console.log(entryTitleCount);
   console.log({journeyStageTags});
-  // console.log(exploreExploitTags);
+  console.log({exploreExploitTags});
   console.log({investmentTags});
   console.log({bigBetTags});
   console.log({statusTags});
   // console.log(colNames);
   // console.log(digitalBetsList);
 
+  // console.log(tryMe);
+
+  const projects = {
+    label: "Projects",
+    numbers: [
+      {
+        label: "Explore",
+        count: getTotalCountFromTags(filterDirtyTagKeys(exploreExploitTags, "Explore")),
+      },
+      {
+        label: "Exploit",
+        count: getTotalCountFromTags(filterDirtyTagKeys(exploreExploitTags, "Exploit")),
+      },
+      {label: "Big Bets", count: getTotalCountFromTags(bigBetTags)},
+    ],
+  };
+
+  const team = {
+    label: "Team members",
+    numbers: [
+      {
+        label: "Product team",
+        count: getTotalCountFromTags(filterDirtyTagKeys(investmentTags, "Product")),
+      },
+      {
+        label: "Exploration pod",
+        count: getTotalCountFromTags(filterDirtyTagKeys(investmentTags, "Exploration")),
+      },
+    ],
+  };
+
+  // console.log(getTotalCountFromTags(bigBetTags));
+
   return (
     <Layout
       home
       sideCol={
         <SidePanel>
-          <OverviewPanel {...overviewPanelData} />
+          <OverviewPanel {...{...overviewPanelData, projects, team}} />
         </SidePanel>
       }
     >
@@ -124,7 +160,7 @@ export const getStaticProps = async () => {
       // notion: database,
       // entryTitleCount: titleCount(database),
       journeyStageTags: getColumnMultiSelectTags(database, "Journey stage relevance"),
-      // exploreExploitTags: getColumnSelectTags(database, "Explore / Exploit"),
+      exploreExploitTags: getColumnSelectTags(database, "Explore / Exploit"),
       investmentTags: getColumnSelectTags(database, "Investment"),
       bigBetTags: getColumnMultiSelectTags(database, "Big bet"),
       statusTags: getColumnSelectTags(database, "Status"),
