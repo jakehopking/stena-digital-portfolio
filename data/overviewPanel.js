@@ -1,28 +1,44 @@
-export const overviewPanelData = {
-  // projects: {
-  //   label: "Projects",
-  //   numbers: [
-  //     {label: "Explore", count: 7},
-  //     {label: "Exploit", count: 2},
-  //     {label: "Big Bets", count: 4},
-  //   ],
-  // },
-  // team: {
-  //   label: "Team members",
-  //   numbers: [
-  //     {label: "Product team", count: 8},
-  //     {label: "Exploration pod", count: 6},
-  //   ],
-  // },
-  investments: {
-    label: "Investments",
-    chartData: [
-      {label: "Explore", value: 5100000},
-      {label: "Exploit", value: 2550000},
-    ],
-  },
-  roi: {
-    label: "Return on investments",
-    chartData: {},
-  },
+import {getTotalCountFromTags, filterDirtyTagKeys} from "../utils/notion";
+
+export const overviewPanelData = ({exploreExploitTags, bigBetTags, investmentTags}) => {
+  return {
+    projects: {
+      label: "Projects",
+      numbers: [
+        {
+          label: "Explore",
+          count: getTotalCountFromTags(filterDirtyTagKeys(exploreExploitTags, "Explore")),
+        },
+        {
+          label: "Exploit",
+          count: getTotalCountFromTags(filterDirtyTagKeys(exploreExploitTags, "Exploit")),
+        },
+        {label: "Big Bets", count: getTotalCountFromTags(bigBetTags)},
+      ],
+    },
+    team: {
+      label: "Team members",
+      numbers: [
+        {
+          label: "Product team",
+          count: getTotalCountFromTags(filterDirtyTagKeys(investmentTags, "Product")),
+        },
+        {
+          label: "Exploration pod",
+          count: getTotalCountFromTags(filterDirtyTagKeys(investmentTags, "Exploration")),
+        },
+      ],
+    },
+    investments: {
+      label: "Investments",
+      chartData: [
+        {label: "Explore", value: 5100000},
+        {label: "Exploit", value: 2550000},
+      ],
+    },
+    roi: {
+      label: "Return on investments",
+      chartData: {},
+    },
+  };
 };
