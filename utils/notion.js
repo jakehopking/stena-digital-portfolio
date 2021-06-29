@@ -39,7 +39,6 @@ export const getColumnMultiSelectTags = (database, colTitle) => {
   let tags = {};
   database.map((item) => {
     const column = item.properties[colTitle];
-    // if (isMultiSelect(column)) tags = {...mappedMultiSelect(column), ...tags};
     if (isMultiSelect(column)) {
       column.multi_select.map((tag) => {
         const {name, color, id} = tag;
@@ -115,7 +114,7 @@ export const getMappedListFromColumnTitleSelectTags = (database, columnName) => 
   let data = {};
   database.map((item) => {
     const {name} = item.properties[columnName].select;
-    if (data[name] === undefined) data[name] = [];
+    if (!tryFn(() => data[name])) data[name] = [];
     data[name].push(item);
   });
   return data;
