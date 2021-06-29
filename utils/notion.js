@@ -1,3 +1,5 @@
+import {tryFn} from "./general";
+
 // Util to return number of rows with .properties.Name.title in database
 export const titleCount = (database) => {
   let titleCount = 0;
@@ -15,7 +17,7 @@ export const titleCount = (database) => {
 
 // Check to see if multi_select has a length, therefore entries.
 export const isMultiSelect = (key) =>
-  Boolean(key.multi_select && key.multi_select.length);
+  Boolean(tryFn(() => key.multi_select) && key.multi_select.length);
 
 // Return object of unique tags, with colour, count and id keys
 export const mappedMultiSelect = (key) => {
@@ -71,7 +73,7 @@ export const getColumnSelectTags = (database, colTitle) => {
 
 // If true, return select field type name
 export const getSelectName = (key) => {
-  if (key.select) return key.select.name;
+  if (tryFn(() => key.select)) return key.select.name;
   const err = "No select field data";
   console.log(err);
   return err;
@@ -79,7 +81,7 @@ export const getSelectName = (key) => {
 
 // If true, return title field type plain_text
 export const getTitleText = (key) => {
-  if (key.title) return key.title[0].plain_text;
+  if (tryFn(() => key.title[0])) return key.title[0].plain_text;
   const err = "No title field data";
   console.log(err);
   return err;
@@ -87,7 +89,7 @@ export const getTitleText = (key) => {
 
 // If true, return title field type plain_text
 export const getRichText = (key) => {
-  if (key.rich_text) return key.rich_text[0].plain_text;
+  if (tryFn(() => key.rich_text[0])) return key.rich_text[0].plain_text;
   const err = "No rich_text field data";
   console.log(err);
   return err;
