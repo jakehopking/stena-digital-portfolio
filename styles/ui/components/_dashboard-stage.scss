@@ -9,7 +9,7 @@
   }
 
   &__chart {
-    flex: 1 1 65%;
+    flex: 0 1 65%;
     overflow-y: auto;
     overflow-x: hidden;
     &::-webkit-scrollbar {
@@ -18,7 +18,7 @@
   }
 
   &__info {
-    flex: 1 1 35%;
+    flex: 0 1 35%;
     background-color: var(--color-panel-bg);
     margin: 0 var(--info-margin);
     @include z-index("above");

@@ -1,5 +1,5 @@
 .digital-bet-list {
-  --padding: var(--su-3) var(--su-6);
+  --padding: var(--su-3) var(--su-3) var(--su-3) var(--su-6);
 
   padding: var(--padding);
 
@@ -10,11 +10,15 @@
     padding-bottom: var(--su-5);
     font-weight: var(--fw-4);
     @include text-stroke();
-    // @supports (-webkit-text-stroke: 1px black) {
-    //   & {
-    //     -webkit-text-stroke: 1px var(--color-bg);
-    //     -webkit-text-fill-color: var(--color-text);
-    //   }
-    // }
   }
+
+  &__list {
+    overflow-y: auto;
+    max-height: 350px;
+    padding-right: var(--su-3);
+  }
+}
+
+.o-grid__col:last-child .digital-bet-list .digital-bet-list__list {
+  padding-right: var(--su-5);
 }
