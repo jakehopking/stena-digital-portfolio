@@ -1,0 +1,35 @@
+.dashboard-stage {
+  --info-margin: var(--su-2);
+
+  display: flex;
+  height: 100%;
+
+  &__chart,
+  &__info {
+  }
+
+  &__chart {
+    flex: 0 1 65%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__info {
+    flex: 0 1 35%;
+    background-color: var(--color-panel-bg);
+    margin: 0 var(--info-margin);
+    @include z-index("above");
+  }
+}
+
+.dashboard-stage {
+  &--rows {
+    flex-flow: column;
+  }
+  &--grid {
+    --info-margin: 0;
+  }
+}

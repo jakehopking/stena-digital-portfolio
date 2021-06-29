@@ -1,0 +1,13 @@
+.main-container {
+  display: flex;
+  flex-flow: column-reverse;
+  width: 100%;
+}
+
+main {
+  flex: 1;
+  background-color: var(--color-bg);
+  background-size: var(--grid-main) var(--grid-main);
+  background-image: linear-gradient(to right, var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-grid-line) 1px, transparent 1px);
+}

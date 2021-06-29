@@ -1,29 +1,26 @@
-# README #
+## Getting Started
 
-This README would normally document whatever steps are necessary to get your application up and running.
+First, follow Notions [getting started guide](https://developers.notion.com/docs/getting-started) to get a `NOTION_TOKEN` and a `NOTION_DATABASE_ID`, then add them to a file called `.env.local`.
 
-### What is this repository for? ###
+```
+NOTION_TOKEN=
+NOTION_DATABASE_ID=
+```
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+Install dependencies
 
-### How do I get set up? ###
+```bash
+npm install
+# or
+yarn
+```
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+Start the server with
 
-### Contribution guidelines ###
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+Open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
