@@ -23,13 +23,7 @@ import data from "../data/data";
 
 export const databaseId = process.env.NOTION_DB_PORTFOLIO_TRACKER;
 
-const {
-  overviewPanelData,
-  digitalBets,
-  digitalBetsWithCounts,
-  circlePackingOne,
-  circlePackingTwo,
-} = data;
+const {overviewPanelData, circlePackingOne, circlePackingTwo} = data;
 
 const DashboardStage = ({rows, grid, digitalBetsList}) => {
   // debugger;
@@ -68,7 +62,10 @@ const DashboardStage = ({rows, grid, digitalBetsList}) => {
             <DigitalBetList data={digitalBetsList.Next} title="Next" />
           </div>
           <div className="o-grid__col u-1/3">
-            <DigitalBetList data={digitalBetsList.Future} title="Future" />
+            <DigitalBetList
+              data={"Future" in digitalBetsList ? digitalBetsList.Future : []}
+              title="Future"
+            />
           </div>
         </div>
       </section>
@@ -77,15 +74,15 @@ const DashboardStage = ({rows, grid, digitalBetsList}) => {
 };
 
 export default function ProductTeams({
-  notion,
-  entryTitleCount,
-  journeyStageTags,
-  exploreExploitTags,
-  investmentTags,
   bigBetTags,
-  statusTags,
   colNames,
   digitalBetsList,
+  entryTitleCount,
+  exploreExploitTags,
+  investmentTags,
+  journeyStageTags,
+  notion,
+  statusTags,
   totalCountBB,
   test,
 }) {
@@ -93,53 +90,20 @@ export default function ProductTeams({
 
   // console.log(notion);
   // console.log(entryTitleCount);
-  console.log({journeyStageTags});
-  console.log({exploreExploitTags});
-  console.log({investmentTags});
-  console.log({bigBetTags});
-  console.log({statusTags});
-  // console.log(colNames);
-  // console.log(digitalBetsList);
-
-  // console.log(tryMe);
-
-  const projects = {
-    label: "Projects",
-    numbers: [
-      {
-        label: "Explore",
-        count: getTotalCountFromTags(filterDirtyTagKeys(exploreExploitTags, "Explore")),
-      },
-      {
-        label: "Exploit",
-        count: getTotalCountFromTags(filterDirtyTagKeys(exploreExploitTags, "Exploit")),
-      },
-      {label: "Big Bets", count: getTotalCountFromTags(bigBetTags)},
-    ],
-  };
-
-  const team = {
-    label: "Team members",
-    numbers: [
-      {
-        label: "Product team",
-        count: getTotalCountFromTags(filterDirtyTagKeys(investmentTags, "Product")),
-      },
-      {
-        label: "Exploration pod",
-        count: getTotalCountFromTags(filterDirtyTagKeys(investmentTags, "Exploration")),
-      },
-    ],
-  };
-
-  // console.log(getTotalCountFromTags(bigBetTags));
+  // console.log({journeyStageTags});
+  // console.log({exploreExploitTags});
+  // console.log({investmentTags});
+  // console.log({bigBetTags});
+  // console.log({statusTags});
 
   return (
     <Layout
       home
       sideCol={
         <SidePanel>
-          <OverviewPanel {...{...overviewPanelData, projects, team}} />
+          <OverviewPanel
+            {...overviewPanelData({exploreExploitTags, bigBetTags, investmentTags})}
+          />
         </SidePanel>
       }
     >
@@ -159,7 +123,7 @@ export const getStaticProps = async () => {
     props: {
       // notion: database,
       // entryTitleCount: titleCount(database),
-      journeyStageTags: getColumnMultiSelectTags(database, "Journey stage relevance"),
+      journeyStageTags: getColumnMultiSelectTags(database, "Lifecycle stage relevance"),
       exploreExploitTags: getColumnSelectTags(database, "Explore / Exploit"),
       investmentTags: getColumnSelectTags(database, "Investment"),
       bigBetTags: getColumnMultiSelectTags(database, "Big bet"),
