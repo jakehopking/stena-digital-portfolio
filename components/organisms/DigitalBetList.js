@@ -13,11 +13,10 @@ const DigitalBetList = ({data, title, size}) => {
       <div className="digital-bet-list__list">
         {data.map(({properties}, idx) => {
           const label = getTitleText(properties.Name);
-          const category = getSelectName(properties.Investment);
+          const category = getSelectName(properties.Investment).split(" – ").slice(0, 1);
           const bigBet = isMultiSelect(properties["Big bet"]);
-          const stage = getSelectName(properties["Explore / Exploit"]);
+          const stage = getSelectName(properties["Explore / Exploit"]).split(" – ")[0];
           const progress = parseInt(getRichText(properties.Progress));
-
           return (
             <DigitalBetItem
               key={`${idx}` + label}
