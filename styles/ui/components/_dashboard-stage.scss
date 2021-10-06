@@ -9,18 +9,18 @@
   }
 
   &__chart {
-    flex: 0 1 65%;
+    flex: 1 0 650px;
     overflow-y: auto;
-    overflow-x: hidden;
     &::-webkit-scrollbar {
       display: none;
     }
   }
 
   &__info {
-    flex: 0 1 35%;
+    flex: 1 1 250px;
     background-color: var(--color-panel-bg);
     margin: 0 var(--info-margin);
+    overflow: hidden;
     @include z-index("above");
   }
 }
