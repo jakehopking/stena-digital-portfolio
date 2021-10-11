@@ -41,12 +41,19 @@
     font-size: 0.9rem;
   }
 
+  &__stage {
+    font-weight: var(--fw-4);
+  }
+
+  &__stakeholder {
+  }
+
   &__label {
     font-weight: var(--fw-4);
   }
 
   &__aside {
-    flex: 0 0 70px;
+    flex: 0 0 100px;
     text-align: right;
     margin-left: var(--su-2);
   }

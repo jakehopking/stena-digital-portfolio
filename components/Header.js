@@ -20,28 +20,10 @@ const Header = () => {
           <a>Product Teams</a>
         </div>
         <div
-          onClick={() => router.push("/roadmap")}
-          className={`nav-main__item ${isActive("/roadmap")}`}
-        >
-          Roadmap
-        </div>
-        <div
-          onClick={() => router.push("/digital-culture")}
-          className={`nav-main__item ${isActive("/digital-culture")}`}
-        >
-          Digital Culture
-        </div>
-        <div
-          onClick={() => router.push("trends")}
+          onClick={() => router.push("/trends")}
           className={`nav-main__item ${isActive("/trends")}`}
         >
           Trends
-        </div>
-        <div
-          onClick={() => router.push("/capabilities")}
-          className={`nav-main__item ${isActive("/capabilities")}`}
-        >
-          Capabilities
         </div>
       </nav>
     </header>
