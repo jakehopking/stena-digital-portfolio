@@ -8,17 +8,17 @@
       "product_team": "Exploration hub",
       "effort": 2.1,
       "project_type": "Consumer Service",
-      "project_stakeholder": "Pak Hakansson"
+      "project_stakeholder": "Pär Håkansson"
     },
     {
-      "temporality": "Future",
-      "phase": "Transfer",
+      "temporality": "On-hold",
+      "phase": "Ideation",
       "big_bet": true,
-      "project_name": "Test Project",
-      "product_team": "XYZ Team",
-      "effort": -5,
-      "project_type": "Test Type",
-      "project_stakeholder": "Test Name"
+      "project_name": "Rent by Stena",
+      "product_team": "Product",
+      "effort": 4.6,
+      "project_type": "Consultancy for circular economy",
+      "project_stakeholder": "Axel Lundqvist "
     }
   ]
 }
