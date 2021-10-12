@@ -1,5 +1,5 @@
 backend:
-  name: test-repo
+  name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
 local_backend: true
 media_folder: public/images/uploads
@@ -18,11 +18,7 @@ collections:
             name: projects
             widget: list
             fields:
-              - {
-                  label: "Project Name",
-                  name: "project_name",
-                  widget: "string",
-                }
+              - {label: "Project Name", name: "project_name", widget: "string"}
               - {
                   label: "Temporality",
                   name: "temporality",
@@ -50,24 +46,10 @@ collections:
                     ],
                   default: ["Discovery"],
                 }
-              - {
-                  label: "Big bet",
-                  name: "big_bet",
-                  widget: boolean,
-                  default: true,
-                }
-              - { label: "Product team", name: "product_team", widget: string }
-              - {
-                  label: "Effort",
-                  name: "effort",
-                  widget: number,
-                  value_type: "float",
-                }
-              - {
-                  label: "Type of project",
-                  name: "project_type",
-                  widget: string,
-                }
+              - {label: "Big bet", name: "big_bet", widget: boolean, default: true}
+              - {label: "Product team", name: "product_team", widget: string}
+              - {label: "Effort", name: "effort", widget: number, value_type: "float"}
+              - {label: "Type of project", name: "project_type", widget: string}
               - {
                   label: "Project stakeholder",
                   name: "project_stakeholder",
