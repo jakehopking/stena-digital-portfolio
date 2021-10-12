@@ -24,3 +24,25 @@ yarn dev
 ```
 
 Open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
+
+### Netlify CMS Integration
+
+https://www.netlifycms.org/docs/intro/
+
+Please note, Netlify CMS is configured only for localhost. As of today Netlify’s Git Gateway service currently supports GitHub and GitLab repositories connected to Netlify for Continuous Deployment. Repositories in Bitbucket and self-hosted repositories are not yet supported by this feature.
+
+working with local git repository
+
+```
+npx netlify-cms-proxy-server
+```
+
+and then
+
+```
+yarn dev
+```
+
+The CMS can be accessed from
+
+http://localhost:3001/admin/index.html
