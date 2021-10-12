@@ -114,6 +114,7 @@ export const SIZE = {
     _6: intToPx(defaultSpacingUnit * 2),
     _7: intToPx(defaultSpacingUnit * 3),
     _8: intToPx(defaultSpacingUnit * 4),
+    _9: intToPx(defaultSpacingUnit * 5),
   },
   radius: {
     small: intToPx(3),

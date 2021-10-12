@@ -9,7 +9,7 @@ const Header = () => {
       <nav className="nav-main">
         <div
           onClick={() => router.push("/")}
-          className={`nav-main__item ${isActive("/")}`}
+          className={`nav-main__item u-ml-a ${isActive("/")}`}
         >
           <a>Portfolio</a>
         </div>
@@ -24,6 +24,12 @@ const Header = () => {
           className={`nav-main__item ${isActive("/trends")}`}
         >
           Trends
+        </div>
+        <div
+          onClick={() => router.push("/screensaver")}
+          className={`nav-main__item u-ml-a ${isActive("/screensaver")}`}
+        >
+          Screensaver
         </div>
       </nav>
     </header>
