@@ -55,4 +55,25 @@ $iota-utils-margin-left-name: "l";
 $iota-utils-margin-vertical-name: "v";
 $iota-utils-margin-horizontal-name: "h";
 
+.u-mt-a {
+  margin-top: auto !important;
+}
+.u-mr-a {
+  margin-right: auto !important;
+}
+.u-mb-a {
+  margin-bottom: auto !important;
+}
+.u-ml-a {
+  margin-left: auto !important;
+}
+.u-mh-a {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.u-mv-a {
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+
 @import "node_modules/iotacss/utilities/margin";

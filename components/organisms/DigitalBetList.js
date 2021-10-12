@@ -18,6 +18,7 @@ const DigitalBetList = ({data, title, size}) => {
           const stage = getSelectName(properties["Explore / Exploit"])
             .split(" – ")
             .slice(0, 1);
+          const stakeholder = "Jacøb Wilson";
           const progress = parseInt(getRichText(properties.Progress));
           return (
             <DigitalBetItem
@@ -27,9 +28,10 @@ const DigitalBetList = ({data, title, size}) => {
               // count={bet.count}
               stage={stage}
               label={label}
-              progress={progress}
+              // progress={progress}
               size={size}
               group={title}
+              stakeholder={stakeholder}
             />
           );
         })}

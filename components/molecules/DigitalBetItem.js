@@ -11,6 +11,7 @@ const DigitalBetItem = ({
   progress,
   size,
   stage,
+  stakeholder,
 }) => {
   // debugger;
   const [colors, setColors] = useState({});
@@ -48,13 +49,16 @@ const DigitalBetItem = ({
         <div className="digital-bet-item__main">
           {!isSmall && <div className="digital-bet-item__category">{category}</div>}
           <div className="digital-bet-item__label">{label}</div>
-          {!isSmall && (
+          {!isSmall && progress && (
             <ProgressBar value={progress} className="digital-bet-item__progress" />
           )}
         </div>
         <div className="digital-bet-item__aside">
-          {isSmall && <BigBet />}
-          {isSmall ? <div className="digital-bet-item__stage">{stage}</div> : stage}
+          {/* {isSmall && <BigBet />} */}
+          {!isSmall && stage && <div className="digital-bet-item__stage">{stage}</div>}
+          {!isSmall && stakeholder && (
+            <div className="digital-bet-item__stakeholder u-mt">{stakeholder}</div>
+          )}
         </div>
       </div>
     </div>
@@ -67,9 +71,10 @@ DigitalBetItem.defaultProps = {
   count: null,
   group: "Group",
   label: "Label",
-  progress: 50,
+  progress: null,
   size: "",
   state: "State",
+  stakeholder: "Jacob Wilson",
 };
 
 export default DigitalBetItem;

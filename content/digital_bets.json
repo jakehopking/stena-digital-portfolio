@@ -1,0 +1,24 @@
+{
+  "projects": [
+    {
+      "temporality": "Now",
+      "phase": "Discovery",
+      "big_bet": true,
+      "project_name": "ReUse Service",
+      "product_team": "Exploration hub",
+      "effort": 2.1,
+      "project_type": "Consumer Service",
+      "project_stakeholder": "Pak Hakansson"
+    },
+    {
+      "temporality": "Future",
+      "phase": "Transfer",
+      "big_bet": true,
+      "project_name": "Test Project",
+      "product_team": "XYZ Team",
+      "effort": -5,
+      "project_type": "Test Type",
+      "project_stakeholder": "Test Name"
+    }
+  ]
+}

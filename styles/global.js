@@ -51,6 +51,7 @@ export const GlobalStyles = createGlobalStyle`
     --su-6: ${SIZE.spacing._6};
     --su-7: ${SIZE.spacing._7};
     --su-8: ${SIZE.spacing._8};
+    --su-9: ${SIZE.spacing._9};
 
     /* Font weights */
     --fw-0: ${SIZE.font.weight.hairline};
