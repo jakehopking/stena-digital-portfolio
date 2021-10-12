@@ -1,0 +1,75 @@
+backend:
+  name: test-repo
+  branch: main # Branch to update (optional; defaults to master)
+local_backend: true
+media_folder: public/images/uploads
+public_folder: /images/uploads
+collections:
+  - label: "Digital Bets"
+    name: "digital_bets"
+    editor:
+      preview: false
+    files:
+      - label: "Product Teams"
+        name: "product_teams"
+        file: "content/digital_bets.json"
+        fields:
+          - label: Projects
+            name: projects
+            widget: list
+            fields:
+              - {
+                  label: "Project Name",
+                  name: "project_name",
+                  widget: "string",
+                }
+              - {
+                  label: "Temporality",
+                  name: "temporality",
+                  widget: "select",
+                  options: ["Now", "Next", "Future", "On-hold", "Canceled"],
+                  default: ["Now"],
+                }
+              - {
+                  label: "Phase",
+                  name: "phase",
+                  widget: "select",
+                  options:
+                    [
+                      "Ideation",
+                      "Discovery",
+                      "Validation",
+                      "Confirmation",
+                      "Transfer",
+                      "Launch",
+                      "Sustaining innovation",
+                      "Efficiency",
+                      "Mature business",
+                      "Declining business",
+                      "Renovation",
+                    ],
+                  default: ["Discovery"],
+                }
+              - {
+                  label: "Big bet",
+                  name: "big_bet",
+                  widget: boolean,
+                  default: true,
+                }
+              - { label: "Product team", name: "product_team", widget: string }
+              - {
+                  label: "Effort",
+                  name: "effort",
+                  widget: number,
+                  value_type: "float",
+                }
+              - {
+                  label: "Type of project",
+                  name: "project_type",
+                  widget: string,
+                }
+              - {
+                  label: "Project stakeholder",
+                  name: "project_stakeholder",
+                  widget: string,
+                }
