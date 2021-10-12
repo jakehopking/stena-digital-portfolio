@@ -1,0 +1,24 @@
+.overflow {
+  &-x {
+    &-hidden {
+      overflow-x: hidden !important;
+    }
+    &-auto {
+      overflow-x: auto !important;
+    }
+    &-scroll {
+      overflow-x: scroll !important;
+    }
+  }
+  &-y {
+    &-hidden {
+      overflow-y: hidden !important;
+    }
+    &-auto {
+      overflow-y: auto !important;
+    }
+    &-scroll {
+      overflow-y: scroll !important;
+    }
+  }
+}

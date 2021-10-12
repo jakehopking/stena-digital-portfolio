@@ -1,0 +1,24 @@
+.digital-bet-list {
+  --padding: var(--su-3) var(--su-3) var(--su-3) var(--su-6);
+
+  padding: var(--padding);
+
+  &__title {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-top: calc(var(--su-6) * -1.25);
+    padding-bottom: var(--su-5);
+    font-weight: var(--fw-4);
+    @include text-stroke();
+  }
+
+  &__list {
+    overflow-y: auto;
+    max-height: 300px;
+    padding-right: var(--su-3);
+  }
+}
+
+.o-grid__col:last-child .digital-bet-list .digital-bet-list__list {
+  padding-right: var(--su-5);
+}
