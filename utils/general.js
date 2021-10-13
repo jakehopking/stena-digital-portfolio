@@ -8,3 +8,8 @@ export const tryFn = (fn, fallback = null) => {
     return fallback;
   }
 };
+
+export const filterFn = (check, filterArr, filterType) => {
+  if (filterType === "exclude") return filterArr.indexOf(check) < 0;
+  return filterArr.indexOf(check) !== -1;
+};
