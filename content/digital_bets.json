@@ -29,6 +29,16 @@
       "effort": 3.4,
       "project_type": "Stakeholder Service",
       "project_stakeholder": "Staffan Davidsson"
+    },
+    {
+      "temporality": "Future",
+      "phase": "Validation",
+      "big_bet": true,
+      "project_name": "Circular calculator",
+      "product_team": "Product",
+      "effort": 1.3,
+      "project_type": "Consumer Service",
+      "project_stakeholder": "Mats Linder"
     }
   ]
 }
