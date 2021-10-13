@@ -11,7 +11,7 @@
       "project_stakeholder": "Pär Håkansson"
     },
     {
-      "temporality": "On-hold",
+      "temporality": "Next",
       "phase": "Ideation",
       "big_bet": true,
       "project_name": "Rent by Stena",
@@ -19,6 +19,16 @@
       "effort": 4.6,
       "project_type": "Consultancy for circular economy",
       "project_stakeholder": "Axel Lundqvist "
+    },
+    {
+      "temporality": "Future",
+      "phase": "Renovation",
+      "big_bet": true,
+      "project_name": "Project dashboard",
+      "product_team": "Exploration hub",
+      "effort": 3.4,
+      "project_type": "Stakeholder Service",
+      "project_stakeholder": "Staffan Davidsson"
     }
   ]
 }

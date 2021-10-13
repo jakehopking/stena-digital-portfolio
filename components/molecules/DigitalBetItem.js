@@ -4,13 +4,13 @@ import ProgressBar from "../atoms/ProgressBar";
 
 const DigitalBetItem = ({
   bigBet,
-  category,
+  productTeam,
   count,
   group,
-  label,
+  projectName,
   progress,
   size,
-  stage,
+  phase,
   stakeholder,
 }) => {
   // debugger;
@@ -47,15 +47,15 @@ const DigitalBetItem = ({
       </div>
       <div className="o-media__fluid digital-bet-item__content">
         <div className="digital-bet-item__main">
-          {!isSmall && <div className="digital-bet-item__category">{category}</div>}
-          <div className="digital-bet-item__label">{label}</div>
+          {!isSmall && <div className="digital-bet-item__category">{productTeam}</div>}
+          <div className="digital-bet-item__label">{projectName}</div>
           {!isSmall && progress && (
             <ProgressBar value={progress} className="digital-bet-item__progress" />
           )}
         </div>
         <div className="digital-bet-item__aside">
           {/* {isSmall && <BigBet />} */}
-          {!isSmall && stage && <div className="digital-bet-item__stage">{stage}</div>}
+          {!isSmall && phase && <div className="digital-bet-item__stage">{phase}</div>}
           {!isSmall && stakeholder && (
             <div className="digital-bet-item__stakeholder u-mt">{stakeholder}</div>
           )}
@@ -67,13 +67,13 @@ const DigitalBetItem = ({
 
 DigitalBetItem.defaultProps = {
   bigBet: false,
-  category: "Category",
+  productTeam: "Category",
   count: null,
   group: "Group",
-  label: "Label",
+  projectName: "Project name",
   progress: null,
   size: "",
-  state: "State",
+  phase: "Phase",
   stakeholder: "Jacob Wilson",
 };
 

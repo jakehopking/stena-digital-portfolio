@@ -1,15 +1,14 @@
 .digital-bet-list {
-  --padding: var(--su-3) var(--su-3) var(--su-3) var(--su-6);
-
+  --padding: var(--su-5) var(--su-3) var(--su-3) var(--su-1);
   padding: var(--padding);
+  display: flex;
 
   &__title {
     text-align: center;
     font-size: 1.4rem;
-    margin-top: calc(var(--su-6) * -1.25);
-    padding-bottom: var(--su-5);
+    margin-right: var(--su-4);
     font-weight: var(--fw-4);
-    @include text-stroke();
+    // @include text-stroke();
   }
 
   &__list {
@@ -21,4 +20,7 @@
 
 .o-grid__col:last-child .digital-bet-list .digital-bet-list__list {
   padding-right: var(--su-5);
+}
+.o-grid__col:first-child .digital-bet-list {
+  padding-left: var(--su-5);
 }

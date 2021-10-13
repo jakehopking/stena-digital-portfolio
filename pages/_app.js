@@ -2,8 +2,10 @@ import "../styles/main.scss";
 import {useState, Fragment} from "react";
 import Head from "next/head";
 import {ThemeProvider} from "styled-components";
+import {NetlifyCMSContext} from "../context/netlifyCmsContext";
 import {COLOUR, SIZE, PALLET} from "../theme/theme";
 import {GlobalStyles} from "../styles/global";
+import netlifyCMSData from "../content/digital_bets.json";
 
 function Application({Component, pageProps}) {
   const [theme, setTheme] = useState("dark");
@@ -22,17 +24,19 @@ function Application({Component, pageProps}) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      <ThemeProvider
-        theme={{
-          color: COLOUR.theme[theme],
-          size: SIZE,
-          pallet: PALLET,
-        }}
-      >
-        {/* <button onClick={toggleTheme}>Switch Theme</button> */}
-        <GlobalStyles />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <NetlifyCMSContext.Provider value={netlifyCMSData}>
+        <ThemeProvider
+          theme={{
+            color: COLOUR.theme[theme],
+            size: SIZE,
+            pallet: PALLET,
+          }}
+        >
+          {/* <button onClick={toggleTheme}>Switch Theme</button> */}
+          <GlobalStyles />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </NetlifyCMSContext.Provider>
     </Fragment>
   );
 }
