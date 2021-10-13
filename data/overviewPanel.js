@@ -2,20 +2,30 @@ import {filterFn, multiplier} from "../utils/general";
 import {phaseTitlesExploit} from "./constants";
 
 export const overviewPanelData = ({projects, effortValueMultiplier = 1000000}) => {
+  // Filter projects list, 'excluding' exploit entries
+  const exploreList = projects.filter((item) =>
+    filterFn(item.phase, phaseTitlesExploit, "exclude")
+  );
+  // Filter projects list for exploit entries
+  const exploitList = projects.filter((item) => filterFn(item.phase, phaseTitlesExploit));
+
+  // Filter by teams
+  const teamProduct = projects.filter((item) => item.product_team === "Product");
+  const teamExploration = projects.filter(
+    (item) => item.product_team === "Exploration hub"
+  );
+
   return {
     projects: {
       label: "Projects",
       numbers: [
         {
           label: "Explore",
-          count: projects.filter((item) =>
-            filterFn(item.phase, phaseTitlesExploit, "exclude")
-          ).length,
+          count: exploreList.length,
         },
         {
           label: "Exploit",
-          count: projects.filter((item) => filterFn(item.phase, phaseTitlesExploit))
-            .length,
+          count: exploitList.length,
         },
         {label: "Total this year", count: projects.length},
       ],
@@ -25,12 +35,11 @@ export const overviewPanelData = ({projects, effortValueMultiplier = 1000000}) =
       numbers: [
         {
           label: "Product team",
-          count: projects.filter((item) => item.product_team === "Product").length,
+          count: teamProduct.length,
         },
         {
           label: "Exploration hub",
-          count: projects.filter((item) => item.product_team === "Exploration hub")
-            .length,
+          count: teamExploration.length,
         },
       ],
     },
@@ -39,21 +48,17 @@ export const overviewPanelData = ({projects, effortValueMultiplier = 1000000}) =
       chartData: [
         {
           label: "Explore",
-          value: projects
-            .filter((item) => filterFn(item.phase, phaseTitlesExploit, "exclude"))
-            .reduce(
-              (acc, curr) => acc + multiplier(curr.effort, effortValueMultiplier),
-              0
-            ),
+          value: exploreList.reduce(
+            (acc, curr) => acc + multiplier(curr.effort, effortValueMultiplier),
+            0
+          ),
         },
         {
           label: "Exploit",
-          value: projects
-            .filter((item) => filterFn(item.phase, phaseTitlesExploit))
-            .reduce(
-              (acc, curr) => acc + multiplier(curr.effort, effortValueMultiplier),
-              0
-            ),
+          value: exploitList.reduce(
+            (acc, curr) => acc + multiplier(curr.effort, effortValueMultiplier),
+            0
+          ),
         },
       ],
     },
