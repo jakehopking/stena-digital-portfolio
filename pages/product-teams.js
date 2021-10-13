@@ -11,7 +11,11 @@ import {
   getMappedListFromColumnTitleSelectTags,
 } from "../utils/notion";
 import {filterFn} from "../utils/general";
-import {productTeamsDigitalBets} from "../data/constants";
+import {
+  productTeamsDigitalBets,
+  phaseTitlesExplore,
+  phaseTitlesExploit,
+} from "../data/constants";
 // import {NetlifyCMSContext} from "../context/netlifyCmsContext";
 import data from "../data/data";
 
@@ -27,14 +31,16 @@ export default function ProductTeams({
 }) {
   const {projects} = cmsData;
 
+  const test = projects.filter((item) => filterFn(item.phase, phaseTitlesExplore));
+
+  console.log(test);
+
   return (
     <Layout
       home
       sideCol={
         <SidePanel>
-          <OverviewPanel
-            {...overviewPanelData({exploreExploitTags, bigBetTags, investmentTags})}
-          />
+          <OverviewPanel {...overviewPanelData({projects})} />
         </SidePanel>
       }
     >
@@ -52,14 +58,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      // notion: database,
-      // entryTitleCount: titleCount(database),
       cmsData,
-      journeyStageTags: getColumnMultiSelectTags(database, "Lifecycle stage relevance"),
-      exploreExploitTags: getColumnSelectTags(database, "Explore / Exploit"),
-      investmentTags: getColumnSelectTags(database, "Investment"),
-      bigBetTags: getColumnMultiSelectTags(database, "Big bet"),
-      statusTags: getColumnSelectTags(database, "Status"),
     },
     revalidate: 1,
   };

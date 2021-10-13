@@ -1,19 +1,23 @@
-import {getTotalCountFromTags, filterDirtyTagKeys} from "../utils/notion";
+import {filterFn, multiplier} from "../utils/general";
+import {phaseTitlesExploit} from "./constants";
 
-export const overviewPanelData = ({exploreExploitTags, bigBetTags, investmentTags}) => {
+export const overviewPanelData = ({projects, effortValueMultiplier = 1000000}) => {
   return {
     projects: {
       label: "Projects",
       numbers: [
         {
           label: "Explore",
-          count: getTotalCountFromTags(filterDirtyTagKeys(exploreExploitTags, "Explore")),
+          count: projects.filter((item) =>
+            filterFn(item.phase, phaseTitlesExploit, "exclude")
+          ).length,
         },
         {
           label: "Exploit",
-          count: getTotalCountFromTags(filterDirtyTagKeys(exploreExploitTags, "Exploit")),
+          count: projects.filter((item) => filterFn(item.phase, phaseTitlesExploit))
+            .length,
         },
-        {label: "Big Bets", count: getTotalCountFromTags(bigBetTags)},
+        {label: "Total this year", count: projects.length},
       ],
     },
     team: {
@@ -21,19 +25,36 @@ export const overviewPanelData = ({exploreExploitTags, bigBetTags, investmentTag
       numbers: [
         {
           label: "Product team",
-          count: getTotalCountFromTags(filterDirtyTagKeys(investmentTags, "Product")),
+          count: projects.filter((item) => item.product_team === "Product").length,
         },
         {
-          label: "Exploration pod",
-          count: getTotalCountFromTags(filterDirtyTagKeys(investmentTags, "Exploration")),
+          label: "Exploration hub",
+          count: projects.filter((item) => item.product_team === "Exploration hub")
+            .length,
         },
       ],
     },
     investments: {
       label: "Investments",
       chartData: [
-        {label: "Explore", value: 5100000},
-        {label: "Exploit", value: 2550000},
+        {
+          label: "Explore",
+          value: projects
+            .filter((item) => filterFn(item.phase, phaseTitlesExploit, "exclude"))
+            .reduce(
+              (acc, curr) => acc + multiplier(curr.effort, effortValueMultiplier),
+              0
+            ),
+        },
+        {
+          label: "Exploit",
+          value: projects
+            .filter((item) => filterFn(item.phase, phaseTitlesExploit))
+            .reduce(
+              (acc, curr) => acc + multiplier(curr.effort, effortValueMultiplier),
+              0
+            ),
+        },
       ],
     },
     roi: {
