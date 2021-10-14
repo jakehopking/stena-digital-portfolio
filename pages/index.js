@@ -23,7 +23,19 @@ export default function ProductTeams({cmsData}) {
     filterList: phaseTitlesExploit,
   });
 
-  console.log(exploitList);
+  const maxEffort = Math.max(
+    ...Object.keys(getGroupedListByKey({array: projects, key: "effort"}))
+  );
+
+  const digitalBetCircleSize = projects.map((item) => {
+    return {
+      size: Math.floor((item.effort / maxEffort) * 100),
+    };
+  });
+
+  console.log(digitalBetCircleSize);
+  // console.log(maxEffort);
+  // console.log(exploitList);
 
   return (
     <Layout
