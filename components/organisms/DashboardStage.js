@@ -38,6 +38,7 @@ const DashboardStage = ({rows, grid, digitalBetsList, chartData}) => {
             <DigitalBetList
               title="Now"
               data={digitalBetsList.filter((item) => filterFn(item.temporality, ["Now"]))}
+              size="small"
             />
           </div>
           <div className="o-grid__col u-1/3">
@@ -46,6 +47,7 @@ const DashboardStage = ({rows, grid, digitalBetsList, chartData}) => {
               data={digitalBetsList.filter((item) =>
                 filterFn(item.temporality, ["Next"])
               )}
+              size="small"
             />
           </div>
           <div className="o-grid__col u-1/3">
@@ -54,6 +56,7 @@ const DashboardStage = ({rows, grid, digitalBetsList, chartData}) => {
               data={digitalBetsList.filter((item) =>
                 filterFn(item.temporality, ["Future"])
               )}
+              size="small"
             />
           </div>
         </div>

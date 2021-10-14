@@ -26,7 +26,7 @@ const DigitalBetItem = ({
     ...Object.keys(getGroupedListByKey({array: projects, key: "effort"}))
   );
 
-  const circleSize = Math.floor((effort / maxEffort) * 100);
+  const circleSizeScale = effort / maxEffort;
 
   const BigBet = () =>
     bigBet && (
@@ -52,14 +52,19 @@ const DigitalBetItem = ({
       }`}
     >
       <div className="o-media__fixed digital-bet-item__icons">
-        <Circle color={colors[group]} text={count} radius={isSmall ? 13 : 5} />
+        <Circle
+          color={colors[group]}
+          text={count}
+          radius={isSmall ? 13 : 5}
+          scale={effort && isSmall ? circleSizeScale : 1}
+        />
         {!isSmall && <BigBet />}
       </div>
       <div className="o-media__fluid digital-bet-item__content">
         <div className="digital-bet-item__main">
           {!isSmall && (
             <div className="digital-bet-item__category">
-              {productTeam} {circleSize}%
+              {productTeam} {circleSizeScale * 100}%
             </div>
           )}
           <div className="digital-bet-item__label">{projectName}</div>
