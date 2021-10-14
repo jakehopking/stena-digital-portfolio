@@ -3,8 +3,7 @@ import SidePanel from "../components/sidePanel/SidePanel";
 import OverviewPanel from "../components/sidePanel/OverviewPanel";
 import DashboardStage from "../components/organisms/DashboardStage";
 import data from "../data/data";
-
-export const databaseId = process.env.NOTION_DB_PORTFOLIO_TRACKER;
+import {getGroupedListByKey} from "../utils/general";
 
 const {overviewPanelData, circlePackingOne, circlePackingTwo, cmsData} = data;
 
