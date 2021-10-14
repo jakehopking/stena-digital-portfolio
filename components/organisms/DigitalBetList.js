@@ -19,6 +19,7 @@ const DigitalBetList = ({data, title, size}) => {
               projectName={bet.project_name}
               // progress={progress}
               size={size}
+              effort={bet.effort}
               group={title}
               stakeholder={bet.project_stakeholder}
             />

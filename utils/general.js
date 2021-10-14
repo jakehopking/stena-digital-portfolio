@@ -17,6 +17,7 @@ export const filterFn = (check, filterArr, filterType) => {
 export const multiplier = (val, factor) => val * factor;
 
 export const getGroupedListByKey = ({array = [], key = ""}) => {
+  // debugger;
   let data = {};
   array.map((item) => {
     const name = item[key];
