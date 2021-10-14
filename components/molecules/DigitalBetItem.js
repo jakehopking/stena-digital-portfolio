@@ -62,11 +62,7 @@ const DigitalBetItem = ({
       </div>
       <div className="o-media__fluid digital-bet-item__content">
         <div className="digital-bet-item__main">
-          {!isSmall && (
-            <div className="digital-bet-item__category">
-              {productTeam} {circleSizeScale * 100}%
-            </div>
-          )}
+          {!isSmall && <div className="digital-bet-item__category">{productTeam}</div>}
           <div className="digital-bet-item__label">{projectName}</div>
           {!isSmall && progress && (
             <ProgressBar value={progress} className="digital-bet-item__progress" />
