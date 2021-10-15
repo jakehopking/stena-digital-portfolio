@@ -1,0 +1,30 @@
+.dashboard-projects {
+  display: flex;
+  flex: 0 0 650px;
+  overflow-x: scroll;
+  height: 100%;
+  width: 80vw;
+  .container {
+    width: 100%;
+    overflow-x: scroll;
+  }
+  &__title {
+  }
+  &__grid {
+    // width: 2000px;
+  }
+}
+
+.grid {
+  display: grid;
+  height: 100%;
+}
+
+.grid--250 {
+  grid-template-columns: repeat(11, minmax(250px, 1fr));
+}
+
+.grid-item {
+  height: 100%;
+  background-color: red;
+}

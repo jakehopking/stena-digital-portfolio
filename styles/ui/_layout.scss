@@ -5,7 +5,8 @@
 
 .side-container {
   display: flex;
-  flex: 0 0 350px;
+  flex: 0 0 20vw;
+  // min-width: 350px;
   flex-flow: column;
   background-color: var(--color-panel-bg);
   padding: var(--su-5);
