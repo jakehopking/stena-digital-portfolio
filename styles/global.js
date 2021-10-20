@@ -14,6 +14,9 @@ export const GlobalStyles = createGlobalStyle`
     --color-bg: ${({theme}) => hexToRGBA(theme.color.background)};
     --color-nav-bg: ${({theme}) => hexToRGBA(theme.color.navigation.background)};
     --color-panel-bg: ${({theme}) => hexToRGBA(theme.color.panel.background)};
+    --color-panel-border: ${({theme}) => hexToRGBA(theme.color.panel.border)};
+    --color-panel-solid-bg: ${({theme}) => hexToRGBA(theme.color.panelSolid.background)};
+    --color-panel-solid-border: ${({theme}) => hexToRGBA(theme.color.panelSolid.border)};
     --color-card-digitalBet: ${({theme}) =>
       hexToRGBA(theme.color.card.digitalBet.background)};
     --color-text: ${({theme}) => hexToRGBA(theme.color.text.default)};
@@ -31,6 +34,11 @@ export const GlobalStyles = createGlobalStyle`
     /* Buttons */
     --color-btn-nav-bg-active: ${({theme}) =>
       hexToRGBA(theme.color.button.nav.background.active)};
+
+    /* Tags */
+    --color-tag-external: ${({theme}) => hexToRGBA(theme.color.tag.external.border)};
+
+    --color-tag-internal: ${({theme}) => hexToRGBA(theme.color.tag.internal.background)};
 
     /* Sizes */
     --radius-btn: ${SIZE.radius.default};

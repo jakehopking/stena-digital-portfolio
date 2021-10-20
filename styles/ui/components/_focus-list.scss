@@ -1,0 +1,15 @@
+.focus-list {
+  margin: var(--su-3) 0;
+}
+
+.focus-list__item {
+  --background: var(--color-panel-solid-bg);
+
+  padding: var(--su-1) var(--su-3);
+  background-color: var(--background);
+  border-radius: var(--radius-default);
+
+  & + & {
+    margin-top: var(--su-4);
+  }
+}

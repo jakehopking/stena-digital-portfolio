@@ -7,6 +7,9 @@
 main {
   flex: 1;
   background-color: var(--color-bg);
+}
+
+.show-grid {
   background-size: var(--grid-main) var(--grid-main);
   background-image: linear-gradient(to right, var(--color-grid-line) 1px, transparent 1px),
     linear-gradient(to bottom, var(--color-grid-line) 1px, transparent 1px);

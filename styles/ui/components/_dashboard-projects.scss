@@ -16,15 +16,21 @@
 }
 
 .grid {
+  --gutter: var(--su-2);
   display: grid;
   height: 100%;
+  column-gap: var(--gutter);
 }
 
 .grid--250 {
   grid-template-columns: repeat(11, minmax(250px, 1fr));
 }
 
+.grid--half {
+  --gutter: var(--su-4);
+  grid-template-columns: repeat(2, minmax(50%, 1fr));
+}
+
 .grid-item {
   height: 100%;
-  background-color: red;
 }

@@ -13,6 +13,7 @@ export default function ProductTeams({cmsData}) {
   return (
     <Layout
       home
+      showGrid
       sideCol={
         <SidePanel>
           <OverviewPanel {...overviewPanelData({projects})} />
