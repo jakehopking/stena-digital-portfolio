@@ -23,6 +23,7 @@ export const GREEN = {
 export const BLUE = {
   _00: "#89C0DC",
   _10: "#334678",
+  _15: "#B1D5E7",
   _20: "#CDE3F1",
 };
 

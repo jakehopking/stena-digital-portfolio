@@ -53,7 +53,7 @@ const eventData = [
 const DashboardProjects = ({focusData, eventData}) => {
   return (
     <div className="dashboard-projects">
-      <div className="container u-p-md">
+      <div className="container u-p-md u-mr-md">
         <section className="dashboard-projects__grid grid grid--half">
           <div className="grid-item">
             <div className="panel panel--fill panel--px-1-rad-def u-p-md">

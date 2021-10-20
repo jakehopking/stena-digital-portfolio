@@ -26,10 +26,16 @@ export const GlobalStyles = createGlobalStyle`
 
     /* Primary */
     --color-primary-0: ${({theme}) => hexToRGBA(theme.pallet.primary._00)};
+    --color-primary-10: ${({theme}) => hexToRGBA(theme.pallet.primary._10)};
+    --color-primary-15: ${({theme}) => hexToRGBA(theme.pallet.primary._15)};
+    --color-primary-20: ${({theme}) => hexToRGBA(theme.pallet.primary._20)};
     /* Secondary */
     --color-secondary-0: ${({theme}) => hexToRGBA(theme.pallet.secondary._00)};
     /* Tertiary */
     --color-tertiary-0: ${({theme}) => hexToRGBA(theme.pallet.tertiary._00)};
+    /* Grey */
+    --color-grey-06: ${({theme}) => hexToRGBA(theme.pallet.grey._06)};
+    
 
     /* Buttons */
     --color-btn-nav-bg-active: ${({theme}) =>
