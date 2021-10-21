@@ -36,14 +36,16 @@ const OverviewSectionHowMuchWeDo = ({data}) => {
 OverviewSectionHowMuchWeDo.defaultProps = {
   data: {
     label: "Title",
-    chartData: [
-      {label: "Label", value: 300000},
-      {label: "Label", value: 400000},
-      {label: "Label", value: 600000},
+    subLabel: {
+      label: "Sub label",
+      value: 10,
+    },
+    progress: [
+      {label: "Label", value: 44},
+      {label: "Label", value: 22},
+      {label: "Label", value: 80},
     ],
   },
-  chartHeight: 200,
-  chartWidth: "",
 };
 
 export default OverviewSectionHowMuchWeDo;
