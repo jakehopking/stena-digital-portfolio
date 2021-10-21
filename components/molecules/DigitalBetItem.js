@@ -1,4 +1,6 @@
-import {useEffect, useState} from "react";
+import {useEffect, useState, useContext} from "react";
+import {NetlifyCMSContext} from "../../context/netlifyCmsContext";
+import {getGroupedListByKey} from "../../utils/general";
 import Circle from "../atoms/Circle";
 import ProgressBar from "../atoms/ProgressBar";
 
@@ -10,6 +12,7 @@ const DigitalBetItem = ({
   projectName,
   progress,
   size,
+  effort,
   phase,
   stakeholder,
 }) => {
@@ -17,6 +20,13 @@ const DigitalBetItem = ({
   const [colors, setColors] = useState({});
   const isSmall = Boolean(size === "small");
   const bigBetText = "Big Bet";
+  const {projects} = useContext(NetlifyCMSContext);
+
+  const maxEffort = Math.max(
+    ...Object.keys(getGroupedListByKey({array: projects, key: "effort"}))
+  );
+
+  const circleSizeScale = effort / maxEffort;
 
   const BigBet = () =>
     bigBet && (
@@ -42,7 +52,12 @@ const DigitalBetItem = ({
       }`}
     >
       <div className="o-media__fixed digital-bet-item__icons">
-        <Circle color={colors[group]} text={count} radius={isSmall ? 13 : 5} />
+        <Circle
+          color={colors[group]}
+          text={count}
+          radius={isSmall ? 13 : 5}
+          scale={effort && isSmall ? circleSizeScale : 1}
+        />
         {!isSmall && <BigBet />}
       </div>
       <div className="o-media__fluid digital-bet-item__content">

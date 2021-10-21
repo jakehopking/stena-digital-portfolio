@@ -1,5 +1,6 @@
 .progress-bar {
   --height: 3px;
+  --bar-radius: 0;
 
   display: flex;
   position: relative;
@@ -10,12 +11,39 @@
     --height: 2px;
   }
   &--large {
-    --height: 4px;
+    --height: 7px;
+    --bar-radius: 4px;
+  }
+
+  &__label {
+    width: 100%;
+    font-weight: var(--fw-4);
   }
 
   &__bar {
     height: var(--height);
     position: absolute;
     background-color: var(--color-default-fg);
+    border-radius: var(--bar-radius);
+  }
+
+  &__value {
+    font-weight: var(--fw-4);
+  }
+}
+
+// Retrofit labels and values onto progress bar. #designers
+.progress-bar-container {
+  display: flex;
+  flex-wrap: wrap;
+  .progress-bar__label {
+    flex: 1 0 100%;
+  }
+  .progress-bar {
+    flex: 0 0 80%;
+    align-self: center;
+  }
+  .progress-bar__value {
+    margin-left: auto;
   }
 }

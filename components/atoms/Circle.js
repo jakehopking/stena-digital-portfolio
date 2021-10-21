@@ -1,8 +1,12 @@
-const Circle = ({radius, color, className, text, textColor}) => {
+const Circle = ({radius, color, className, text, textColor, scale}) => {
   return (
     <svg
       className={`svg svg--circle ${className}`}
-      style={{width: radius * 2, height: radius * 2}}
+      style={{
+        width: radius * 2,
+        height: radius * 2,
+        transform: `scale3d(${scale}, ${scale}, ${scale})`,
+      }}
     >
       <circle cx={radius} cy={radius} r={radius} fill={`var(${color})`} />
       {text && (

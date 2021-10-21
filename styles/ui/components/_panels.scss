@@ -1,0 +1,20 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+
+  &--row {
+    flex-direction: row;
+  }
+}
+
+.panel--fill {
+  width: 100%;
+  height: 100%;
+}
+
+.panel--px-1-rad-def {
+  --border-color: var(--color-panel-border);
+  border: 1px solid var(--border-color);
+  background-color: var(--color-panel-background);
+  border-radius: var(--radius-default);
+}

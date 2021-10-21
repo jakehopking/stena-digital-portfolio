@@ -8,7 +8,9 @@ export const GREY = {
   _03: "#1F1F22",
   _04: "#2A2A30",
   _05: "#2A2B2C",
+  _06: "#26262D",
   _08: "#3B3B44",
+  _09: "#4B4B4B",
   _50: "#60625A",
   _90: "#F2F2F2",
   _100: "#FFFFFF",
@@ -20,6 +22,8 @@ export const GREEN = {
 
 export const BLUE = {
   _00: "#89C0DC",
+  _10: "#334678",
+  _15: "#B1D5E7",
   _20: "#CDE3F1",
 };
 
@@ -56,10 +60,25 @@ export const COLOUR = {
       },
       panel: {
         background: GREY._02,
+        border: GREY._09,
+      },
+      panelSolid: {
+        border: GREY._06,
+        background: GREY._06,
       },
       card: {
         digitalBet: {
           background: GREY._04,
+        },
+      },
+      tag: {
+        internal: {
+          border: BLUE._10,
+          background: BLUE._10,
+        },
+        external: {
+          border: GREY._50,
+          background: GREY._02,
         },
       },
       text: {
