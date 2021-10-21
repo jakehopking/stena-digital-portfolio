@@ -64,8 +64,8 @@ collections:
         name: "focus_areas"
         file: "content/focus_areas.json"
         fields:
-          - label: Focus Area Item
-            name: focus_area_item
+          - label: Focus Areas
+            name: focus_areas
             widget: list
             fields:
               - {label: "Title", name: "title", widget: "string"}
