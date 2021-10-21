@@ -10,28 +10,7 @@ import {organiseListByKey} from "../utils/general";
 export const databaseId = process.env.NOTION_DB_PORTFOLIO_TRACKER;
 
 const {overviewPanelData, cmsData} = data;
-const {digital_bets, focus_areas} = cmsData;
-
-const eventData = [
-  {
-    date: new Date(Date.now()),
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aliquid explicabo nobis et tempore a eligendi ex.",
-    tag: "internal",
-    title: "Workshop - Build a Conversion Sequence",
-  },
-  {
-    date: new Date(Date.now()),
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aliquid explicabo nobis et tempore a eligendi ex.",
-    tag: "internal",
-    title: "Workshop - Build a Conversion Sequence",
-  },
-  {
-    date: new Date(Date.now()),
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aliquid explicabo nobis et tempore a eligendi ex.",
-    tag: "external",
-    title: "Workshop - Build a Conversion Sequence",
-  },
-];
+const {digital_bets, focus_areas, events} = cmsData;
 
 const DashboardProjects = ({focusData, eventData}) => {
   return (
@@ -56,7 +35,7 @@ const DashboardProjects = ({focusData, eventData}) => {
   );
 };
 
-export default function ProductTeams({digital_bets, focus_areas}) {
+export default function ProductTeams({digital_bets, events, focus_areas}) {
   const {projects} = digital_bets;
 
   // const exploreList = organiseListByKey({
@@ -81,7 +60,7 @@ export default function ProductTeams({digital_bets, focus_areas}) {
         </SidePanel>
       }
     >
-      <DashboardProjects focusData={focus_areas.focus_areas} eventData={eventData} />
+      <DashboardProjects focusData={focus_areas.focus_areas} eventData={events.events} />
     </Layout>
   );
 }
@@ -90,6 +69,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       digital_bets,
+      events,
       focus_areas,
     },
     revalidate: 1,

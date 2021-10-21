@@ -1,12 +1,13 @@
 const EventListItem = ({date, title, desc, tag}) => {
-  const day = date.toLocaleString("en-gb", {day: "numeric"});
-  const month = date.toLocaleString("en-gb", {month: "short"});
+  const parsedDate = new Date(date);
+  const day = parsedDate.toLocaleString("en-gb", {day: "numeric"});
+  const month = parsedDate.toLocaleString("en-gb", {month: "short"});
 
   return (
     <li className="event-list__item">
       <div
         className={`event-list__tag ${
-          tag === "internal" ? "event-list__tag--internal" : "event-list__tag--external"
+          tag === "Internal" ? "event-list__tag--internal" : "event-list__tag--external"
         }`}
       >
         {tag}
