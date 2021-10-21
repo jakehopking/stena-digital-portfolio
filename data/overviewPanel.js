@@ -30,6 +30,44 @@ export const overviewPanelData = ({projects, effortValueMultiplier = 1000000}) =
         {label: "Total this year", count: projects.length},
       ],
     },
+    innovation: {
+      label: "Innovation investments",
+      chartData: [
+        {label: "one", value: 30},
+        {label: "two", value: 30},
+        {label: "three", value: 15},
+        {label: "four", value: 25},
+      ],
+    },
+    howMuchWeDo: {
+      label: "How much do we do?",
+      subLabel: {
+        label: "Innovation rate in total turnover",
+        value: 10,
+      },
+      progress: [
+        {
+          label: "Behaviour change progress",
+          value: 25,
+        },
+        {
+          label: "Values and attitudes progress",
+          value: 10,
+        },
+        {
+          label: "Culture change progress",
+          value: 33,
+        },
+      ],
+    },
+    trends: {
+      label: "Top recycling trends",
+      trendData: [
+        "Refillable parent packaging",
+        "Bulk dispenser refilling",
+        "Returnable/reusable packaging",
+      ],
+    },
     team: {
       label: "Team members",
       numbers: [

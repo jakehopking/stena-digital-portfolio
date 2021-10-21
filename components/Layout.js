@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Header from "./Header";
 
-const Layout = ({children, home, sideCol}) => {
+const Layout = ({children, home, sideCol, showGrid}) => {
   return (
     <div className="layout">
       <Head>
@@ -10,7 +10,7 @@ const Layout = ({children, home, sideCol}) => {
       </Head>
       <div className="main-container">
         <Header />
-        <main>{children}</main>
+        <main className={`${showGrid ? "show-grid" : ""}`}>{children}</main>
       </div>
       {sideCol && <aside className="side-container">{sideCol}</aside>}
     </div>

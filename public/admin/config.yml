@@ -55,3 +55,48 @@ collections:
                   name: "project_stakeholder",
                   widget: string,
                 }
+  - label: "Focus Areas"
+    name: "focus_areas"
+    editor:
+      preview: false
+    files:
+      - label: "Focus Areas"
+        name: "focus_areas"
+        file: "content/focus_areas.json"
+        fields:
+          - label: Focus Areas
+            name: focus_areas
+            widget: list
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+  - label: "Events"
+    name: "events"
+    editor:
+      preview: false
+    files:
+      - label: "Upcoming innovations events"
+        name: "events"
+        file: "content/events.json"
+        fields:
+          - label: Events
+            name: events
+            widget: list
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "desc", widget: "string"}
+              - {
+                  label: "Source",
+                  name: "tag",
+                  widget: "select",
+                  options: ["Internal", "External"],
+                  default: ["Internal"],
+                }
+              - {
+                  label: "Date",
+                  name: "date",
+                  widget: "datetime",
+                  default: "",
+                  date_format: "DD.MM.YYYY",
+                  time_format: false,
+                  picker_utc: true,
+                }

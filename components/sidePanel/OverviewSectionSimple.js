@@ -3,7 +3,7 @@ import LabelCount from "../molecules/LabelCount";
 const OverviewSectionSimple = ({data}) => {
   return (
     <div className="overview-panel__info u-mb-2x">
-      <h3 className="overview-panel__label o-type-4 u-color-text-accent u-weight-bold u-mb-sm">
+      <h3 className="overview-panel__label o-type-5 u-weight-bold u-mb-sm">
         {data.label}
       </h3>
       <div className="overview-panel__content">

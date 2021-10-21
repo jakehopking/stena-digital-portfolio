@@ -8,16 +8,22 @@ const Header = () => {
       <img className="header-main__logo" src="/logo_stena.svg" />
       <nav className="nav-main">
         <div
-          onClick={() => router.push("/")}
-          className={`nav-main__item u-ml-a ${isActive("/")}`}
+          onClick={() => router.push("/current-focus")}
+          className={`nav-main__item u-ml-a ${isActive("/current-focus")}`}
         >
-          <a>Portfolio</a>
+          <a>Current Focus</a>
         </div>
         <div
           onClick={() => router.push("/product-teams")}
           className={`nav-main__item ${isActive("/product-teams")}`}
         >
           <a>Product Teams</a>
+        </div>
+        <div
+          onClick={() => router.push("/")}
+          className={`nav-main__item ${isActive("/")}`}
+        >
+          <a>Portfolio</a>
         </div>
         <div
           onClick={() => router.push("/trends")}
