@@ -10,7 +10,6 @@ const {digital_bets} = cmsData;
 
 export default function ProductTeams({digital_bets}) {
   const {projects} = digital_bets;
-  debugger;
 
   return (
     <Layout

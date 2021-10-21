@@ -11,7 +11,10 @@ const OverviewSectionTrends = ({data}) => {
           <div className={`o-grid__col`}>
             {data.trendData.map((item, idx) => {
               return (
-                <div className="trends-list u-ai-center u-flex u-mb-md">
+                <div
+                  className="trends-list u-ai-center u-flex u-mb-md"
+                  key={idx + "overview-trend"}
+                >
                   <Circle
                     text={idx + 1}
                     radius={15}

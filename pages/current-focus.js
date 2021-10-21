@@ -12,7 +12,7 @@ export const databaseId = process.env.NOTION_DB_PORTFOLIO_TRACKER;
 const {overviewPanelData, cmsData} = data;
 const {digital_bets, focus_areas, events} = cmsData;
 
-const DashboardProjects = ({focusData, eventData}) => {
+const DashboardCurrentFocus = ({focusData, eventData}) => {
   return (
     <div className="dashboard-projects">
       <div className="container u-p-md u-mr-md">
@@ -35,7 +35,7 @@ const DashboardProjects = ({focusData, eventData}) => {
   );
 };
 
-export default function ProductTeams({digital_bets, events, focus_areas}) {
+export default function CurrentFocus({digital_bets, events, focus_areas}) {
   const {projects} = digital_bets;
 
   // const exploreList = organiseListByKey({
@@ -60,7 +60,10 @@ export default function ProductTeams({digital_bets, events, focus_areas}) {
         </SidePanel>
       }
     >
-      <DashboardProjects focusData={focus_areas.focus_areas} eventData={events.events} />
+      <DashboardCurrentFocus
+        focusData={focus_areas.focus_areas}
+        eventData={events.events}
+      />
     </Layout>
   );
 }

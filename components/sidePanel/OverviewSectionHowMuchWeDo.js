@@ -12,7 +12,7 @@ const OverviewSectionHowMuchWeDo = ({data}) => {
       <div className="overview-panel__content">
         <div className="o-grid">
           <div className={`o-grid__col`}>
-            {data.progress.map((item) => {
+            {data.progress.map((item, idx) => {
               return (
                 <ProgressBar
                   label={item.label}
@@ -22,6 +22,7 @@ const OverviewSectionHowMuchWeDo = ({data}) => {
                   trackColor="--color-grey-06"
                   showValue
                   className="u-mv"
+                  key={idx + "-" + item.label}
                 />
               );
             })}
