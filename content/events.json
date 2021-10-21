@@ -1,0 +1,22 @@
+{
+  "events": [
+    {
+      "tag": "Internal",
+      "date": "2021-10-26T00:00:00.000Z",
+      "title": "Workshop - Build a Conversion Sequence",
+      "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aliquid explicabo nobis et tempore a eligendi ex."
+    },
+    {
+      "tag": "External",
+      "date": "2021-11-23T00:00:00.000Z",
+      "title": " Electronics & Textile Recycling",
+      "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aliquid explicabo nobis et tempore a eligendi ex."
+    },
+    {
+      "tag": "Internal",
+      "date": "2022-01-11T00:00:00.000Z",
+      "title": "Workshop - Evolve platform",
+      "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aliquid explicabo nobis et tempore a eligendi ex."
+    }
+  ]
+}
