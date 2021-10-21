@@ -9,6 +9,7 @@ import {organiseListByKey} from "../utils/general";
 export const databaseId = process.env.NOTION_DB_PORTFOLIO_TRACKER;
 
 const {overviewPanelData, circlePackingOne, circlePackingTwo, cmsData} = data;
+const {digital_bets} = cmsData;
 
 const DashboardProjects = ({}) => {
   return (
@@ -25,8 +26,8 @@ const DashboardProjects = ({}) => {
   );
 };
 
-export default function ProductTeams({cmsData}) {
-  const {projects} = cmsData;
+export default function ProductTeams({digital_bets}) {
+  const {projects} = digital_bets;
 
   // const exploreList = organiseListByKey({
   //   listArray: projects,
@@ -58,7 +59,7 @@ export default function ProductTeams({cmsData}) {
 export const getStaticProps = async () => {
   return {
     props: {
-      cmsData,
+      digital_bets,
     },
     revalidate: 1,
   };

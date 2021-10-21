@@ -6,9 +6,11 @@ import data from "../data/data";
 import {getGroupedListByKey} from "../utils/general";
 
 const {overviewPanelData, circlePackingOne, circlePackingTwo, cmsData} = data;
+const {digital_bets} = cmsData;
 
-export default function ProductTeams({cmsData}) {
-  const {projects} = cmsData;
+export default function ProductTeams({digital_bets}) {
+  const {projects} = digital_bets;
+  debugger;
 
   return (
     <Layout
@@ -32,7 +34,7 @@ export default function ProductTeams({cmsData}) {
 export const getStaticProps = async () => {
   return {
     props: {
-      cmsData,
+      digital_bets,
     },
     revalidate: 1,
   };

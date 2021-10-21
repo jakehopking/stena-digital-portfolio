@@ -9,25 +9,8 @@ import {organiseListByKey} from "../utils/general";
 
 export const databaseId = process.env.NOTION_DB_PORTFOLIO_TRACKER;
 
-const {overviewPanelData, circlePackingOne, circlePackingTwo, cmsData} = data;
-
-const focusData = [
-  {
-    title: "Login problematic is the key for successful user experience",
-  },
-  {
-    title: "Login problematic is the key for successful user experience",
-  },
-  {
-    title: "Login problematic is the key for successful user experience",
-  },
-  {
-    title: "Login problematic is the key for successful user experience",
-  },
-  {
-    title: "Login problematic is the key for successful user experience",
-  },
-];
+const {overviewPanelData, cmsData} = data;
+const {digital_bets, focus_areas} = cmsData;
 
 const eventData = [
   {
@@ -73,18 +56,18 @@ const DashboardProjects = ({focusData, eventData}) => {
   );
 };
 
-export default function ProductTeams({cmsData}) {
-  const {projects} = cmsData;
+export default function ProductTeams({digital_bets, focus_areas}) {
+  const {projects} = digital_bets;
 
   // const exploreList = organiseListByKey({
   //   listArray: projects,
   //   filterList: phaseTitlesExploit,
   // });
-  const exploitList = organiseListByKey({
-    listArray: projects,
-    categoryName: "exploit",
-    filterList: phaseTitlesExploit,
-  });
+  // const exploitList = organiseListByKey({
+  //   listArray: projects,
+  //   categoryName: "exploit",
+  //   filterList: phaseTitlesExploit,
+  // });
 
   // console.log(maxEffort);
   // console.log(exploitList);
@@ -98,7 +81,7 @@ export default function ProductTeams({cmsData}) {
         </SidePanel>
       }
     >
-      <DashboardProjects focusData={focusData} eventData={eventData} />
+      <DashboardProjects focusData={focus_areas.focus_areas} eventData={eventData} />
     </Layout>
   );
 }
@@ -106,7 +89,8 @@ export default function ProductTeams({cmsData}) {
 export const getStaticProps = async () => {
   return {
     props: {
-      cmsData,
+      digital_bets,
+      focus_areas,
     },
     revalidate: 1,
   };
