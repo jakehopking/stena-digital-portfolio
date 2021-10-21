@@ -61,7 +61,8 @@ export const overviewPanelData = ({projects, effortValueMultiplier = 1000000}) =
       ],
     },
     trends: {
-      data: [
+      label: "Top recycling trends",
+      trendData: [
         "Refillable parent packaging",
         "Bulk dispenser refilling",
         "Returnable/reusable packaging",
