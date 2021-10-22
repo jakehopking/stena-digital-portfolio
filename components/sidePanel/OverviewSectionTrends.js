@@ -21,7 +21,9 @@ const OverviewSectionTrends = ({data}) => {
                     color="--color-primary-15"
                     className="trends-list__circle"
                   />
-                  <div className="trends-list__label u-ml u-weight-bold">{item}</div>
+                  <div className="trends-list__label u-ml u-weight-bold">
+                    {item.label}
+                  </div>
                 </div>
               );
             })}
