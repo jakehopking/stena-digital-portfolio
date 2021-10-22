@@ -1,0 +1,30 @@
+{
+  "progressData": {
+    "innovationRate": 15,
+    "progressBars": [
+      {
+        "label": "Behaviour change progress",
+        "value": 50
+      },
+      {
+        "label": "Values and attitudes progress",
+        "value": 35
+      },
+      {
+        "label": "Culture change progress",
+        "value": 80
+      }
+    ]
+  },
+  "recyclingTrends": [
+    {
+      "label": "Refillable parent packaging"
+    },
+    {
+      "label": "Bulk dispenser refilling"
+    },
+    {
+      "label": "Returnable/reusable packaging"
+    }
+  ]
+}

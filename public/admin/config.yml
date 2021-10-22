@@ -100,3 +100,47 @@ collections:
                   time_format: false,
                   picker_utc: true,
                 }
+  - label: "Overview Panel"
+    name: "overviewPanel"
+    editor:
+      preview: false
+    files:
+      - label: "Overview panel"
+        name: "overviewPanel"
+        file: "content/overviewPanel.json"
+        fields:
+          - label: "How much do we do?"
+            name: "progressData"
+            widget: "object"
+            fields:
+              - {
+                  label: Innovation rate in total turnover,
+                  name: innovationRate,
+                  widget: number,
+                  default: 0,
+                }
+              - label: "Progress bars"
+                name: "progressBars"
+                widget: list
+                max: 3
+                min: 1
+                fields:
+                  - {
+                      label: "Progress bar label",
+                      name: label,
+                      widget: string,
+                      default: "",
+                    }
+                  - {
+                      label: "Progress bar percentage",
+                      name: value,
+                      widget: number,
+                      default: 0,
+                    }
+          - label: "Top recycling trends"
+            name: "recyclingTrends"
+            widget: list
+            max: 3
+            min: 1
+            fields:
+              - {label: "Trend label", name: label, widget: string, default: ""}

@@ -1,7 +1,11 @@
 import {filterFn, multiplier} from "../utils/general";
 import {phaseTitlesExploit} from "./constants";
 
-export const overviewPanelData = ({projects, effortValueMultiplier = 1000000}) => {
+export const overviewPanelData = ({
+  projects,
+  overviewPanel,
+  effortValueMultiplier = 1000000,
+}) => {
   // Filter projects list, 'excluding' exploit entries
   const exploreList = projects.filter((item) =>
     filterFn(item.phase, phaseTitlesExploit, "exclude")
@@ -14,6 +18,9 @@ export const overviewPanelData = ({projects, effortValueMultiplier = 1000000}) =
   const teamExploration = projects.filter(
     (item) => item.product_team === "Exploration hub"
   );
+
+  // Overview panel data from netlify
+  const {progressData, recyclingTrends} = overviewPanel;
 
   return {
     projects: {
@@ -43,30 +50,13 @@ export const overviewPanelData = ({projects, effortValueMultiplier = 1000000}) =
       label: "How much do we do?",
       subLabel: {
         label: "Innovation rate in total turnover",
-        value: 10,
+        value: progressData.innovationRate,
       },
-      progress: [
-        {
-          label: "Behaviour change progress",
-          value: 25,
-        },
-        {
-          label: "Values and attitudes progress",
-          value: 10,
-        },
-        {
-          label: "Culture change progress",
-          value: 33,
-        },
-      ],
+      progress: progressData.progressBars,
     },
     trends: {
       label: "Top recycling trends",
-      trendData: [
-        "Refillable parent packaging",
-        "Bulk dispenser refilling",
-        "Returnable/reusable packaging",
-      ],
+      trendData: recyclingTrends,
     },
     team: {
       label: "Team members",

@@ -10,7 +10,7 @@ import {organiseListByKey} from "../utils/general";
 export const databaseId = process.env.NOTION_DB_PORTFOLIO_TRACKER;
 
 const {overviewPanelData, cmsData} = data;
-const {digital_bets, focus_areas, events} = cmsData;
+const {digital_bets, focus_areas, events, overviewPanel} = cmsData;
 
 const DashboardCurrentFocus = ({focusData, eventData}) => {
   return (
@@ -35,7 +35,7 @@ const DashboardCurrentFocus = ({focusData, eventData}) => {
   );
 };
 
-export default function CurrentFocus({digital_bets, events, focus_areas}) {
+export default function CurrentFocus({digital_bets, events, focus_areas, overviewPanel}) {
   const {projects} = digital_bets;
 
   // const exploreList = organiseListByKey({
@@ -56,7 +56,7 @@ export default function CurrentFocus({digital_bets, events, focus_areas}) {
       home
       sideCol={
         <SidePanel>
-          <OverviewPanel {...overviewPanelData({projects})} />
+          <OverviewPanel {...overviewPanelData({projects, overviewPanel})} />
         </SidePanel>
       }
     >
@@ -74,6 +74,7 @@ export const getStaticProps = async () => {
       digital_bets,
       events,
       focus_areas,
+      overviewPanel,
     },
     revalidate: 1,
   };
