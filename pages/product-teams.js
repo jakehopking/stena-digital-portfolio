@@ -6,7 +6,7 @@ import data from "../data/data";
 import {getGroupedListByKey} from "../utils/general";
 
 const {overviewPanelData, circlePackingOne, circlePackingTwo, cmsData} = data;
-const {digital_bets} = cmsData;
+const {digital_bets, overviewPanel} = cmsData;
 
 export default function ProductTeams({digital_bets}) {
   const {projects} = digital_bets;
@@ -17,7 +17,7 @@ export default function ProductTeams({digital_bets}) {
       showGrid
       sideCol={
         <SidePanel>
-          <OverviewPanel {...overviewPanelData({projects})} />
+          <OverviewPanel {...overviewPanelData({projects, overviewPanel})} />
         </SidePanel>
       }
     >
@@ -34,6 +34,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       digital_bets,
+      overviewPanel,
     },
     revalidate: 1,
   };
