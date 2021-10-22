@@ -20,7 +20,7 @@ export const overviewPanelData = ({
   );
 
   // Overview panel data from netlify
-  const {progressData, recyclingTrends} = overviewPanel;
+  const {progressData, recyclingTrends, innovationInvestments} = overviewPanel;
 
   return {
     projects: {
@@ -39,28 +39,7 @@ export const overviewPanelData = ({
     },
     innovation: {
       label: "Innovation investments",
-      chartData: [
-        {
-          id: "staff",
-          label: "Staff",
-          value: 100,
-        },
-        {
-          id: "events",
-          label: "Events",
-          value: 75,
-        },
-        {
-          id: "lab",
-          label: "Lab",
-          value: 200,
-        },
-        {
-          id: "culture",
-          label: "Culture",
-          value: 50,
-        },
-      ],
+      chartData: innovationInvestments,
     },
     howMuchWeDo: {
       label: "How much do we do?",
