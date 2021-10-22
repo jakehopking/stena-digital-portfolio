@@ -1,0 +1,19 @@
+{
+  "progressData": {
+    "progressBars": [
+      {
+        "label": "Behaviour change progress",
+        "value": 25
+      },
+      {
+        "label": "Values and attitudes progress",
+        "value": 15
+      },
+      {
+        "label": "Culture change progress",
+        "value": 56
+      }
+    ],
+    "innovationRate": 15
+  }
+}
