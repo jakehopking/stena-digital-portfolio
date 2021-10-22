@@ -9,7 +9,7 @@ import {organiseListByKey} from "../utils/general";
 export const databaseId = process.env.NOTION_DB_PORTFOLIO_TRACKER;
 
 const {overviewPanelData, circlePackingOne, circlePackingTwo, cmsData} = data;
-const {digital_bets} = cmsData;
+const {digital_bets, overviewPanel} = cmsData;
 
 const DashboardProjects = ({}) => {
   return (
@@ -47,7 +47,7 @@ export default function ProductTeams({digital_bets}) {
       home
       sideCol={
         <SidePanel>
-          <OverviewPanel {...overviewPanelData({projects})} />
+          <OverviewPanel {...overviewPanelData({projects, overviewPanel})} />
         </SidePanel>
       }
     >
@@ -60,6 +60,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       digital_bets,
+      overviewPanel,
     },
     revalidate: 1,
   };
