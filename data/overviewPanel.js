@@ -53,6 +53,7 @@ export const overviewPanelData = ({
       label: "Top recycling trends",
       trendData: recyclingTrends,
     },
+    // No longer used
     team: {
       label: "Team members",
       numbers: [
@@ -66,6 +67,7 @@ export const overviewPanelData = ({
         },
       ],
     },
+    // No longer used
     investments: {
       label: "Investments",
       chartData: [
@@ -84,10 +86,6 @@ export const overviewPanelData = ({
           ),
         },
       ],
-    },
-    roi: {
-      label: "Return on investments",
-      chartData: {},
     },
   };
 };
