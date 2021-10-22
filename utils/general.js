@@ -16,6 +16,14 @@ export const filterFn = (check, filterArr, filterType) => {
 
 export const multiplier = (val, factor) => val * factor;
 
+export const schemeType = (colorScheme) => {
+  if (!Array.isArray(colorScheme)) {
+    return {scheme: colorScheme};
+  } else {
+    return colorScheme;
+  }
+};
+
 export const getGroupedListByKey = ({array = [], key = ""}) => {
   // debugger;
   let data = {};

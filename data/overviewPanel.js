@@ -40,10 +40,26 @@ export const overviewPanelData = ({
     innovation: {
       label: "Innovation investments",
       chartData: [
-        {label: "one", value: 30},
-        {label: "two", value: 30},
-        {label: "three", value: 15},
-        {label: "four", value: 25},
+        {
+          id: "staff",
+          label: "Staff",
+          value: 100,
+        },
+        {
+          id: "events",
+          label: "Events",
+          value: 75,
+        },
+        {
+          id: "lab",
+          label: "Lab",
+          value: 200,
+        },
+        {
+          id: "culture",
+          label: "Culture",
+          value: 50,
+        },
       ],
     },
     howMuchWeDo: {
