@@ -6,6 +6,8 @@ import DashboardStage from "../components/organisms/DashboardStage";
 import data from "../data/data";
 import {phaseTitlesExploit} from "../data/constants";
 import {organiseListByKey, serializeRow} from "../utils/general";
+import {googleSheets, googleSheetsAuth} from "../data/constants";
+import {worksheetSurveyData} from "../utils/googleSheets";
 
 const {overviewPanelData, cmsData} = data;
 const {digital_bets, overviewPanel} = cmsData;
@@ -25,10 +27,11 @@ const DashboardProjects = ({}) => {
   );
 };
 
-export default function ProductTeams({digital_bets, test}) {
+export default function ProductTeams({digital_bets, techTrends}) {
+  // debugger;
   const {projects} = digital_bets;
 
-  console.log(test);
+  console.log(techTrends);
 
   return (
     <Layout
@@ -45,41 +48,18 @@ export default function ProductTeams({digital_bets, test}) {
 }
 
 export const getStaticProps = async () => {
-  // Initialize the sheet - doc ID is the long id in the sheets URL
-  const doc = new GoogleSpreadsheet(process.env.TECH_TRENDS_SHEET_ID);
-
-  // Initialize Auth - see more available options at https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
-  await doc.useServiceAccountAuth({
-    client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-    private_key: process.env.GOOGLE_PRIVATE_KEY,
+  const googleTechSheet = new GoogleSpreadsheet(googleSheets.techTrends.sheetId);
+  const techTrends = await worksheetSurveyData({
+    auth: googleSheetsAuth,
+    sheet: googleSheets.techTrends,
+    googleSpreadsheet: googleTechSheet,
   });
-
-  await doc.loadInfo(); // loads document properties and worksheets
-  console.log(doc.title);
-
-  const techWorksheet = doc.sheetsById[process.env.TECH_TRENDS_GID];
-  // console.log(techWorksheet);
-  const techTrends = await techWorksheet.getRows();
-  // const serializedRows = techTrends.map((row) => serializeRow(row, techTrends));
-  console.log(techTrends);
-  const test = techTrends.map((item) => {
-    let date, email, answer;
-    [date, email, answer] = item._rawData;
-    return {
-      date,
-      email,
-      answer,
-      // email: item["Email Address"],
-      // answer: item["What do you see as the most important tech trend for 2022?"],
-    };
-  });
-  console.log(test);
-  // // await doc.updateProperties({title: "renamed doc"});
 
   return {
     props: {
       digital_bets,
       overviewPanel,
+      techTrends,
     },
     revalidate: 1,
   };
