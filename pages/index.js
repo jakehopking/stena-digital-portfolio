@@ -6,9 +6,7 @@ import data from "../data/data";
 import {phaseTitlesExploit} from "../data/constants";
 import {organiseListByKey} from "../utils/general";
 
-export const databaseId = process.env.NOTION_DB_PORTFOLIO_TRACKER;
-
-const {overviewPanelData, circlePackingOne, circlePackingTwo, cmsData} = data;
+const {overviewPanelData, cmsData} = data;
 const {digital_bets, overviewPanel} = cmsData;
 
 const DashboardProjects = ({}) => {

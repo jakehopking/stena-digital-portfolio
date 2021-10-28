@@ -56,3 +56,11 @@ export const organiseListByKey = ({
     return {title: item, list: grouped[item]};
   });
 };
+
+export const serializeRow = (row, sheet) => {
+  let temp = {};
+  sheet.headerValues.map((header) => {
+    temp[header] = row[header];
+  });
+  return temp;
+};
