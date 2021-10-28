@@ -26,9 +26,11 @@ export const googleSheets = {
   techTrends: {
     sheetId: "15Npplc138znewXEbyi_RX3DYxhNKuEpI0OiQ-H_LDEU",
     worksheetId: "1559590224",
+    formId: "1J9pVD7d_t6r63PTmCpR4SpETjzr_-m0mbzMod2vgpQg",
   },
   recyclingTrends: {
     sheetId: "15Npplc138znewXEbyi_RX3DYxhNKuEpI0OiQ-H_LDEU",
     worksheetId: "1559590224",
+    formId: "1J9pVD7d_t6r63PTmCpR4SpETjzr_-m0mbzMod2vgpQg",
   },
 };

@@ -1,5 +1,3 @@
-import {GoogleSpreadsheet} from "google-spreadsheet";
-
 export const worksheetSurveyData = async ({
   auth,
   sheet,
@@ -40,6 +38,7 @@ export const worksheetSurveyData = async ({
   };
 };
 
-export const googleSheetUrl = (sheetId, worksheetId) => {
-  return `https://docs.google.com/spreadsheets/d/${sheetId}//edit?resourcekey#gid=${worksheetId}`;
-};
+export const googleSheetUrl = (sheetId, worksheetId) =>
+  `https://docs.google.com/spreadsheets/d/${sheetId}/edit?resourcekey#gid=${worksheetId}`;
+
+export const googleFormsUrl = (formId) => `https://docs.google.com/forms/d/${formId}`;

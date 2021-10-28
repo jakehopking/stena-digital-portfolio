@@ -7,7 +7,7 @@ import data from "../data/data";
 import {phaseTitlesExploit} from "../data/constants";
 import {organiseListByKey, serializeRow} from "../utils/general";
 import {googleSheets, googleSheetsAuth} from "../data/constants";
-import {worksheetSurveyData} from "../utils/googleSheets";
+import {worksheetSurveyData, googleFormsUrl, googleSheetUrl} from "../utils/googleSheets";
 
 const {overviewPanelData, cmsData} = data;
 const {digital_bets, overviewPanel} = cmsData;
@@ -16,7 +16,11 @@ const DashboardProjects = ({}) => {
   return (
     <div className="dashboard-projects">
       <div className="container">
-        <section className="dashboard-projects__title u-p">Trends</section>
+        <section className="dashboard-projects__title u-p">
+          <h2>Trends</h2>
+          <p>{googleFormsUrl(googleSheets.techTrends.formId)}</p>
+          {/* <p>{googleSheetUrl("test", "test")}</p> */}
+        </section>
         <section className="dashboard-projects__grid grid grid--250">
           <div className="grid-item"></div>
           <div className="grid-item"></div>
