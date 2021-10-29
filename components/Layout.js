@@ -9,8 +9,8 @@ const Layout = ({children, home, sideCol, showGrid}) => {
         <meta name="description" content="" />
       </Head>
       <div className="main-container">
-        <Header />
         <main className={`${showGrid ? "show-grid" : ""}`}>{children}</main>
+        <Header />
       </div>
       {sideCol && <aside className="side-container">{sideCol}</aside>}
     </div>

@@ -9,12 +9,18 @@ import {organiseListByKey} from "../utils/general";
 const {overviewPanelData, cmsData} = data;
 const {digital_bets, overviewPanel} = cmsData;
 
-const DashboardProjects = ({}) => {
+const DashboardPortfolio = ({}) => {
   return (
-    <div className="dashboard-projects">
+    <div className="dashboard dashboard--portfolio">
       <div className="container">
-        <section className="dashboard-projects__title u-p">All projects</section>
-        <section className="dashboard-projects__grid grid grid--250">
+        <section className="dashboard__title u-p">All projects</section>
+        <section className="dashboard__grid grid grid--250">
+          <div className="grid-item"></div>
+          <div className="grid-item"></div>
+          <div className="grid-item"></div>
+          <div className="grid-item"></div>
+          <div className="grid-item"></div>
+          <div className="grid-item"></div>
           <div className="grid-item"></div>
           <div className="grid-item"></div>
           <div className="grid-item"></div>
@@ -49,7 +55,7 @@ export default function ProductTeams({digital_bets}) {
         </SidePanel>
       }
     >
-      <DashboardProjects />
+      <DashboardPortfolio />
     </Layout>
   );
 }
