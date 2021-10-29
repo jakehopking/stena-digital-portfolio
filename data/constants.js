@@ -29,8 +29,8 @@ export const googleSheets = {
     formId: "1J9pVD7d_t6r63PTmCpR4SpETjzr_-m0mbzMod2vgpQg",
   },
   recyclingTrends: {
-    sheetId: "15Npplc138znewXEbyi_RX3DYxhNKuEpI0OiQ-H_LDEU",
-    worksheetId: "1559590224",
-    formId: "1J9pVD7d_t6r63PTmCpR4SpETjzr_-m0mbzMod2vgpQg",
+    sheetId: "145w93W9aPb3I-rtQKOClFIy5H4cs6D4PbFnTBRCqrAk",
+    worksheetId: "1662726542",
+    formId: "15RXaLyQMrlJ8-7yxOUL9G0lRNOVq3d9r4RPoG9Llsr4",
   },
 };

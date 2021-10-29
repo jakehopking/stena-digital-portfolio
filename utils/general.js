@@ -35,6 +35,14 @@ export const getGroupedListByKey = ({array = [], key = ""}) => {
   return data;
 };
 
+export const getTitleAndCount = ({object = {}}) =>
+  Object.entries(object).map((item) => {
+    return {
+      title: item[0],
+      count: item[1].length,
+    };
+  });
+
 export const organiseListByKey = ({
   categoryName = "explore",
   filterList = [],

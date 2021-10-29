@@ -47,3 +47,10 @@
     margin-left: auto;
   }
 }
+
+.progress-bar--survey {
+  .progress-bar {
+    flex: 0 0 93%;
+    align-self: center;
+  }
+}

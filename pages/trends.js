@@ -2,40 +2,17 @@ import {GoogleSpreadsheet} from "google-spreadsheet";
 import Layout, {siteTitle} from "../components/Layout";
 import SidePanel from "../components/sidePanel/SidePanel";
 import OverviewPanel from "../components/sidePanel/OverviewPanel";
-import DashboardStage from "../components/organisms/DashboardStage";
+import DashboardTrends from "../components/organisms/DashboardTrends";
 import data from "../data/data";
-import {phaseTitlesExploit} from "../data/constants";
-import {organiseListByKey, serializeRow} from "../utils/general";
 import {googleSheets, googleSheetsAuth} from "../data/constants";
 import {worksheetSurveyData, googleFormsUrl, googleSheetUrl} from "../utils/googleSheets";
 
 const {overviewPanelData, cmsData} = data;
 const {digital_bets, overviewPanel} = cmsData;
 
-const DashboardProjects = ({}) => {
-  return (
-    <div className="dashboard-projects">
-      <div className="container">
-        <section className="dashboard-projects__title u-p">
-          <h2>Trends</h2>
-          <p>{googleFormsUrl(googleSheets.techTrends.formId)}</p>
-          {/* <p>{googleSheetUrl("test", "test")}</p> */}
-        </section>
-        <section className="dashboard-projects__grid grid grid--250">
-          <div className="grid-item"></div>
-          <div className="grid-item"></div>
-          <div className="grid-item"></div>
-        </section>
-      </div>
-    </div>
-  );
-};
-
-export default function ProductTeams({digital_bets, techTrends}) {
+export default function ProductTeams({digital_bets, techTrends, recyclingTrends}) {
   // debugger;
   const {projects} = digital_bets;
-
-  console.log(techTrends);
 
   return (
     <Layout
@@ -46,12 +23,16 @@ export default function ProductTeams({digital_bets, techTrends}) {
         </SidePanel>
       }
     >
-      <DashboardProjects />
+      <DashboardTrends
+        techTrendsData={techTrends}
+        recyclingTrendsData={recyclingTrends}
+      />
     </Layout>
   );
 }
 
 export const getStaticProps = async () => {
+  // Tech
   const googleTechSheet = new GoogleSpreadsheet(googleSheets.techTrends.sheetId);
   const techTrends = await worksheetSurveyData({
     auth: googleSheetsAuth,
@@ -59,11 +40,22 @@ export const getStaticProps = async () => {
     googleSpreadsheet: googleTechSheet,
   });
 
+  // Recycling
+  const googleRecyclingSheet = new GoogleSpreadsheet(
+    googleSheets.recyclingTrends.sheetId
+  );
+  const recyclingTrends = await worksheetSurveyData({
+    auth: googleSheetsAuth,
+    sheet: googleSheets.recyclingTrends,
+    googleSpreadsheet: googleRecyclingSheet,
+  });
+
   return {
     props: {
       digital_bets,
       overviewPanel,
       techTrends,
+      recyclingTrends,
     },
     revalidate: 1,
   };

@@ -1,17 +1,15 @@
 import {useState, useEffect, useReducer} from "react";
 import SurveyListItem from "../molecules/SurveyListItem";
 
-const SurveyList = ({data, total, color}) => {
-  const showCountDefault = 2;
+const SurveyList = ({data, total, color, hideAllCount = 7}) => {
   const listLength = data.length;
   const [hideAll, setHideAll] = useState(true);
-  const [showCount, setShowCount] = useState(showCountDefault);
+  const [showCount, setShowCount] = useState(hideAllCount);
   const [surveyList, setSurveyList] = useState(data.slice(0, showCount));
 
   const onShowAll = () => {
     setHideAll(!hideAll);
-
-    hideAll ? setShowCount(undefined) : setShowCount(showCountDefault);
+    hideAll ? setShowCount(undefined) : setShowCount(hideAllCount);
   };
 
   useEffect(() => {
@@ -35,8 +33,10 @@ const SurveyList = ({data, total, color}) => {
           );
         })}
       </ul>
-      {listLength >= showCountDefault && (
-        <button onClick={onShowAll}>{hideAll ? "View all" : "Hide all"}</button>
+      {listLength > hideAllCount && (
+        <button onClick={onShowAll} className="button">
+          {hideAll ? "View all" : "Hide all"}
+        </button>
       )}
     </>
   );
