@@ -1,9 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import {useEffect, useMemo} from "react";
+import {createPortal} from "react-dom";
 
 const Portal = ({children, parent, className}) => {
-  const el = React.useMemo(() => document.createElement("div"), []);
-  React.useEffect(() => {
+  const el = useMemo(() => document.createElement("div"), []);
+  useEffect(() => {
     const target = parent && parent.appendChild ? parent : document.body;
     const classList = ["portal-container"];
     if (className) className.split(" ").forEach((item) => classList.push(item));
@@ -13,7 +13,7 @@ const Portal = ({children, parent, className}) => {
       target.removeChild(el);
     };
   }, [el, parent, className]);
-  return ReactDOM.createPortal(children, el);
+  return createPortal(children, el);
 };
 
 export default Portal;
