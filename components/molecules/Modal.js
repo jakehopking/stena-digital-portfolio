@@ -1,61 +1,26 @@
 import React from "react";
 import styled from "styled-components";
+import {FiXCircle} from "react-icons/fi";
 import "wicg-inert";
 
 import Portal from "./portal";
 
-const Backdrop = styled.div`
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(51, 51, 51, 0.3);
-  backdrop-filter: blur(1px);
-  opacity: 0;
-  transition: all 100ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition-delay: 200ms;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  & .modal-content {
-    transform: translateY(100px);
-    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0;
-  }
-
-  &.active {
-    transition-duration: 250ms;
-    transition-delay: 0ms;
-    opacity: 1;
-
-    & .modal-content {
-      transform: translateY(0);
-      opacity: 1;
-      transition-delay: 150ms;
-      transition-duration: 350ms;
-    }
-  }
-`;
-
-const Content = styled.div`
-  position: relative;
-  padding: 20px;
-  box-sizing: border-box;
-  min-height: 50px;
-  min-width: 50px;
-  max-height: 80%;
-  max-width: 80%;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  background-color: white;
-  border-radius: 2px;
-`;
-
-export default function Modal(props) {
+const Modal = ({
+  children,
+  ref = "#__next",
+  size,
+  open,
+  onClose,
+  locked,
+  closeType = "icon",
+  closeButtonText = "Close",
+  closeIcon,
+}) => {
   const [active, setActive] = React.useState(false);
-  const {open, onClose, locked} = props;
   const backdrop = React.useRef(null);
+
+  let Icon;
+  !closeIcon ? (Icon = FiXCircle) : (Icon = closeIcon);
 
   React.useEffect(() => {
     const {current} = backdrop;
@@ -76,7 +41,7 @@ export default function Modal(props) {
       window.setTimeout(() => {
         document.activeElement.blur();
         setActive(open);
-        document.querySelector("#__next").setAttribute("inert", "true");
+        document.querySelector(ref).setAttribute("inert", "true");
       }, 10);
     }
 
@@ -86,7 +51,7 @@ export default function Modal(props) {
         current.removeEventListener("click", clickHandler);
       }
 
-      document.querySelector("#__next").removeAttribute("inert");
+      document.querySelector(ref).removeAttribute("inert");
       window.removeEventListener("keyup", keyHandler);
     };
   }, [open, locked, onClose]);
@@ -94,12 +59,34 @@ export default function Modal(props) {
   return (
     <React.Fragment>
       {(open || active) && (
-        <Portal className="modal-portal">
-          <Backdrop ref={backdrop} className={active && open && "active"}>
-            <Content className="modal-content">{props.children}</Content>
-          </Backdrop>
+        <Portal className="modal">
+          <div
+            ref={backdrop}
+            className={`modal__backdrop ${active && open && "modal__backdrop--active"}`}
+          >
+            <div className={`modal__content-container`}>
+              <div className="modal__close">
+                {closeType === "button" ? (
+                  <button className="modal__close-button button" onClick={onClose}>
+                    {closeButtonText && closeButtonText}
+                  </button>
+                ) : (
+                  <Icon
+                    className="modal__close-icon icon icon--close"
+                    onClick={onClose}
+                    size="2em"
+                  />
+                )}
+              </div>
+              <div className={`modal__content ${size ? "modal__content--" + size : ""}`}>
+                {children}
+              </div>
+            </div>
+          </div>
         </Portal>
       )}
     </React.Fragment>
   );
-}
+};
+
+export default Modal;

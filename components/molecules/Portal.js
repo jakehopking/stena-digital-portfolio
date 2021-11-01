@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-export default function Portal({children, parent, className}) {
+const Portal = ({children, parent, className}) => {
   const el = React.useMemo(() => document.createElement("div"), []);
   React.useEffect(() => {
     const target = parent && parent.appendChild ? parent : document.body;
@@ -14,4 +14,6 @@ export default function Portal({children, parent, className}) {
     };
   }, [el, parent, className]);
   return ReactDOM.createPortal(children, el);
-}
+};
+
+export default Portal;

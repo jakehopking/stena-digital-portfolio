@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useRef} from "react";
 import Image from "next/image";
 import Layout, {siteTitle} from "../components/Layout";
 import SidePanel from "../components/sidePanel/SidePanel";
@@ -12,7 +12,8 @@ const {overviewPanelData, cmsData} = data;
 const {digital_bets, overviewPanel, shortcutImage} = cmsData;
 
 const DashboardPortfolio = ({}) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const mainRef = useRef("#__main");
   const {shortcut_image} = shortcutImage;
 
   return (
@@ -23,35 +24,20 @@ const DashboardPortfolio = ({}) => {
           <div className="grid-item">
             <button
               onClick={() => {
-                setIsOpen(true);
+                setModalOpen(true);
               }}
             >
-              Open Modal
+              Shortcut Image
             </button>
             <Modal
               onClose={() => {
-                setIsOpen(false);
+                setModalOpen(false);
               }}
-              open={isOpen}
-              width={"100%"}
+              open={modalOpen}
+              size="fill"
+              ref={mainRef}
             >
-              <div className="modal-content modal-content--fill">
-                <Image
-                  layout="responsive"
-                  width="400px"
-                  height="300px"
-                  src={shortcut_image}
-                />
-                <p style={{textAlign: "center"}}>
-                  <button
-                    onClick={() => {
-                      setIsOpen(false);
-                    }}
-                  >
-                    Close
-                  </button>
-                </p>
-              </div>
+              <img src={shortcut_image} />
             </Modal>
           </div>
           <div className="grid-item"></div>
