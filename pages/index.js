@@ -11,10 +11,8 @@ import {organiseListByKey} from "../utils/general";
 const {overviewPanelData, cmsData} = data;
 const {digital_bets, overviewPanel, shortcutImage} = cmsData;
 
-const DashboardPortfolio = ({}) => {
+const DashboardPortfolio = ({shortcutImage}) => {
   const [modalOpen, setModalOpen] = useState(false);
-  const mainRef = useRef("#__main");
-  const {shortcut_image} = shortcutImage;
 
   return (
     <div className="dashboard dashboard--portfolio">
@@ -36,7 +34,7 @@ const DashboardPortfolio = ({}) => {
               open={modalOpen}
               size="fill"
             >
-              <img src={shortcut_image} />
+              <img src={shortcutImage} />
             </Modal>
           </div>
           <div className="grid-item"></div>
@@ -53,8 +51,9 @@ const DashboardPortfolio = ({}) => {
   );
 };
 
-export default function ProductTeams({digital_bets}) {
+export default function ProductTeams({digital_bets, shortcutImage}) {
   const {projects} = digital_bets;
+  const {shortcut_image} = shortcutImage;
 
   // const exploreList = organiseListByKey({
   //   listArray: projects,
@@ -78,7 +77,7 @@ export default function ProductTeams({digital_bets}) {
         </SidePanel>
       }
     >
-      <DashboardPortfolio />
+      <DashboardPortfolio shortcutImage={shortcut_image} />
     </Layout>
   );
 }
@@ -88,6 +87,7 @@ export const getStaticProps = async () => {
     props: {
       digital_bets,
       overviewPanel,
+      shortcutImage,
     },
     revalidate: 1,
   };
