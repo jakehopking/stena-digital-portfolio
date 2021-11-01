@@ -6,6 +6,7 @@ import {NetlifyCMSContext} from "../context/netlifyCmsContext";
 import {COLOUR, SIZE, PALLET} from "../theme/theme";
 import {GlobalStyles} from "../styles/global";
 import netlifyCMSData from "../content/digital_bets.json";
+import {cmsData} from "../data/data";
 
 function Application({Component, pageProps}) {
   const [theme, setTheme] = useState("dark");
@@ -24,7 +25,7 @@ function Application({Component, pageProps}) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      <NetlifyCMSContext.Provider value={netlifyCMSData}>
+      <NetlifyCMSContext.Provider value={cmsData}>
         <ThemeProvider
           theme={{
             color: COLOUR.theme[theme],

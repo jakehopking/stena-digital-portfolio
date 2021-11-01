@@ -16,17 +16,17 @@ const DigitalBetItem = ({
   phase,
   stakeholder,
 }) => {
-  // debugger;
   const [colors, setColors] = useState({});
   const isSmall = Boolean(size === "small");
   const bigBetText = "Big Bet";
-  const {projects} = useContext(NetlifyCMSContext);
+  const {digital_bets} = useContext(NetlifyCMSContext);
 
   const maxEffort = Math.max(
-    ...Object.keys(getGroupedListByKey({array: projects, key: "effort"}))
+    ...Object.keys(getGroupedListByKey({array: digital_bets.projects, key: "effort"}))
   );
 
   const circleSizeScale = effort / maxEffort;
+  // debugger;
 
   const BigBet = () =>
     bigBet && (
