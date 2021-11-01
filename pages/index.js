@@ -35,7 +35,6 @@ const DashboardPortfolio = ({}) => {
               }}
               open={modalOpen}
               size="fill"
-              ref={mainRef}
             >
               <img src={shortcut_image} />
             </Modal>

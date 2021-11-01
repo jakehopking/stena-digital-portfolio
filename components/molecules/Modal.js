@@ -1,5 +1,4 @@
-import React from "react";
-import styled from "styled-components";
+import {useState, useRef, useEffect} from "react";
 import {FiXCircle} from "react-icons/fi";
 import "wicg-inert";
 
@@ -16,13 +15,13 @@ const Modal = ({
   closeButtonText = "Close",
   closeIcon,
 }) => {
-  const [active, setActive] = React.useState(false);
-  const backdrop = React.useRef(null);
+  const [active, setActive] = useState(false);
+  const backdrop = useRef(null);
 
   let Icon;
   !closeIcon ? (Icon = FiXCircle) : (Icon = closeIcon);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const {current} = backdrop;
 
     const transitionEnd = () => setActive(open);
@@ -57,7 +56,7 @@ const Modal = ({
   }, [open, locked, onClose]);
 
   return (
-    <React.Fragment>
+    <>
       {(open || active) && (
         <Portal className="modal">
           <div
@@ -85,7 +84,7 @@ const Modal = ({
           </div>
         </Portal>
       )}
-    </React.Fragment>
+    </>
   );
 };
 
