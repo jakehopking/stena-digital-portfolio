@@ -7,6 +7,7 @@ const ProgressBar = ({
   label,
   className,
   showValue,
+  valueSymbol,
 }) => {
   const progressCalc = (value / total) * 100;
 
@@ -23,7 +24,12 @@ const ProgressBar = ({
           style={{width: `${progressCalc}%`, backgroundColor: `var(${barColor})`}}
         ></div>
       </div>
-      {showValue && <div className="progress-bar__value">{value}%</div>}
+      {showValue && (
+        <div className="progress-bar__value">
+          {value}
+          {valueSymbol}
+        </div>
+      )}
     </div>
   );
 };
@@ -37,6 +43,7 @@ ProgressBar.defaultProps = {
   label: "",
   className: "",
   showValue: false,
+  valueSymbol: "%",
 };
 
 export default ProgressBar;

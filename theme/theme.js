@@ -170,6 +170,12 @@ export const SIZE = {
 export const CHART_SCHEMES = {
   one: ["rgba(0, 0, 0, 0.0)", "rgba(98, 187, 100, 1)", "rgba(235, 231, 224, 1)"],
   two: ["rgba(0, 0, 0, 0.0)", "rgba(177, 213, 231, 1)", "rgba(137, 192, 220, 1)"],
+  three: [
+    "rgba(51, 70, 120, 1)",
+    "rgba(137, 192, 220, 1)",
+    "rgba(236, 236, 236, 1)",
+    "rgba(102, 199, 123, 1)",
+  ],
 };
 
 export const COLOUR_MAP = {
@@ -183,6 +189,38 @@ export const CHART_THEME = {
   textColor: GREY._00,
   labelTextColor: GREY._00,
   fontSize: 12,
+  // axis: {
+  //   domain: {
+  //     line: {
+  //       stroke: "#777777",
+  //       strokeWidth: 1,
+  //     },
+  //   },
+  //   ticks: {
+  //     line: {
+  //       stroke: "#777777",
+  //       strokeWidth: 1,
+  //     },
+  //   },
+  // },
+  // grid: {
+  //   line: {
+  //     stroke: "#dddddd",
+  //     strokeWidth: 1,
+  //   },
+  // },
+};
+
+export const OVERVIEW_PIE_THEME = {
+  background: "transparent",
+  textColor: GREY._100,
+  labelTextColor: GREY._100,
+  fontSize: 12,
+  legends: {
+    text: {
+      fill: GREY._100,
+    },
+  },
   // axis: {
   //   domain: {
   //     line: {

@@ -1,0 +1,38 @@
+.button,
+button {
+  --font-weight: var(--fw-3);
+  display: inline-flex;
+  color: white;
+  border: 1px solid var(--color-btn-nav-bg-active);
+  background-color: transparent;
+  border-radius: var(--radius-btn);
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: var(--font-weight);
+  font-size: 100%;
+  cursor: pointer;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-bottom: 0;
+  min-width: 100px;
+  line-height: 2.4;
+  padding-right: 1em;
+  padding-left: 1em;
+  touch-action: manipulation;
+  &:hover {
+    border: 1px solid;
+    // background-color: var(--color-btn-nav-bg-active);
+  }
+
+  &--fill {
+    margin: 0;
+  }
+  &--active,
+  &:active {
+    --font-weight: var(--fw-4);
+    // background-color: var(--color-btn-nav-bg-active);
+    border: 1px solid;
+  }
+}

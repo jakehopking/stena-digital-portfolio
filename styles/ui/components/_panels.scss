@@ -1,7 +1,7 @@
 .panel {
   display: flex;
   flex-direction: column;
-
+  overflow-y: auto;
   &--row {
     flex-direction: row;
   }

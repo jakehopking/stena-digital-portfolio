@@ -26,5 +26,27 @@
     {
       "label": "Returnable/reusable packaging"
     }
+  ],
+  "innovationInvestments": [
+    {
+      "label": "Staff",
+      "id": "staff",
+      "value": 50
+    },
+    {
+      "label": "Events",
+      "id": "events",
+      "value": 100
+    },
+    {
+      "label": "Lab",
+      "id": "lab",
+      "value": 150
+    },
+    {
+      "label": "Culture",
+      "id": "culture",
+      "value": 75
+    }
   ]
 }

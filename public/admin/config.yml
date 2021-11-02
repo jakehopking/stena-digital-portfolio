@@ -109,6 +109,15 @@ collections:
         name: "overviewPanel"
         file: "content/overviewPanel.json"
         fields:
+          - label: "Innovation investments"
+            name: "innovationInvestments"
+            widget: list
+            max: 5
+            min: 1
+            fields:
+              - {label: "Chart label", name: label, widget: string, default: ""}
+              - {label: "ID", name: id, widget: string, default: ""}
+              - {label: "Chart value", name: value, widget: number, default: 0}
           - label: "How much do we do?"
             name: "progressData"
             widget: "object"
@@ -144,3 +153,21 @@ collections:
             min: 1
             fields:
               - {label: "Trend label", name: label, widget: string, default: ""}
+  - label: "Shortcut Image"
+    name: "shortcut_image"
+    editor:
+      preview: true
+    files:
+      - label: "Shortcut Image"
+        name: "shortcutImage"
+        file: "content/shortcutImage.json"
+        widget: "object"
+        fields:
+          - {
+              label: "Shortcut Image",
+              name: shortcut_image,
+              widget: image,
+              choose_url: true,
+              default: "/images/uploads/shortcut_image.jpg",
+              media_library: {config: {multiple: false}},
+            }

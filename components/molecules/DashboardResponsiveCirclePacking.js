@@ -1,19 +1,12 @@
 import {ResponsiveCirclePacking} from "@nivo/circle-packing";
 import styled from "styled-components";
+import {schemeType} from "../../utils/general";
 
 const ChartToolTip = styled.div`
   &::before {
     background-color: ${(props) => props.color};
   }
 `;
-
-const schemeType = (colorScheme) => {
-  if (!Array.isArray(colorScheme)) {
-    return {scheme: colorScheme};
-  } else {
-    return colorScheme;
-  }
-};
 
 const DashboardResponsiveCirclePacking = ({data, height, theme, colorScheme}) => {
   return (

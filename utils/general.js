@@ -16,6 +16,14 @@ export const filterFn = (check, filterArr, filterType) => {
 
 export const multiplier = (val, factor) => val * factor;
 
+export const schemeType = (colorScheme) => {
+  if (!Array.isArray(colorScheme)) {
+    return {scheme: colorScheme};
+  } else {
+    return colorScheme;
+  }
+};
+
 export const getGroupedListByKey = ({array = [], key = ""}) => {
   // debugger;
   let data = {};
@@ -26,6 +34,14 @@ export const getGroupedListByKey = ({array = [], key = ""}) => {
   });
   return data;
 };
+
+export const getTitleAndCount = ({object = {}}) =>
+  Object.entries(object).map((item) => {
+    return {
+      title: item[0],
+      count: item[1].length,
+    };
+  });
 
 export const organiseListByKey = ({
   categoryName = "explore",
@@ -47,4 +63,12 @@ export const organiseListByKey = ({
   return Object.keys(grouped).map((item) => {
     return {title: item, list: grouped[item]};
   });
+};
+
+export const serializeRow = (row, sheet) => {
+  let temp = {};
+  sheet.headerValues.map((header) => {
+    temp[header] = row[header];
+  });
+  return temp;
 };

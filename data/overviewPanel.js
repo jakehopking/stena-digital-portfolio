@@ -20,7 +20,7 @@ export const overviewPanelData = ({
   );
 
   // Overview panel data from netlify
-  const {progressData, recyclingTrends} = overviewPanel;
+  const {progressData, recyclingTrends, innovationInvestments} = overviewPanel;
 
   return {
     projects: {
@@ -39,12 +39,7 @@ export const overviewPanelData = ({
     },
     innovation: {
       label: "Innovation investments",
-      chartData: [
-        {label: "one", value: 30},
-        {label: "two", value: 30},
-        {label: "three", value: 15},
-        {label: "four", value: 25},
-      ],
+      chartData: innovationInvestments,
     },
     howMuchWeDo: {
       label: "How much do we do?",
@@ -58,6 +53,7 @@ export const overviewPanelData = ({
       label: "Top recycling trends",
       trendData: recyclingTrends,
     },
+    // No longer used
     team: {
       label: "Team members",
       numbers: [
@@ -71,6 +67,7 @@ export const overviewPanelData = ({
         },
       ],
     },
+    // No longer used
     investments: {
       label: "Investments",
       chartData: [
@@ -89,10 +86,6 @@ export const overviewPanelData = ({
           ),
         },
       ],
-    },
-    roi: {
-      label: "Return on investments",
-      chartData: {},
     },
   };
 };

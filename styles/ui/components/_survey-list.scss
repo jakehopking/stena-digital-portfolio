@@ -1,0 +1,23 @@
+.survey-list {
+  position: relative;
+  margin: var(--su-3) 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.survey-list__item {
+  display: flex;
+  position: relative;
+  padding: var(--su-3) var(--su-2);
+  & + & {
+    margin-top: var(--su-1);
+  }
+}
+
+.survey-list__index {
+  min-width: 26px;
+}
+
+.survey-list__progress {
+  width: 100%;
+}
