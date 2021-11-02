@@ -10,9 +10,9 @@
     "deploy": "npm run build && npm run export"
   },
   "dependencies": {
-    "@nivo/circle-packing": "^0.70.1",
-    "@nivo/core": "^0.70.1",
-    "@nivo/pie": "^0.74.0",
+    "@nivo/circle-packing": "latest",
+    "@nivo/core": "latest",
+    "@nivo/pie": "latest",
     "@notionhq/client": "^0.1.8",
     "babel": "^6.23.0",
     "babel-plugin-styled-components": "^1.12.0",
@@ -23,7 +23,7 @@
     "lodash": "^4.17.21",
     "millify": "^4.0.0",
     "net": "^1.0.2",
-    "next": "latest",
+    "next": "^10.2.3",
     "npm": "^7.17.0",
     "react": "17.x",
     "react-dom": "17.x",
