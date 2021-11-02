@@ -1,3 +1,8 @@
+require("dotenv").config({
+  path: `./.env.${process.env.NODE_ENV}`,
+});
+// const private_key = process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n");
+
 export const productTeamsDigitalBets = ["Now", "Next", "Future"];
 
 export const phaseTitles = [
@@ -17,13 +22,13 @@ export const phaseTitles = [
 export const phaseTitlesExplore = phaseTitles.slice(0, 9);
 export const phaseTitlesExploit = phaseTitles.slice(9);
 
-export const googleSheetsAuth = {
-  client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-  private_key:
-    process.env.NODE_ENV === "production"
-      ? process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n")
-      : process.env.GOOGLE_PRIVATE_KEY,
-};
+// export const googleSheetsAuth = {
+//   client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+//   // private_key,
+//   private_key: Buffer.from(process.env.GOOGLE_PRIVATE_KEY_64, "base64").toString("ascii"),
+//   // private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+//   // private_key: Buffer.from(process.env.GOOGLE_PRIVATE_KEY_64, "base64"),
+// };
 
 export const googleSheets = {
   techTrends: {

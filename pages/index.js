@@ -1,5 +1,4 @@
 import {useState, useRef} from "react";
-import Image from "next/image";
 import Layout, {siteTitle} from "../components/Layout";
 import SidePanel from "../components/sidePanel/SidePanel";
 import OverviewPanel from "../components/sidePanel/OverviewPanel";

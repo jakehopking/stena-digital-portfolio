@@ -35,7 +35,12 @@ export const getStaticProps = async () => {
   // Tech
   const googleTechSheet = new GoogleSpreadsheet(googleSheets.techTrends.sheetId);
   const techTrends = await worksheetSurveyData({
-    auth: googleSheetsAuth,
+    auth: {
+      client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+      private_key: Buffer.from(process.env.GOOGLE_PRIVATE_KEY_64, "base64").toString(
+        "ascii"
+      ),
+    },
     sheet: googleSheets.techTrends,
     googleSpreadsheet: googleTechSheet,
   });
@@ -45,7 +50,12 @@ export const getStaticProps = async () => {
     googleSheets.recyclingTrends.sheetId
   );
   const recyclingTrends = await worksheetSurveyData({
-    auth: googleSheetsAuth,
+    auth: {
+      client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+      private_key: Buffer.from(process.env.GOOGLE_PRIVATE_KEY_64, "base64").toString(
+        "ascii"
+      ),
+    },
     sheet: googleSheets.recyclingTrends,
     googleSpreadsheet: googleRecyclingSheet,
   });
