@@ -19,7 +19,10 @@ export const phaseTitlesExploit = phaseTitles.slice(9);
 
 export const googleSheetsAuth = {
   client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-  private_key: process.env.GOOGLE_PRIVATE_KEY,
+  private_key:
+    process.env.NODE_ENV === "production"
+      ? process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n")
+      : process.env.GOOGLE_PRIVATE_KEY,
 };
 
 export const googleSheets = {
