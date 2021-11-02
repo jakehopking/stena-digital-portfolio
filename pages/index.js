@@ -89,6 +89,5 @@ export const getStaticProps = async () => {
       overviewPanel,
       shortcutImage,
     },
-    revalidate: 1,
   };
 };

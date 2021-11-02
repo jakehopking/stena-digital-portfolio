@@ -36,6 +36,5 @@ export const getStaticProps = async () => {
       digital_bets,
       overviewPanel,
     },
-    revalidate: 1,
   };
 };

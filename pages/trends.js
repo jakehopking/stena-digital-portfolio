@@ -57,6 +57,5 @@ export const getStaticProps = async () => {
       techTrends,
       recyclingTrends,
     },
-    revalidate: 1,
   };
 };

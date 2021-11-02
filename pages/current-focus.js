@@ -48,6 +48,5 @@ export const getStaticProps = async () => {
       focus_areas,
       overviewPanel,
     },
-    revalidate: 1,
   };
 };
