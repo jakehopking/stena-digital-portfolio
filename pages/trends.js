@@ -32,16 +32,15 @@ export default function ProductTeams({digital_bets, techTrends, recyclingTrends}
 }
 
 export const getStaticProps = async () => {
+  const auth = {
+    client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+    private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+  };
+
   // Tech
   const googleTechSheet = new GoogleSpreadsheet(googleSheets.techTrends.sheetId);
   const techTrends = await worksheetSurveyData({
-    auth: {
-      client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      private_key: Buffer.from(
-        process.env.GOOGLE_PRIVATE_KEY_BASE64_STENA,
-        "base64"
-      ).toString("ascii"),
-    },
+    auth,
     sheet: googleSheets.techTrends,
     googleSpreadsheet: googleTechSheet,
   });
@@ -51,13 +50,7 @@ export const getStaticProps = async () => {
     googleSheets.recyclingTrends.sheetId
   );
   const recyclingTrends = await worksheetSurveyData({
-    auth: {
-      client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      private_key: Buffer.from(
-        process.env.GOOGLE_PRIVATE_KEY_BASE64_STENA,
-        "base64"
-      ).toString("ascii"),
-    },
+    auth,
     sheet: googleSheets.recyclingTrends,
     googleSpreadsheet: googleRecyclingSheet,
   });
