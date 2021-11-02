@@ -37,9 +37,10 @@ export const getStaticProps = async () => {
   const techTrends = await worksheetSurveyData({
     auth: {
       client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      private_key: Buffer.from(process.env.GOOGLE_PRIVATE_KEY_64, "base64").toString(
-        "ascii"
-      ),
+      private_key: Buffer.from(
+        process.env.GOOGLE_PRIVATE_KEY_BASE64_STENA,
+        "base64"
+      ).toString("ascii"),
     },
     sheet: googleSheets.techTrends,
     googleSpreadsheet: googleTechSheet,
@@ -52,9 +53,10 @@ export const getStaticProps = async () => {
   const recyclingTrends = await worksheetSurveyData({
     auth: {
       client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      private_key: Buffer.from(process.env.GOOGLE_PRIVATE_KEY_64, "base64").toString(
-        "ascii"
-      ),
+      private_key: Buffer.from(
+        process.env.GOOGLE_PRIVATE_KEY_BASE64_STENA,
+        "base64"
+      ).toString("ascii"),
     },
     sheet: googleSheets.recyclingTrends,
     googleSpreadsheet: googleRecyclingSheet,
