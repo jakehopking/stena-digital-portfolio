@@ -1,0 +1,74 @@
+{
+  "products": [
+    {
+      "phase": "Future",
+      "big_bet": true,
+      "feature": false,
+      "status": "Ongoing",
+      "date_resume": "",
+      "date_added": "2021-11-04T01:24:45.112Z",
+      "product_name": "Sales of consumables",
+      "effort": 100
+    },
+    {
+      "phase": "Next",
+      "big_bet": false,
+      "feature": true,
+      "status": "Ongoing",
+      "date_resume": "",
+      "date_added": "2021-11-04T01:25:09.480Z",
+      "product_name": "Calculator widget thing",
+      "effort": 90
+    },
+    {
+      "phase": "0%",
+      "big_bet": false,
+      "feature": false,
+      "status": "Ongoing",
+      "date_resume": "",
+      "date_added": "2021-11-04T01:26:04.531Z",
+      "product_name": "Material Lab",
+      "effort": 60
+    },
+    {
+      "phase": "50%",
+      "big_bet": true,
+      "feature": true,
+      "status": "Ongoing",
+      "date_resume": "",
+      "date_added": "2021-11-04T01:26:22.823Z",
+      "product_name": "Evolve by Stena",
+      "effort": 55
+    },
+    {
+      "phase": "Launched",
+      "big_bet": false,
+      "feature": false,
+      "status": "Ongoing",
+      "date_resume": "",
+      "date_added": "2021-11-04T01:26:56.709Z",
+      "product_name": "Circular calculator",
+      "effort": 30
+    },
+    {
+      "phase": "50%",
+      "big_bet": true,
+      "feature": true,
+      "status": "Paused",
+      "date_resume": "2022-02-01T00:00:00.000Z",
+      "date_added": "2021-11-01T01:28:20.920Z",
+      "product_name": "Waste quote tool",
+      "effort": 90
+    },
+    {
+      "phase": "100%",
+      "big_bet": false,
+      "feature": true,
+      "status": "Cancelled",
+      "date_resume": "",
+      "date_added": "2021-11-04T01:29:04.834Z",
+      "product_name": "Calculator widget thing",
+      "effort": 20
+    }
+  ]
+}
