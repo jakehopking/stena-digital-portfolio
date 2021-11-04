@@ -1,4 +1,4 @@
-import DigitalBetItem from "../molecules/DigitalBetItem";
+import DigitalBetItemSimple from "../molecules/DigitalBetItemSimple";
 
 const DigitalBetList = ({data, title, size}) => {
   return (
@@ -10,7 +10,7 @@ const DigitalBetList = ({data, title, size}) => {
             /* const progress = parseInt(getRichText(properties.Progress)); */
           }
           return (
-            <DigitalBetItem
+            <DigitalBetItemSimple
               key={`${idx}` + bet.project_name}
               bigBet={bet.big_bet}
               productTeam={bet.product_team}
@@ -32,7 +32,7 @@ const DigitalBetList = ({data, title, size}) => {
 
 DigitalBetList.defaultProps = {
   data: [{}],
-  size: "",
+  size: "small",
   title: "Title",
 };
 

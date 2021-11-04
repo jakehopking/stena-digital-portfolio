@@ -1,27 +1,65 @@
-import FocusList from "./FocusList";
-import EventList from "./EventList";
+import DigitalBetList from "./DigitalBetList";
+import DashboardResponsiveCirclePacking from "../molecules/DashboardResponsiveCirclePacking";
+import {filterFn} from "../../utils/general";
 
-const DashboardCurrentFocus = ({focusData, eventData}) => {
+import {CHART_SCHEMES, CHART_THEME} from "../../theme/theme";
+
+const DashboardProducts = ({rows, grid, digitalBetsList, chartData}) => {
+  // debugger;
   return (
-    <div className="dashboard dashboard--focus">
-      <div className="container u-p-md u-mr-md">
-        <section className="dashboard__grid grid grid--half">
-          <div className="grid-item">
-            <div className="panel panel--fill panel--px-1-rad-def u-p-md">
-              <div className="o-type-5">Focus areas</div>
-              <FocusList data={focusData} />
-            </div>
+    <div
+      className={`dashboard-stage ${
+        rows ? "dashboard-stage--rows" : grid ? "dashboard-stage--grid" : ""
+      }`}
+    >
+      <section className="dashboard-stage__chart">
+        <div className="o-grid o-grid--fill">
+          <div className="o-grid__col u-1/2">
+            <DashboardResponsiveCirclePacking
+              data={chartData.circlePackingOne}
+              height={700}
+              colorScheme={CHART_SCHEMES.one}
+              theme={CHART_THEME}
+            />
           </div>
-          <div className="grid-item">
-            <div className="panel panel--fill panel--px-1-rad-def u-p-md">
-              <div className="o-type-5">Upcoming innovation events</div>
-              <EventList data={eventData} />
-            </div>
+          <div className="o-grid__col u-1/2">
+            <DashboardResponsiveCirclePacking
+              data={chartData.circlePackingTwo}
+              height={700}
+              colorScheme={CHART_SCHEMES.two}
+              theme={CHART_THEME}
+            />
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+      <section className="dashboard-stage__info">
+        <div className="o-grid">
+          <div className="o-grid__col u-1/3">
+            <DigitalBetList
+              title="Now"
+              data={digitalBetsList.filter((item) => filterFn(item.temporality, ["Now"]))}
+            />
+          </div>
+          <div className="o-grid__col u-1/3">
+            <DigitalBetList
+              title="Next"
+              data={digitalBetsList.filter((item) =>
+                filterFn(item.temporality, ["Next"])
+              )}
+            />
+          </div>
+          <div className="o-grid__col u-1/3">
+            <DigitalBetList
+              title="Future"
+              data={digitalBetsList.filter((item) =>
+                filterFn(item.temporality, ["Future"])
+              )}
+            />
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
 
-export default DashboardCurrentFocus;
+export default DashboardProducts;

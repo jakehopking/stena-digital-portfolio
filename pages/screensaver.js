@@ -10,7 +10,7 @@ import {organiseListByKey} from "../utils/general";
 const {overviewPanelData, cmsData} = data;
 const {digital_bets, overviewPanel, shortcutImage} = cmsData;
 
-const DashboardPortfolio = ({shortcutImage}) => {
+const DashboardScreensaver = ({shortcutImage}) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
@@ -46,7 +46,7 @@ const DashboardPortfolio = ({shortcutImage}) => {
   );
 };
 
-export default function ProductTeams({digital_bets, shortcutImage}) {
+export default function Screensaver({digital_bets, shortcutImage}) {
   const {projects} = digital_bets;
   const {shortcut_image} = shortcutImage;
 
@@ -72,7 +72,7 @@ export default function ProductTeams({digital_bets, shortcutImage}) {
         </SidePanel>
       }
     >
-      <DashboardPortfolio shortcutImage={shortcut_image} />
+      <DashboardScreensaver shortcutImage={shortcut_image} />
     </Layout>
   );
 }

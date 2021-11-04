@@ -2,11 +2,13 @@
   --padding: var(--su-5) var(--su-3) var(--su-3) var(--su-1);
   padding: var(--padding);
   display: flex;
+  flex-direction: column;
 
   &__title {
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     margin-right: var(--su-4);
+    margin-bottom: var(--su-4);
     font-weight: var(--fw-4);
     // @include text-stroke();
   }

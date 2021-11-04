@@ -7,7 +7,7 @@
       "date_resume": "",
       "date_added": "2021-11-04T01:33:48.507Z",
       "idea_name": "Universe expanding idea",
-      "effort": 80
+      "effort": 8.0
     },
     {
       "phase": "Test",
@@ -16,7 +16,7 @@
       "date_resume": "",
       "date_added": "2021-11-04T01:34:18.252Z",
       "idea_name": "Recycling calculator",
-      "effort": 90
+      "effort": 9.0
     },
     {
       "phase": "Deep test",
@@ -25,7 +25,7 @@
       "date_resume": "",
       "date_added": "2021-11-04T01:34:50.472Z",
       "idea_name": "Space mice",
-      "effort": 40
+      "effort": 4.0
     },
     {
       "phase": "Dragons den",
@@ -34,7 +34,7 @@
       "date_resume": "",
       "date_added": "2021-11-04T01:35:31.542Z",
       "idea_name": "Teleport waste into sun",
-      "effort": 100
+      "effort": 8.7
     },
     {
       "phase": "Transfer to product",
@@ -43,7 +43,7 @@
       "date_resume": "",
       "date_added": "2021-11-04T01:36:13.858Z",
       "idea_name": "Catapult to moon",
-      "effort": 100
+      "effort": 2.4
     },
     {
       "phase": "Deep test",
@@ -52,7 +52,7 @@
       "date_resume": "2022-07-26T01:36:49.280Z",
       "date_added": "2021-11-04T01:36:58.716Z",
       "idea_name": "Liquify waste",
-      "effort": 20
+      "effort": 3.2
     },
     {
       "phase": "Test",
@@ -61,7 +61,7 @@
       "date_resume": "",
       "date_added": "2021-11-04T01:37:56.770Z",
       "idea_name": "Make waste trendy",
-      "effort": 10
+      "effort": 1.2
     }
   ]
 }
