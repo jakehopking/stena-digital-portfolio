@@ -1,4 +1,16 @@
-const Circle = ({radius, color, className, text, textColor, scale, icon, iconColor}) => {
+const Circle = ({
+  color,
+  className,
+  icon,
+  iconClassName,
+  iconColor,
+  iconOffset,
+  iconSize,
+  radius,
+  scale,
+  text,
+  textColor,
+}) => {
   const Icon = icon;
   return (
     <svg
@@ -27,10 +39,10 @@ const Circle = ({radius, color, className, text, textColor, scale, icon, iconCol
       {icon && (
         <Icon
           color={`var(${iconColor})`}
-          className="digital-bet-item__status-icon"
-          x="3"
-          y="3"
-          size="1.25em"
+          className={iconClassName}
+          x={iconOffset.x}
+          y={iconOffset.y}
+          size={iconSize}
         />
       )}
     </svg>
@@ -38,12 +50,15 @@ const Circle = ({radius, color, className, text, textColor, scale, icon, iconCol
 };
 
 Circle.defaultProps = {
-  color: "--color-default-fg",
-  textColor: "--color-default-bg",
-  iconColor: "--color-default-bg",
   className: "",
+  color: "--color-default-fg",
+  iconClassName: "",
+  iconColor: "--color-default-bg",
+  iconOffset: {x: 3, y: 3},
+  iconSize: "1.25em",
   radius: 5,
   text: "",
+  textColor: "--color-default-bg",
 };
 
 export default Circle;

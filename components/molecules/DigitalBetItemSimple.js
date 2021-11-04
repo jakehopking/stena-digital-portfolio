@@ -8,7 +8,9 @@ import ProgressBar from "../atoms/ProgressBar";
 const DigitalBetItem = ({
   bigBet,
   circleRadius,
+  dateResume,
   effort,
+  featured,
   phase,
   productName,
   size,
@@ -18,7 +20,6 @@ const DigitalBetItem = ({
   const {products} = useContext(NetlifyCMSContext);
   const {ideas} = useContext(NetlifyCMSContext);
   const bigBetText = "Big Bet";
-  const icon = null;
 
   const calcMaxEffort = (type) => {
     return Math.max(
@@ -83,6 +84,8 @@ const DigitalBetItem = ({
 DigitalBetItem.defaultProps = {
   bigBet: false,
   circleRadius: 13,
+  dateResume: null,
+  featured: false,
   phase: "Phase",
   productName: "Product name",
   size: "small",
