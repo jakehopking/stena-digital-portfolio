@@ -1,36 +1,61 @@
 import DigitalBetList from "./DigitalBetList";
 import {filterFn} from "../../utils/general";
 
-const DashboardProducts = ({digitalBetsList}) => {
+const DashboardProducts = ({productsList}) => {
+  const onGoingProducts = productsList.filter((item) =>
+    filterFn(item.status, ["Paused", "Cancelled"], "exclude")
+  );
+
   return (
     <div className="dashboard dashboard--ideas">
       <div className="container">
-        <section className="dashboard__title u-p">Ideas</section>
+        <section className="dashboard__title u-p">Products</section>
         <section className="dashboard__grid grid grid--250">
           <div className="grid-item">
             <DigitalBetList
-              title="Now"
-              data={digitalBetsList.filter((item) => filterFn(item.temporality, ["Now"]))}
+              title="Future"
+              type="products"
+              data={onGoingProducts.filter((item) => filterFn(item.phase, ["Future"]))}
             />
           </div>
           <div className="grid-item">
             <DigitalBetList
               title="Next"
-              data={digitalBetsList.filter((item) =>
-                filterFn(item.temporality, ["Next"])
-              )}
+              type="products"
+              data={onGoingProducts.filter((item) => filterFn(item.phase, ["Next"]))}
             />
           </div>
           <div className="grid-item">
             <DigitalBetList
-              title="Future"
-              data={digitalBetsList.filter((item) =>
-                filterFn(item.temporality, ["Future"])
-              )}
+              title="0%"
+              type="products"
+              data={onGoingProducts.filter((item) => filterFn(item.phase, ["0%"]))}
             />
           </div>
-          <div className="grid-item"></div>
-          <div className="grid-item"></div>
+          <div className="grid-item">
+            <DigitalBetList
+              title="50%"
+              type="products"
+              status="paused"
+              data={onGoingProducts.filter((item) => filterFn(item.phase, ["50%"]))}
+            />
+          </div>
+          <div className="grid-item">
+            <DigitalBetList
+              title="100%"
+              type="products"
+              status="cancelled"
+              data={onGoingProducts.filter((item) => filterFn(item.phase, ["100%"]))}
+            />
+          </div>
+          <div className="grid-item">
+            <DigitalBetList
+              title="Launched products"
+              type="products"
+              status="ongoing"
+              data={onGoingProducts.filter((item) => filterFn(item.phase, ["Launched"]))}
+            />
+          </div>
         </section>
       </div>
     </div>

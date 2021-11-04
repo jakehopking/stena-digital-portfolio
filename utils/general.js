@@ -9,9 +9,9 @@ export const tryFn = (fn, fallback = null) => {
   }
 };
 
-export const filterFn = (check, filterArr, filterType) => {
-  if (filterType === "exclude") return filterArr.indexOf(check) < 0;
-  return filterArr.indexOf(check) !== -1;
+export const filterFn = (key, filterArr, filterType) => {
+  if (filterType === "exclude") return filterArr.indexOf(key) < 0;
+  return filterArr.indexOf(key) !== -1;
 };
 
 export const multiplier = (val, factor) => val * factor;

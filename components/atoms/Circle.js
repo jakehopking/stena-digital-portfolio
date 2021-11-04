@@ -1,4 +1,5 @@
-const Circle = ({radius, color, className, text, textColor, scale}) => {
+const Circle = ({radius, color, className, text, textColor, scale, icon, iconColor}) => {
+  const Icon = icon;
   return (
     <svg
       className={`svg svg--circle ${className}`}
@@ -23,6 +24,15 @@ const Circle = ({radius, color, className, text, textColor, scale}) => {
           {text}
         </text>
       )}
+      {icon && (
+        <Icon
+          color={`var(${iconColor})`}
+          className="digital-bet-item__status-icon"
+          x="3"
+          y="3"
+          size="1.25em"
+        />
+      )}
     </svg>
   );
 };
@@ -30,6 +40,7 @@ const Circle = ({radius, color, className, text, textColor, scale}) => {
 Circle.defaultProps = {
   color: "--color-default-fg",
   textColor: "--color-default-bg",
+  iconColor: "--color-default-bg",
   className: "",
   radius: 5,
   text: "",

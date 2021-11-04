@@ -25,7 +25,7 @@ export default function Products({digital_bets, products}) {
     >
       <DashboardProducts
         rows
-        digitalBetsList={projects}
+        productsList={products.products}
         chartData={{circlePackingOne, circlePackingTwo}}
       />
     </Layout>
