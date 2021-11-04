@@ -5,70 +5,122 @@ local_backend: true
 media_folder: public/images/uploads
 public_folder: /images/uploads
 collections:
-  - label: "Digital Bets"
-    name: "digital_bets"
+  - label: "Products"
+    name: "products"
     editor:
       preview: false
     files:
-      - label: "Product Teams"
-        name: "product_teams"
-        file: "content/digital_bets.json"
+      - label: "Products"
+        name: "products"
+        file: "content/products.json"
         fields:
-          - label: Projects
-            name: projects
+          - label: Products
+            name: products
             widget: list
             fields:
-              - {label: "Project Name", name: "project_name", widget: "string"}
+              - {label: "Product name", name: "product_name", widget: "string"}
               - {
-                  label: "Temporality",
-                  name: "temporality",
+                  label: "Phase",
+                  name: "phase",
                   widget: "select",
-                  options: ["Now", "Next", "Future", "On-hold", "Canceled"],
-                  default: ["Now"],
+                  options: ["Future", "Next", "0%", "50%", "100%", "Launched"],
+                  default: ["Future"],
                 }
+              - {
+                  label: "Financial effort",
+                  name: "effort",
+                  widget: number,
+                  value_type: "float",
+                }
+              - {label: "Big bet", name: "big_bet", widget: boolean, default: false}
+              - {label: "Feature", name: "feature", widget: boolean, default: false}
+              - {
+                  label: "Status",
+                  name: "status",
+                  widget: "select",
+                  options: ["Ongoing", "Paused", "Cancelled"],
+                  default: ["Ongoing"],
+                }
+              - {
+                  label: "Resume date",
+                  name: "date_resume",
+                  widget: "datetime",
+                  default: "",
+                  date_format: "DD.MM.YYYY",
+                  time_format: false,
+                  picker_utc: true,
+                  required: false,
+                }
+              - {
+                  label: "Added date",
+                  name: "date_added",
+                  widget: "datetime",
+                  default: "now",
+                  date_format: "DD.MM.YYYY",
+                  time_format: false,
+                  picker_utc: true,
+                }
+  - label: "Ideas"
+    name: "ideas"
+    editor:
+      preview: false
+    files:
+      - label: "Ideas"
+        name: "ideas"
+        file: "content/ideas.json"
+        fields:
+          - label: Ideas
+            name: ideas
+            widget: list
+            fields:
+              - {label: "Idea", name: "idea_name", widget: "string"}
               - {
                   label: "Phase",
                   name: "phase",
                   widget: "select",
                   options:
                     [
-                      "Ideation",
-                      "Discovery",
-                      "Validation",
-                      "Confirmation",
-                      "Transfer",
-                      "Launch",
-                      "Sustaining innovation",
-                      "Efficiency",
-                      "Mature business",
-                      "Declining business",
-                      "Renovation",
+                      "New ideas",
+                      "Test",
+                      "Deep test",
+                      "Dragons den",
+                      "Transfer to product",
                     ],
-                  default: ["Discovery"],
+                  default: ["New ideas"],
                 }
-              - {label: "Big bet", name: "big_bet", widget: boolean, default: true}
-              - {label: "Product team", name: "product_team", widget: string}
-              - {label: "Effort", name: "effort", widget: number, value_type: "float"}
-              - {label: "Type of project", name: "project_type", widget: string}
               - {
-                  label: "Project stakeholder",
-                  name: "project_stakeholder",
-                  widget: string,
+                  label: "Financial effort",
+                  name: "effort",
+                  widget: number,
+                  value_type: "float",
                 }
-  - label: "Focus Areas"
-    name: "focus_areas"
-    editor:
-      preview: false
-    files:
-      - label: "Focus Areas"
-        name: "focus_areas"
-        file: "content/focus_areas.json"
-        fields:
-          - label: Focus Areas
-            name: focus_areas
-            widget: list
-            fields:
-              - {label: "Title", name: "title", widget: "string"}
+              - {
+                  label: "Status",
+                  name: "status",
+                  widget: "select",
+                  options: ["Ongoing", "Paused", "Cancelled"],
+                  default: ["Ongoing"],
+                }
+              - {label: "Big bet", name: "big_bet", widget: boolean, default: false}
+              - {
+                  label: "Resume date",
+                  name: "date_resume",
+                  widget: "datetime",
+                  default: "",
+                  date_format: "DD.MM.YYYY",
+                  time_format: false,
+                  picker_utc: true,
+                  required: false,
+                }
+              - {
+                  label: "Added date",
+                  name: "date_added",
+                  widget: "datetime",
+                  default: "now",
+                  date_format: "DD.MM.YYYY",
+                  time_format: false,
+                  picker_utc: true,
+                }
   - label: "Events"
     name: "events"
     editor:

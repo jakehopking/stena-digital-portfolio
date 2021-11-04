@@ -38,21 +38,17 @@ export const getStaticProps = async () => {
   };
 
   // Tech
-  const googleTechSheet = new GoogleSpreadsheet(googleSheets.techTrends.sheetId);
   const techTrends = await worksheetSurveyData({
     auth,
     sheet: googleSheets.techTrends,
-    googleSpreadsheet: googleTechSheet,
+    googleSpreadsheet: new GoogleSpreadsheet(googleSheets.techTrends.sheetId),
   });
 
   // Recycling
-  const googleRecyclingSheet = new GoogleSpreadsheet(
-    googleSheets.recyclingTrends.sheetId
-  );
   const recyclingTrends = await worksheetSurveyData({
     auth,
     sheet: googleSheets.recyclingTrends,
-    googleSpreadsheet: googleRecyclingSheet,
+    googleSpreadsheet: new GoogleSpreadsheet(googleSheets.recyclingTrends.sheetId),
   });
 
   return {
