@@ -4,7 +4,7 @@ import OverviewPanel from "../components/sidePanel/OverviewPanel";
 import DashboardCurrentFocus from "../components/organisms/DashboardCurrentFocus";
 import data from "../data/data";
 
-const {overviewPanelData, cmsData} = data;
+const {overviewPanelData, circlePackingOne, circlePackingTwo, cmsData} = data;
 const {digital_bets, focus_areas, events, overviewPanel} = cmsData;
 
 export default function CurrentFocus({digital_bets, events, focus_areas, overviewPanel}) {
@@ -32,10 +32,7 @@ export default function CurrentFocus({digital_bets, events, focus_areas, overvie
         </SidePanel>
       }
     >
-      <DashboardCurrentFocus
-        focusData={focus_areas.focus_areas}
-        eventData={events.events}
-      />
+      <DashboardCurrentFocus chartData={{circlePackingOne, circlePackingTwo}} />
     </Layout>
   );
 }
