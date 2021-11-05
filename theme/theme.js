@@ -12,6 +12,7 @@ export const GREY = {
   _08: "#3B3B44",
   _09: "#4B4B4B",
   _50: "#60625A",
+  _70: "#8B8B8B",
   _90: "#F2F2F2",
   _100: "#FFFFFF",
 };
@@ -29,6 +30,7 @@ export const BLUE = {
 
 export const ORANGE = {
   _00: "#FFBC10",
+  _20: "#D27429",
 };
 
 export const YELLOW = {

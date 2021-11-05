@@ -12,7 +12,9 @@ const DigitalBetList = ({data, size, status, title, type}) => {
           return (
             <DigitalBetItemSimple
               bigBet={bet.big_bet}
+              dateResume={bet.date_resume}
               effort={bet.effort}
+              feature={bet.feature}
               key={`${idx}` + bet.project_name}
               phase={bet.phase}
               productName={bet.product_name}

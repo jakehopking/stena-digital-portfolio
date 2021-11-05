@@ -1,6 +1,6 @@
 .digital-bet-item {
   --padding: var(--su-3);
-  --margin: var(--su-3);
+  --margin: var(--su-5);
   --radius: var(--radius-default);
 
   line-height: 1;
@@ -8,6 +8,7 @@
   padding: var(--padding);
   border-radius: var(--radius);
   background-color: var(--color-card-digitalBet);
+  position: relative;
 
   & + & {
     margin-top: var(--margin);
@@ -59,6 +60,23 @@
     flex: 0 0 100px;
     text-align: right;
     margin-left: var(--su-2);
+  }
+}
+
+.digital-bet-item__meta {
+  font-size: var(--fs-xs);
+
+  margin-top: var(--su-1);
+  margin-bottom: var(--su-2);
+  margin-left: var(--su-3);
+  .feature {
+    color: var(--color-tertiary-20);
+    text-transform: uppercase;
+  }
+
+  .dateResume {
+    color: var(--color-grey-70);
+    font-size: 1.2em;
   }
 }
 

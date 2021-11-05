@@ -72,3 +72,11 @@ export const serializeRow = (row, sheet) => {
   });
   return temp;
 };
+
+export const formatDateSimple = (date, yearLength) => {
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  let year = date.getFullYear();
+  yearLength === 2 ? (year = year.toString().slice(yearLength)) : year;
+  return `${year}/${month}/${day}`;
+};

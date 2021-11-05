@@ -3,6 +3,26 @@
     {
       "phase": "Future",
       "big_bet": true,
+      "feature": true,
+      "status": "Ongoing",
+      "date_resume": "",
+      "date_added": "2021-11-04T01:24:45.112Z",
+      "product_name": "Sales of consumables",
+      "effort": 9.2
+    },
+    {
+      "phase": "Future",
+      "big_bet": true,
+      "feature": false,
+      "status": "Ongoing",
+      "date_resume": "",
+      "date_added": "2021-11-04T01:24:45.112Z",
+      "product_name": "Sales of consumables",
+      "effort": 9.2
+    },
+    {
+      "phase": "Future",
+      "big_bet": true,
       "feature": false,
       "status": "Ongoing",
       "date_resume": "",

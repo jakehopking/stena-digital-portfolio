@@ -36,7 +36,6 @@ const DashboardProducts = ({productsList}) => {
             <DigitalBetList
               title="50%"
               type="products"
-              status="paused"
               data={onGoingProducts.filter((item) => filterFn(item.phase, ["50%"]))}
             />
           </div>
@@ -44,7 +43,6 @@ const DashboardProducts = ({productsList}) => {
             <DigitalBetList
               title="100%"
               type="products"
-              status="cancelled"
               data={onGoingProducts.filter((item) => filterFn(item.phase, ["100%"]))}
             />
           </div>
@@ -52,7 +50,6 @@ const DashboardProducts = ({productsList}) => {
             <DigitalBetList
               title="Launched products"
               type="products"
-              status="ongoing"
               data={onGoingProducts.filter((item) => filterFn(item.phase, ["Launched"]))}
             />
           </div>
