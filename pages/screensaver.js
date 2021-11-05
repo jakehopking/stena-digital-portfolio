@@ -16,7 +16,7 @@ const DashboardScreensaver = ({shortcutImage}) => {
   return (
     <div className="dashboard dashboard--portfolio">
       <div className="container">
-        <section className="dashboard__title u-p">All projects</section>
+        <section className="dashboard__title">All projects</section>
         <section className="dashboard__grid grid grid--250">
           <div className="grid-item">
             <button

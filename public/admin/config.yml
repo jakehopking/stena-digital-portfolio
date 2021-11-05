@@ -18,7 +18,7 @@ collections:
             name: products
             widget: list
             fields:
-              - {label: "Product name", name: "product_name", widget: "string"}
+              - {label: "Product name", name: "title", widget: "string"}
               - {
                   label: "Phase",
                   name: "phase",
@@ -73,7 +73,7 @@ collections:
             name: ideas
             widget: list
             fields:
-              - {label: "Idea", name: "idea_name", widget: "string"}
+              - {label: "Idea", name: "title", widget: "string"}
               - {
                   label: "Phase",
                   name: "phase",

@@ -6,7 +6,7 @@
       "big_bet": false,
       "date_resume": "",
       "date_added": "2021-11-04T01:33:48.507Z",
-      "idea_name": "Universe expanding idea",
+      "title": "Universe expanding idea",
       "effort": 8.0
     },
     {
@@ -15,7 +15,7 @@
       "big_bet": true,
       "date_resume": "",
       "date_added": "2021-11-04T01:34:18.252Z",
-      "idea_name": "Recycling calculator",
+      "title": "Recycling calculator",
       "effort": 9.0
     },
     {
@@ -24,7 +24,7 @@
       "big_bet": true,
       "date_resume": "",
       "date_added": "2021-11-04T01:34:50.472Z",
-      "idea_name": "Space mice",
+      "title": "Space mice",
       "effort": 4.0
     },
     {
@@ -33,7 +33,7 @@
       "big_bet": false,
       "date_resume": "",
       "date_added": "2021-11-04T01:35:31.542Z",
-      "idea_name": "Teleport waste into sun",
+      "title": "Teleport waste into sun",
       "effort": 8.7
     },
     {
@@ -42,7 +42,7 @@
       "big_bet": true,
       "date_resume": "",
       "date_added": "2021-11-04T01:36:13.858Z",
-      "idea_name": "Catapult to moon",
+      "title": "Catapult to moon",
       "effort": 2.4
     },
     {
@@ -51,7 +51,7 @@
       "big_bet": false,
       "date_resume": "2022-07-26T01:36:49.280Z",
       "date_added": "2021-11-04T01:36:58.716Z",
-      "idea_name": "Liquify waste",
+      "title": "Liquify waste",
       "effort": 3.2
     },
     {
@@ -60,7 +60,7 @@
       "big_bet": false,
       "date_resume": "",
       "date_added": "2021-11-04T01:37:56.770Z",
-      "idea_name": "Make waste trendy",
+      "title": "Make waste trendy",
       "effort": 1.2
     }
   ]

@@ -25,14 +25,16 @@ export default function CurrentFocus({digital_bets, events, focus_areas, overvie
 
   return (
     <Layout
-      home
       sideCol={
         <SidePanel>
           <OverviewPanel {...overviewPanelData({projects, overviewPanel})} />
         </SidePanel>
       }
     >
-      <DashboardCurrentFocus chartData={{circlePackingOne, circlePackingTwo}} />
+      <DashboardCurrentFocus
+        chartData={{circlePackingOne, circlePackingTwo}}
+        title="Current focus"
+      />
     </Layout>
   );
 }

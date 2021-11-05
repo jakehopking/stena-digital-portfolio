@@ -1,31 +1,15 @@
 import Layout, {siteTitle} from "../components/Layout";
 import SidePanel from "../components/sidePanel/SidePanel";
 import OverviewPanel from "../components/sidePanel/OverviewPanel";
+import DashboardIdeas from "../components/organisms/DashboardIdeas";
 import data from "../data/data";
 import {phaseTitlesExploit} from "../data/constants";
 import {organiseListByKey} from "../utils/general";
 
 const {overviewPanelData, cmsData} = data;
-const {digital_bets, overviewPanel} = cmsData;
+const {digital_bets, ideas, overviewPanel} = cmsData;
 
-const DashboardIdeas = () => {
-  return (
-    <div className="dashboard dashboard--ideas">
-      <div className="container">
-        <section className="dashboard__title u-p">Ideas</section>
-        <section className="dashboard__grid grid grid--250">
-          <div className="grid-item"></div>
-          <div className="grid-item"></div>
-          <div className="grid-item"></div>
-          <div className="grid-item"></div>
-          <div className="grid-item"></div>
-        </section>
-      </div>
-    </div>
-  );
-};
-
-export default function Ideas({digital_bets, shortcutImage}) {
+export default function Ideas({digital_bets, ideas}) {
   const {projects} = digital_bets;
 
   // const exploreList = organiseListByKey({
@@ -43,14 +27,13 @@ export default function Ideas({digital_bets, shortcutImage}) {
 
   return (
     <Layout
-      home
       sideCol={
         <SidePanel>
           <OverviewPanel {...overviewPanelData({projects, overviewPanel})} />
         </SidePanel>
       }
     >
-      <DashboardIdeas />
+      <DashboardIdeas ideasList={ideas.ideas} title="Ideas" />
     </Layout>
   );
 }
@@ -58,6 +41,7 @@ export default function Ideas({digital_bets, shortcutImage}) {
 export const getStaticProps = async () => {
   return {
     props: {
+      ideas,
       digital_bets,
       overviewPanel,
     },

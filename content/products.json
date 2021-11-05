@@ -7,7 +7,7 @@
       "status": "Ongoing",
       "date_resume": "",
       "date_added": "2021-11-04T01:24:45.112Z",
-      "product_name": "Sales of consumables",
+      "title": "Sales of consumables",
       "effort": 9.2
     },
     {
@@ -17,7 +17,7 @@
       "status": "Ongoing",
       "date_resume": "",
       "date_added": "2021-11-04T01:24:45.112Z",
-      "product_name": "Sales of consumables",
+      "title": "Sales of consumables",
       "effort": 9.2
     },
     {
@@ -27,7 +27,7 @@
       "status": "Ongoing",
       "date_resume": "",
       "date_added": "2021-11-04T01:24:45.112Z",
-      "product_name": "Sales of consumables",
+      "title": "Sales of consumables",
       "effort": 9.2
     },
     {
@@ -37,7 +37,7 @@
       "status": "Ongoing",
       "date_resume": "",
       "date_added": "2021-11-04T01:25:09.480Z",
-      "product_name": "Calculator widget thing",
+      "title": "Calculator widget thing",
       "effort": 9.0
     },
     {
@@ -47,7 +47,7 @@
       "status": "Ongoing",
       "date_resume": "",
       "date_added": "2021-11-04T01:26:04.531Z",
-      "product_name": "Material Lab",
+      "title": "Material Lab",
       "effort": 6.0
     },
     {
@@ -57,7 +57,7 @@
       "status": "Ongoing",
       "date_resume": "",
       "date_added": "2021-11-04T01:26:22.823Z",
-      "product_name": "Evolve by Stena",
+      "title": "Evolve by Stena",
       "effort": 5.5
     },
     {
@@ -67,7 +67,7 @@
       "status": "Ongoing",
       "date_resume": "",
       "date_added": "2021-11-04T01:26:56.709Z",
-      "product_name": "Circular calculator",
+      "title": "Circular calculator",
       "effort": 8.9
     },
     {
@@ -77,7 +77,7 @@
       "status": "Paused",
       "date_resume": "2022-02-01T00:00:00.000Z",
       "date_added": "2021-11-01T01:28:20.920Z",
-      "product_name": "Waste quote tool",
+      "title": "Waste quote tool",
       "effort": 3.4
     },
     {
@@ -87,7 +87,7 @@
       "status": "Cancelled",
       "date_resume": "",
       "date_added": "2021-11-04T01:29:04.834Z",
-      "product_name": "Calculator widget thing",
+      "title": "Calculator widget thing",
       "effort": 2.1
     },
     {
@@ -97,7 +97,7 @@
       "status": "Ongoing",
       "date_resume": "",
       "date_added": "2021-11-04T01:29:04.834Z",
-      "product_name": "Calculator widget thing",
+      "title": "Calculator widget thing",
       "effort": 2.1
     }
   ]

@@ -16,7 +16,6 @@ export default function ProductTeams({digital_bets, techTrends, recyclingTrends}
 
   return (
     <Layout
-      home
       sideCol={
         <SidePanel>
           <OverviewPanel {...overviewPanelData({projects, overviewPanel})} />

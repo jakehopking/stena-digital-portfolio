@@ -36,6 +36,7 @@ export const GlobalStyles = createGlobalStyle`
     --color-tertiary-20: ${({theme}) => hexToRGBA(theme.pallet.tertiary._20)};
     /* Grey */
     --color-grey-06: ${({theme}) => hexToRGBA(theme.pallet.grey._06)};
+    --color-grey-09: ${({theme}) => hexToRGBA(theme.pallet.grey._09)};
     --color-grey-70: ${({theme}) => hexToRGBA(theme.pallet.grey._70)};
     
 

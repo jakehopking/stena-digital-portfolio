@@ -54,12 +54,16 @@
 
   &__label {
     font-weight: var(--fw-4);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 99%;
   }
 
   &__aside {
     flex: 0 0 100px;
     text-align: right;
-    margin-left: var(--su-2);
+    // margin-left: var(--su-1);
   }
 }
 

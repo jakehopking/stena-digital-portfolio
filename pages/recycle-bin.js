@@ -1,56 +1,30 @@
 import Layout, {siteTitle} from "../components/Layout";
 import SidePanel from "../components/sidePanel/SidePanel";
 import OverviewPanel from "../components/sidePanel/OverviewPanel";
+import DashboardRecycleBin from "../components/organisms/DashboardRecycleBin";
 import data from "../data/data";
-import {phaseTitlesExploit} from "../data/constants";
-import {organiseListByKey} from "../utils/general";
 
 const {overviewPanelData, cmsData} = data;
-const {digital_bets, overviewPanel} = cmsData;
+const {digital_bets, overviewPanel, products, ideas} = cmsData;
 
-const DashboardRecycleBin = () => {
-  return (
-    <div className="dashboard dashboard--ideas">
-      <div className="container">
-        <section className="dashboard__title u-p">Recycle Bin</section>
-        <section className="dashboard__grid grid grid--250">
-          <div className="grid-item"></div>
-          <div className="grid-item"></div>
-          <div className="grid-item"></div>
-          <div className="grid-item"></div>
-          <div className="grid-item"></div>
-        </section>
-      </div>
-    </div>
-  );
-};
-
-export default function Ideas({digital_bets, shortcutImage}) {
+export default function Products({digital_bets, ideas, products}) {
   const {projects} = digital_bets;
 
-  // const exploreList = organiseListByKey({
-  //   listArray: projects,
-  //   filterList: phaseTitlesExploit,
-  // });
-  const exploitList = organiseListByKey({
-    listArray: projects,
-    categoryName: "exploit",
-    filterList: phaseTitlesExploit,
-  });
-
-  // console.log(maxEffort);
-  // console.log(exploitList);
+  // debugger;
 
   return (
     <Layout
-      home
       sideCol={
         <SidePanel>
           <OverviewPanel {...overviewPanelData({projects, overviewPanel})} />
         </SidePanel>
       }
     >
-      <DashboardRecycleBin />
+      <DashboardRecycleBin
+        productsList={products.products}
+        ideasList={ideas.ideas}
+        title="Recycle bin"
+      />
     </Layout>
   );
 }
@@ -58,6 +32,8 @@ export default function Ideas({digital_bets, shortcutImage}) {
 export const getStaticProps = async () => {
   return {
     props: {
+      ideas,
+      products,
       digital_bets,
       overviewPanel,
     },

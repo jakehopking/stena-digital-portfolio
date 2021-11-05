@@ -25,14 +25,17 @@ export default function Events({digital_bets, events, focus_areas, overviewPanel
 
   return (
     <Layout
-      home
       sideCol={
         <SidePanel>
           <OverviewPanel {...overviewPanelData({projects, overviewPanel})} />
         </SidePanel>
       }
     >
-      <DashboardEvents focusData={focus_areas.focus_areas} eventData={events.events} />
+      <DashboardEvents
+        focusData={focus_areas.focus_areas}
+        eventData={events.events}
+        title="Events"
+      />
     </Layout>
   );
 }

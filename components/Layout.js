@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Header from "./Header";
 
-const Layout = ({children, home, sideCol, showGrid}) => {
+const Layout = ({children, sideCol, showGrid}) => {
   return (
     <div className="layout">
       <Head>
