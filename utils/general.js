@@ -43,30 +43,8 @@ export const getTitleAndCount = ({object = {}}) =>
     };
   });
 
-// export const organiseListByKey = ({
-//   categoryName = "explore",
-//   filterList = [],
-//   key = "phase",
-//   listArray = [],
-// }) => {
-//   let filtered;
-//   let grouped;
-//   if (categoryName === "explore") {
-//     filtered = listArray.filter((item) => filterFn(item[key], filterList, "exclude"));
-//   } else if (categoryName === "exploit") {
-//     filtered = listArray.filter((item) => filterFn(item[key], filterList));
-//   } else {
-//     filtered = listArray;
-//   }
-//   grouped = getGroupedListByKey({array: filtered, key});
-
-//   return Object.keys(grouped).map((item) => {
-//     return {title: item, list: grouped[item]};
-//   });
-// };
-
 export const organiseListByKey = ({
-  filterType = "exclude",
+  filterType = "",
   filterList = [],
   key = "",
   listArray = [],

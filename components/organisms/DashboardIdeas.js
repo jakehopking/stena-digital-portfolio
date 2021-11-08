@@ -5,6 +5,7 @@ const DashboardIdeas = ({ideasList, title}) => {
   const ongoingIdeas = ideasList.filter((item) =>
     filterFn(item.status, ["Paused", "Cancelled"], "exclude")
   );
+
   const ongoingIdeasGrouped = organiseListByKey({listArray: ongoingIdeas, key: "phase"});
 
   return (
