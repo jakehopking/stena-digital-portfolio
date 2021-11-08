@@ -1,10 +1,15 @@
 import DigitalBetList from "./DigitalBetList";
-import {filterFn} from "../../utils/general";
+import {filterFn, organiseListByKey} from "../../utils/general";
 
 const DashboardProducts = ({productsList, title}) => {
   const ongoingProducts = productsList.filter((item) =>
     filterFn(item.status, ["Paused", "Cancelled"], "exclude")
   );
+
+  const ongoingProductsGrouped = organiseListByKey({
+    listArray: ongoingProducts,
+    key: "phase",
+  });
 
   return (
     <div
@@ -32,48 +37,16 @@ const DashboardProducts = ({productsList, title}) => {
           <div className="dashboard__group-title">Delivered</div>
         </section>
         <section className="dashboard__grid grid grid--250 grid--alt-cols">
-          <div className="grid-item">
-            <DigitalBetList
-              title="Future"
-              type="products"
-              data={ongoingProducts.filter((item) => filterFn(item.phase, ["Future"]))}
-            />
-          </div>
-          <div className="grid-item">
-            <DigitalBetList
-              title="Next"
-              type="products"
-              data={ongoingProducts.filter((item) => filterFn(item.phase, ["Next"]))}
-            />
-          </div>
-          <div className="grid-item">
-            <DigitalBetList
-              title="0%"
-              type="products"
-              data={ongoingProducts.filter((item) => filterFn(item.phase, ["0%"]))}
-            />
-          </div>
-          <div className="grid-item">
-            <DigitalBetList
-              title="50%"
-              type="products"
-              data={ongoingProducts.filter((item) => filterFn(item.phase, ["50%"]))}
-            />
-          </div>
-          <div className="grid-item">
-            <DigitalBetList
-              title="100%"
-              type="products"
-              data={ongoingProducts.filter((item) => filterFn(item.phase, ["100%"]))}
-            />
-          </div>
-          <div className="grid-item">
-            <DigitalBetList
-              title="Launched products"
-              type="products"
-              data={ongoingProducts.filter((item) => filterFn(item.phase, ["Launched"]))}
-            />
-          </div>
+          {ongoingProductsGrouped.map((item, idx) => (
+            <div className="grid-item">
+              <DigitalBetList
+                title={item.title}
+                type="products"
+                data={item.list}
+                key={idx + item.title}
+              />
+            </div>
+          ))}
         </section>
       </div>
     </div>

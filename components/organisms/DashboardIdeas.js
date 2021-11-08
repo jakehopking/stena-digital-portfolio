@@ -1,11 +1,11 @@
 import DigitalBetList from "./DigitalBetList";
-import {filterFn} from "../../utils/general";
+import {filterFn, organiseListByKey} from "../../utils/general";
 
 const DashboardIdeas = ({ideasList, title}) => {
   const ongoingIdeas = ideasList.filter((item) =>
     filterFn(item.status, ["Paused", "Cancelled"], "exclude")
   );
-  // debugger;
+  const ongoingIdeasGrouped = organiseListByKey({listArray: ongoingIdeas, key: "phase"});
 
   return (
     <div
@@ -27,43 +27,16 @@ const DashboardIdeas = ({ideasList, title}) => {
           <div className="dashboard__group-title">Exploit</div>
         </section>
         <section className="dashboard__grid grid grid--250 grid--alt-cols">
-          <div className="grid-item">
-            <DigitalBetList
-              title="New ideas"
-              type="ideas"
-              data={ongoingIdeas.filter((item) => filterFn(item.phase, ["New ideas"]))}
-            />
-          </div>
-          <div className="grid-item">
-            <DigitalBetList
-              title="Test"
-              type="ideas"
-              data={ongoingIdeas.filter((item) => filterFn(item.phase, ["Test"]))}
-            />
-          </div>
-          <div className="grid-item">
-            <DigitalBetList
-              title="Deep test"
-              type="ideas"
-              data={ongoingIdeas.filter((item) => filterFn(item.phase, ["Deep test"]))}
-            />
-          </div>
-          <div className="grid-item">
-            <DigitalBetList
-              title="Dragons den"
-              type="ideas"
-              data={ongoingIdeas.filter((item) => filterFn(item.phase, ["Dragons den"]))}
-            />
-          </div>
-          <div className="grid-item">
-            <DigitalBetList
-              title="Transfer to product"
-              type="ideas"
-              data={ongoingIdeas.filter((item) =>
-                filterFn(item.phase, ["Transfer to product"])
-              )}
-            />
-          </div>
+          {ongoingIdeasGrouped.map((item, idx) => (
+            <div className="grid-item">
+              <DigitalBetList
+                title={item.title}
+                type="ideas"
+                data={item.list}
+                key={idx + item.title}
+              />
+            </div>
+          ))}
         </section>
       </div>
     </div>

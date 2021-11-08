@@ -50,19 +50,6 @@ export default function Screensaver({digital_bets, shortcutImage}) {
   const {projects} = digital_bets;
   const {shortcut_image} = shortcutImage;
 
-  // const exploreList = organiseListByKey({
-  //   listArray: projects,
-  //   filterList: phaseTitlesExploit,
-  // });
-  const exploitList = organiseListByKey({
-    listArray: projects,
-    categoryName: "exploit",
-    filterList: phaseTitlesExploit,
-  });
-
-  // console.log(maxEffort);
-  // console.log(exploitList);
-
   return (
     <Layout
       home
