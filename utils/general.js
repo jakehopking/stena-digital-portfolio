@@ -26,13 +26,13 @@ export const schemeType = (colorScheme) => {
 
 export const getGroupedListByKey = ({array = [], key = ""}) => {
   // debugger;
-  let data = {};
+  let result = {};
   array.map((item) => {
     const name = item[key];
-    if (!tryFn(() => data[name])) data[name] = [];
-    data[name].push(item);
+    if (!tryFn(() => result[name])) result[name] = [];
+    result[name].push(item);
   });
-  return data;
+  return result;
 };
 
 export const getTitleAndCount = ({object = {}}) =>
@@ -66,11 +66,11 @@ export const organiseListByKey = ({
 };
 
 export const serializeRow = (row, sheet) => {
-  let temp = {};
+  let result = {};
   sheet.headerValues.map((header) => {
-    temp[header] = row[header];
+    result[header] = row[header];
   });
-  return temp;
+  return result;
 };
 
 export const formatDateSimple = (date, yearLength) => {
@@ -82,12 +82,12 @@ export const formatDateSimple = (date, yearLength) => {
 };
 
 export const sliceArrayIntoChunks = (arr, chunkSize) => {
-  const res = [];
+  const result = [];
   for (let i = 0; i < arr.length; i += chunkSize) {
     const chunk = arr.slice(i, i + chunkSize);
-    res.push(chunk);
+    result.push(chunk);
   }
-  return res;
+  return result;
 };
 
 export const makeRepeatedArray = (arr, repeats) =>
@@ -100,9 +100,6 @@ export const dynamicSort = (property) => {
     property = property.substr(1);
   }
   return (a, b) => {
-    /* next line works with strings and numbers,
-     * and you may want to customize it to your needs
-     */
     let result = a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
     return result * sortOrder;
   };
