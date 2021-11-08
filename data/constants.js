@@ -1,10 +1,30 @@
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`,
 });
-// const private_key = process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n");
 
+// Order to render the digital bets list on products page.
+export const productTitlesSortOrder = [
+  "Future",
+  "Next",
+  "0%",
+  "50%",
+  "100%",
+  "Launched product",
+];
+
+// Order to render the digital bets list on ideas page.
+export const ideaTitlesSortOrder = [
+  "New ideas",
+  "Test",
+  "Deep test",
+  "Dragons den",
+  "Transfer to product",
+];
+
+// Deprecated
 export const productTeamsDigitalBets = ["Now", "Next", "Future"];
 
+// Deprecated
 export const phaseTitles = [
   "Ideation",
   "Discovery",
@@ -19,6 +39,7 @@ export const phaseTitles = [
   "Renovation",
 ];
 
+// Deprecated
 export const phaseTitlesExplore = phaseTitles.slice(0, 9);
 export const phaseTitlesExploit = phaseTitles.slice(9);
 

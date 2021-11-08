@@ -23,7 +23,7 @@ collections:
                   label: "Phase",
                   name: "phase",
                   widget: "select",
-                  options: ["Future", "Next", "0%", "50%", "100%", "Launched"],
+                  options: ["Future", "Next", "0%", "50%", "100%", "Launched product"],
                   default: ["Future"],
                 }
               - {

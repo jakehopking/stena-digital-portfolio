@@ -44,10 +44,10 @@ export const getTitleAndCount = ({object = {}}) =>
   });
 
 export const organiseListByKey = ({
-  filterType = "",
-  filterList = [],
   key = "",
   listArray = [],
+  filterList = [],
+  filterType = "",
 }) => {
   let filtered;
   let grouped;

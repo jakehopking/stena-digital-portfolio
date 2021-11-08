@@ -1,4 +1,5 @@
 import DigitalBetList from "./DigitalBetList";
+import {ideaTitlesSortOrder} from "../../data/constants";
 import {filterFn, organiseListByKey} from "../../utils/general";
 
 const DashboardIdeas = ({ideasList, title}) => {
@@ -7,6 +8,10 @@ const DashboardIdeas = ({ideasList, title}) => {
   );
 
   const ongoingIdeasGrouped = organiseListByKey({listArray: ongoingIdeas, key: "phase"});
+
+  const ongoingIdeasGroupedSorted = ongoingIdeasGrouped.sort((a, b) => {
+    return ideaTitlesSortOrder.indexOf(a.title) - ideaTitlesSortOrder.indexOf(b.title);
+  });
 
   return (
     <div
@@ -28,7 +33,7 @@ const DashboardIdeas = ({ideasList, title}) => {
           <div className="dashboard__group-title">Exploit</div>
         </section>
         <section className="dashboard__grid grid grid--250 grid--alt-cols">
-          {ongoingIdeasGrouped.map((item, idx) => (
+          {ongoingIdeasGroupedSorted.map((item, idx) => (
             <div className="grid-item" key={idx + item.title}>
               <DigitalBetList title={item.title} type="ideas" data={item.list} />
             </div>
