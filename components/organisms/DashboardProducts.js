@@ -38,13 +38,8 @@ const DashboardProducts = ({productsList, title}) => {
         </section>
         <section className="dashboard__grid grid grid--250 grid--alt-cols">
           {ongoingProductsGrouped.map((item, idx) => (
-            <div className="grid-item">
-              <DigitalBetList
-                title={item.title}
-                type="products"
-                data={item.list}
-                key={idx + item.title}
-              />
+            <div className="grid-item" key={idx + item.title}>
+              <DigitalBetList title={item.title} type="products" data={item.list} />
             </div>
           ))}
         </section>
