@@ -26,7 +26,7 @@ const DashboardIdeas = ({ideasList, title}) => {
           </div>
           <div className="dashboard__group-title">Exploit</div>
         </section>
-        <section className="dashboard__grid grid grid--250">
+        <section className="dashboard__grid grid grid--250 grid--alt-cols">
           <div className="grid-item">
             <DigitalBetList
               title="New ideas"

@@ -7,7 +7,8 @@
   &__title {
     text-align: center;
     font-size: 1.2rem;
-    margin-right: var(--su-4);
+    // margin-right: var(--su-4);
+    margin-top: var(--su-4);
     margin-bottom: var(--su-4);
     font-weight: var(--fw-4);
     // @include text-stroke();
@@ -16,7 +17,8 @@
   &__list {
     // overflow-y: auto;
     // max-height: 300px;
-    padding-right: var(--su-3);
+    padding-right: var(--su-2);
+    padding-left: var(--su-2);
   }
 }
 

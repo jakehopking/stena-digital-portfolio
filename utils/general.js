@@ -80,3 +80,30 @@ export const formatDateSimple = (date, yearLength) => {
   yearLength === 2 ? (year = year.toString().slice(yearLength)) : year;
   return `${year}/${month}/${day}`;
 };
+
+export const sliceArrayIntoChunks = (arr, chunkSize) => {
+  const res = [];
+  for (let i = 0; i < arr.length; i += chunkSize) {
+    const chunk = arr.slice(i, i + chunkSize);
+    res.push(chunk);
+  }
+  return res;
+};
+
+export const makeRepeatedArray = (arr, repeats) =>
+  [].concat(...Array.from({length: repeats}, () => arr));
+
+export const dynamicSort = (property) => {
+  let sortOrder = 1;
+  if (property[0] === "-") {
+    sortOrder = -1;
+    property = property.substr(1);
+  }
+  return (a, b) => {
+    /* next line works with strings and numbers,
+     * and you may want to customize it to your needs
+     */
+    let result = a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
+    return result * sortOrder;
+  };
+};

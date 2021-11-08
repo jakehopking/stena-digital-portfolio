@@ -4,6 +4,7 @@ const defaultSpacingUnit = 20;
 
 export const GREY = {
   _00: "#000000",
+  _01: "#1C1C20",
   _02: "#18181C",
   _03: "#1F1F22",
   _04: "#2A2A30",
