@@ -22,7 +22,7 @@ const GridItemFiller = ({arr}) => {
 
 const DashboardProducts = ({productsList, ideasList, title}) => {
   const maxListLength = 45;
-  const maxListLengthPerCol = 15;
+  const maxListLengthPerCol = maxListLength / 3;
 
   // Products
   const inactiveProducts = productsList
