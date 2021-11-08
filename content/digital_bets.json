@@ -3,7 +3,7 @@
     {
       "temporality": "Now",
       "phase": "Discovery",
-      "big_bet": true,
+      "big_bet": false,
       "project_name": "ReUse Service",
       "product_team": "Exploration hub",
       "effort": 2.1,
@@ -23,7 +23,7 @@
     {
       "temporality": "Future",
       "phase": "Renovation",
-      "big_bet": true,
+      "big_bet": false,
       "project_name": "Project dashboard",
       "product_team": "Exploration hub",
       "effort": 3.4,
