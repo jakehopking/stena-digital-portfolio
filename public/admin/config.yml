@@ -18,7 +18,7 @@ collections:
             name: products
             widget: list
             fields:
-              - {label: "Product name", name: "title", widget: "string"}
+              - {label: "Product name", name: "title", widget: string}
               - {
                   label: "Phase",
                   name: "phase",
@@ -73,7 +73,7 @@ collections:
             name: ideas
             widget: list
             fields:
-              - {label: "Idea", name: "title", widget: "string"}
+              - {label: "Idea", name: "title", widget: string}
               - {
                   label: "Phase",
                   name: "phase",
@@ -134,8 +134,8 @@ collections:
             name: events
             widget: list
             fields:
-              - {label: "Title", name: "title", widget: "string"}
-              - {label: "Description", name: "desc", widget: "string"}
+              - {label: "Title", name: "title", widget: string}
+              - {label: "Description", name: "desc", widget: string}
               - {
                   label: "Source",
                   name: "tag",
@@ -152,6 +152,21 @@ collections:
                   time_format: false,
                   picker_utc: true,
                 }
+  - label: "Current focus"
+    name: "currentFocus"
+    editor:
+      preview: false
+    files:
+      - label: "Current focus"
+        name: "currentFocus"
+        file: "content/currentFocus.json"
+        fields:
+          - label: Current focus
+            name: currentFocus
+            widget: list
+            fields:
+              - {label: "Focus area name", name: "label", widget: string}
+              - {label: "Importance", name: "value", widget: number, default: 0}
   - label: "Overview Panel"
     name: "overviewPanel"
     editor:
