@@ -1,7 +1,7 @@
 {
   "currentFocus": [
     {
-      "value": 90,
+      "value": 100,
       "label": "Email or phone calls from the five largest causes should be reduced by 50% by October 2022 "
     },
     {
@@ -13,7 +13,7 @@
       "label": "Increase NPS from X to Y"
     },
     {
-      "value": 15,
+      "value": 45,
       "label": "At least 100 applicants per job add"
     }
   ]
