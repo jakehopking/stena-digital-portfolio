@@ -48,5 +48,13 @@
       "id": "culture",
       "value": 75
     }
-  ]
+  ],
+  "overviewIdeas": {
+    "responseTime": 8,
+    "evaluationTime": 5
+  },
+  "overviewProducts": {
+    "leadTime": 8,
+    "learnings": 800
+  }
 }
