@@ -1,34 +1,8 @@
-import {useState, useEffect, useRef} from "react";
-import {FiPause} from "react-icons/fi";
-
+import {useEffect, useContext} from "react";
 import {useRouter} from "next/router";
-
-const pageRoutes = [
-  {
-    title: "Trends",
-    route: "/trends",
-  },
-  {
-    title: "Current Focus",
-    route: "/current-focus",
-  },
-  {
-    title: "Events",
-    route: "/events",
-  },
-  {
-    title: "Ideas",
-    route: "/ideas",
-  },
-  {
-    title: "Products",
-    route: "/",
-  },
-  {
-    title: "Recycle Bin",
-    route: "/recycle-bin",
-  },
-];
+import {FiPause, FiPlay} from "react-icons/fi";
+import {AppContext} from "../context/appContext";
+import {mainNavPageRoutes} from "../data/constants";
 
 const NavLink = ({route, title, isActive, router, type = "text", icon}) => {
   let Icon;
@@ -37,7 +11,7 @@ const NavLink = ({route, title, isActive, router, type = "text", icon}) => {
   return (
     <div
       onClick={() => router.push(route)}
-      className={`nav-main__item u-ml-a ${isActive(route)}`}
+      className={`nav-main__item ${isActive(route)}`}
     >
       {!icon && <a>{title}</a>}
       {icon && (
@@ -50,36 +24,45 @@ const NavLink = ({route, title, isActive, router, type = "text", icon}) => {
 };
 
 const Header = () => {
+  const {state, dispatch} = useContext(AppContext);
+  const {isPlaying, currentRoute} = state;
   const router = useRouter();
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [current, setCurrent] = useState(0);
-  const length = pageRoutes.length;
-  // let currentCount = useRef(count);
+
   const isActive = (path) => (router.pathname === path ? "nav-main__item--active" : "");
 
-  // const nextPage = () => {
-  //   setCurrent(current === length - 1 ? 0 : current + 1);
-  // };
+  const nextPage = () => {
+    dispatch({
+      type: "APP_CAROUSEL_SET_ROUTE",
+      payload: currentRoute === mainNavPageRoutes.length - 1 ? 0 : currentRoute + 1,
+    });
+  };
 
-  // const onToggleCarousel = () => {
-  //   setIsPlaying(!isPlaying);
-  // };
+  const onToggleCarousel = () => {
+    dispatch({
+      type: isPlaying ? "APP_CAROUSEL_STOP" : "APP_CAROUSEL_START",
+    });
+  };
 
-  // useEffect(() => {
-  //   if (isPlaying) {
-  //     setTimeout(() => {
-  //       nextPage();
-  //     }, 5000);
-  //     console.log(pageRoutes[current].route);
-  //     router.push(pageRoutes[current].route);
-  //   }
-  // }, [current, isPlaying]);
+  useEffect(() => {
+    if (isPlaying) {
+      setTimeout(() => {
+        nextPage();
+      }, 30000);
+      console.log(mainNavPageRoutes[currentRoute].route);
+      router.push(mainNavPageRoutes[currentRoute].route);
+    }
+    return () => {
+      clearTimeout();
+    };
+  }, [currentRoute, isPlaying]);
+
+  console.log(state);
 
   return (
     <header className="header-main">
       <img className="header-main__logo" src="/logo_stena.svg" />
       <nav className="nav-main">
-        {pageRoutes.map((link, idx) => (
+        {mainNavPageRoutes.map((link, idx) => (
           <NavLink
             key={idx + "_" + link.title}
             route={link.route}
@@ -88,9 +71,11 @@ const Header = () => {
             router={router}
           />
         ))}
-        {/* <button className="button" onClick={onToggleCarousel}>
-          {isPlaying ? "Stop" : "Start"}
-        </button> */}
+        <div className="main-nav__tools u-ml-a u-mr-z">
+          <button className="button button--icon button--tool" onClick={onToggleCarousel}>
+            {isPlaying ? <FiPause /> : <FiPlay />}
+          </button>
+        </div>
       </nav>
     </header>
   );
