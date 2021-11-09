@@ -2,7 +2,7 @@ import {useState, useRef, useEffect} from "react";
 import {FiXCircle} from "react-icons/fi";
 import "wicg-inert";
 
-import Portal from "./portal";
+import Portal from "./Portal";
 
 const Modal = ({
   children,

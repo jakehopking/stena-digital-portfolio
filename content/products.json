@@ -1,0 +1,104 @@
+{
+  "products": [
+    {
+      "phase": "Future",
+      "big_bet": true,
+      "feature": true,
+      "status": "Ongoing",
+      "date_resume": "",
+      "date_added": "2021-11-04T01:24:45.112Z",
+      "title": "Sales of consumables",
+      "effort": 9.2
+    },
+    {
+      "phase": "Future",
+      "big_bet": true,
+      "feature": false,
+      "status": "Ongoing",
+      "date_resume": "",
+      "date_added": "2021-11-04T01:24:45.112Z",
+      "title": "Sales of consumables",
+      "effort": 9.2
+    },
+    {
+      "phase": "Future",
+      "big_bet": true,
+      "feature": false,
+      "status": "Ongoing",
+      "date_resume": "",
+      "date_added": "2021-11-04T01:24:45.112Z",
+      "title": "Sales of consumables",
+      "effort": 9.2
+    },
+    {
+      "phase": "Next",
+      "big_bet": false,
+      "feature": true,
+      "status": "Ongoing",
+      "date_resume": "",
+      "date_added": "2021-11-04T01:25:09.480Z",
+      "title": "Calculator widget thing",
+      "effort": 9.0
+    },
+    {
+      "phase": "0%",
+      "big_bet": false,
+      "feature": false,
+      "status": "Ongoing",
+      "date_resume": "",
+      "date_added": "2021-11-04T01:26:04.531Z",
+      "title": "Material Lab",
+      "effort": 6.0
+    },
+    {
+      "phase": "50%",
+      "big_bet": true,
+      "feature": true,
+      "status": "Ongoing",
+      "date_resume": "",
+      "date_added": "2021-11-04T01:26:22.823Z",
+      "title": "Evolve by Stena",
+      "effort": 5.5
+    },
+    {
+      "phase": "Launched product",
+      "big_bet": false,
+      "feature": false,
+      "status": "Ongoing",
+      "date_resume": "",
+      "date_added": "2021-11-04T01:26:56.709Z",
+      "title": "Circular calculator",
+      "effort": 8.9
+    },
+    {
+      "phase": "50%",
+      "big_bet": true,
+      "feature": true,
+      "status": "Paused",
+      "date_resume": "2022-02-01T00:00:00.000Z",
+      "date_added": "2021-11-01T01:28:20.920Z",
+      "title": "Waste quote tool",
+      "effort": 3.4
+    },
+    {
+      "phase": "100%",
+      "big_bet": false,
+      "feature": true,
+      "status": "Cancelled",
+      "date_resume": "",
+      "date_added": "2021-11-04T01:29:04.834Z",
+      "title": "Calculator widget thing",
+      "effort": 2.1
+    },
+    {
+      "phase": "100%",
+      "big_bet": false,
+      "feature": true,
+      "status": "Ongoing",
+      "date_resume": "",
+      "date_added": "2021-11-04T01:29:04.834Z",
+      "title": "Calculator widget thing",
+      "effort": 2.1
+    }
+  ]
+}

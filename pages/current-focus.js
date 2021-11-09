@@ -4,38 +4,19 @@ import OverviewPanel from "../components/sidePanel/OverviewPanel";
 import DashboardCurrentFocus from "../components/organisms/DashboardCurrentFocus";
 import data from "../data/data";
 
-const {overviewPanelData, cmsData} = data;
-const {digital_bets, focus_areas, events, overviewPanel} = cmsData;
+const {overviewPanelData, circlePackingOne, circlePackingTwo, cmsData} = data;
+const {ideas, products, currentFocus, overviewPanel} = cmsData;
 
-export default function CurrentFocus({digital_bets, events, focus_areas, overviewPanel}) {
-  const {projects} = digital_bets;
-
-  // const exploreList = organiseListByKey({
-  //   listArray: projects,
-  //   filterList: phaseTitlesExploit,
-  // });
-  // const exploitList = organiseListByKey({
-  //   listArray: projects,
-  //   categoryName: "exploit",
-  //   filterList: phaseTitlesExploit,
-  // });
-
-  // console.log(maxEffort);
-  // console.log(exploitList);
-
+export default function CurrentFocus({currentFocus, ideas, products, overviewPanel}) {
   return (
     <Layout
-      home
       sideCol={
         <SidePanel>
-          <OverviewPanel {...overviewPanelData({projects, overviewPanel})} />
+          <OverviewPanel {...overviewPanelData({ideas, products, overviewPanel})} />
         </SidePanel>
       }
     >
-      <DashboardCurrentFocus
-        focusData={focus_areas.focus_areas}
-        eventData={events.events}
-      />
+      <DashboardCurrentFocus chartData={currentFocus} title="Current focus" />
     </Layout>
   );
 }
@@ -43,11 +24,12 @@ export default function CurrentFocus({digital_bets, events, focus_areas, overvie
 export const getStaticProps = async () => {
   return {
     props: {
-      digital_bets,
-      events,
-      focus_areas,
+      ...{
+        ideas: ideas.ideas,
+        products: products.products,
+        currentFocus: currentFocus.currentFocus,
+      },
       overviewPanel,
     },
-    revalidate: 1,
   };
 };

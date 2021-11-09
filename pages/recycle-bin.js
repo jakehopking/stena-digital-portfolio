@@ -1,28 +1,26 @@
 import Layout, {siteTitle} from "../components/Layout";
 import SidePanel from "../components/sidePanel/SidePanel";
 import OverviewPanel from "../components/sidePanel/OverviewPanel";
-import DashboardProducts from "../components/organisms/DashboardProducts";
+import DashboardRecycleBin from "../components/organisms/DashboardRecycleBin";
 import data from "../data/data";
 
 const {overviewPanelData, cmsData} = data;
-const {overviewPanel, products, ideas} = cmsData;
+const {ideas, products, overviewPanel} = cmsData;
 
 export default function Products({ideas, products}) {
   return (
     <Layout
       sideCol={
         <SidePanel>
-          <OverviewPanel
-            {...overviewPanelData({
-              ideas,
-              products,
-              overviewPanel,
-            })}
-          />
+          <OverviewPanel {...overviewPanelData({ideas, products, overviewPanel})} />
         </SidePanel>
       }
     >
-      <DashboardProducts productsList={products} title="Products" />
+      <DashboardRecycleBin
+        productsList={products}
+        ideasList={ideas}
+        title="Recycle bin"
+      />
     </Layout>
   );
 }

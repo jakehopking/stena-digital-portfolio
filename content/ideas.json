@@ -1,0 +1,67 @@
+{
+  "ideas": [
+    {
+      "phase": "New ideas",
+      "status": "Ongoing",
+      "big_bet": false,
+      "date_resume": "",
+      "date_added": "2021-11-04T01:33:48.507Z",
+      "title": "Universe expanding idea",
+      "effort": 8.0
+    },
+    {
+      "phase": "Test",
+      "status": "Ongoing",
+      "big_bet": true,
+      "date_resume": "",
+      "date_added": "2021-11-04T01:34:18.252Z",
+      "title": "Recycling calculator",
+      "effort": 9.0
+    },
+    {
+      "phase": "Deep test",
+      "status": "Ongoing",
+      "big_bet": true,
+      "date_resume": "",
+      "date_added": "2021-11-04T01:34:50.472Z",
+      "title": "Space mice",
+      "effort": 4.0
+    },
+    {
+      "phase": "Dragons den",
+      "status": "Ongoing",
+      "big_bet": false,
+      "date_resume": "",
+      "date_added": "2021-11-04T01:35:31.542Z",
+      "title": "Teleport waste into sun",
+      "effort": 8.7
+    },
+    {
+      "phase": "Transfer to product",
+      "status": "Ongoing",
+      "big_bet": true,
+      "date_resume": "",
+      "date_added": "2021-11-04T01:36:13.858Z",
+      "title": "Catapult to moon",
+      "effort": 2.4
+    },
+    {
+      "phase": "Deep test",
+      "status": "Paused",
+      "big_bet": false,
+      "date_resume": "2022-07-26T01:36:49.280Z",
+      "date_added": "2021-11-04T01:36:58.716Z",
+      "title": "Liquify waste",
+      "effort": 3.2
+    },
+    {
+      "phase": "Test",
+      "status": "Cancelled",
+      "big_bet": false,
+      "date_resume": "",
+      "date_added": "2021-11-04T01:37:56.770Z",
+      "title": "Make waste trendy",
+      "effort": 1.2
+    }
+  ]
+}

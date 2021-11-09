@@ -5,7 +5,6 @@ import {ThemeProvider} from "styled-components";
 import {NetlifyCMSContext} from "../context/netlifyCmsContext";
 import {COLOUR, SIZE, PALLET} from "../theme/theme";
 import {GlobalStyles} from "../styles/global";
-import netlifyCMSData from "../content/digital_bets.json";
 import {cmsData} from "../data/data";
 
 function Application({Component, pageProps}) {

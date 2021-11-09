@@ -31,8 +31,8 @@ const DashboardResponsiveCirclePacking = ({data, height, theme, colorScheme}) =>
       borderColor={{from: "color", modifiers: [["darker", 0.5]]}}
       tooltip={({id, value, color, data}) => (
         <ChartToolTip className="chart-tooltip" color={color}>
-          {id}: {value}
           {data.detail ? <div className="chart-tooltip__detail">{data.detail}</div> : ""}
+          {!data.loc ? "Total effort" : "Effort"}: {data.loc ? data.loc : value}
         </ChartToolTip>
       )}
       // defs={[

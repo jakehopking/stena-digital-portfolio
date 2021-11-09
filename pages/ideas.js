@@ -1,28 +1,24 @@
 import Layout, {siteTitle} from "../components/Layout";
 import SidePanel from "../components/sidePanel/SidePanel";
 import OverviewPanel from "../components/sidePanel/OverviewPanel";
-import DashboardProducts from "../components/organisms/DashboardProducts";
+import DashboardIdeas from "../components/organisms/DashboardIdeas";
 import data from "../data/data";
+import {phaseTitlesExploit} from "../data/constants";
+import {organiseListByKeyNew} from "../utils/general";
 
 const {overviewPanelData, cmsData} = data;
-const {overviewPanel, products, ideas} = cmsData;
+const {ideas, products, overviewPanel} = cmsData;
 
-export default function Products({ideas, products}) {
+export default function Ideas({ideas, products}) {
   return (
     <Layout
       sideCol={
         <SidePanel>
-          <OverviewPanel
-            {...overviewPanelData({
-              ideas,
-              products,
-              overviewPanel,
-            })}
-          />
+          <OverviewPanel {...overviewPanelData({ideas, products, overviewPanel})} />
         </SidePanel>
       }
     >
-      <DashboardProducts productsList={products} title="Products" />
+      <DashboardIdeas ideasList={ideas} title="Ideas" />
     </Layout>
   );
 }

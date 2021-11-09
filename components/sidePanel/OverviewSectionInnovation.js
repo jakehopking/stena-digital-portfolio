@@ -45,7 +45,7 @@ const OverviewSectionInnovation = ({
   theme,
 }) => {
   return (
-    <div className="overview-panel__info u-mb-2x">
+    <div className="overview-panel__info">
       <h3 className="overview-panel__label o-type-5 u-weight-bold u-mb-sm">
         {data.label}
       </h3>

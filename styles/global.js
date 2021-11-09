@@ -33,8 +33,13 @@ export const GlobalStyles = createGlobalStyle`
     --color-secondary-0: ${({theme}) => hexToRGBA(theme.pallet.secondary._00)};
     /* Tertiary */
     --color-tertiary-0: ${({theme}) => hexToRGBA(theme.pallet.tertiary._00)};
+    --color-tertiary-20: ${({theme}) => hexToRGBA(theme.pallet.tertiary._20)};
     /* Grey */
+    --color-grey-01: ${({theme}) => hexToRGBA(theme.pallet.grey._01)};
     --color-grey-06: ${({theme}) => hexToRGBA(theme.pallet.grey._06)};
+    --color-grey-08: ${({theme}) => hexToRGBA(theme.pallet.grey._08)};
+    --color-grey-09: ${({theme}) => hexToRGBA(theme.pallet.grey._09)};
+    --color-grey-70: ${({theme}) => hexToRGBA(theme.pallet.grey._70)};
     
 
     /* Buttons */

@@ -1,0 +1,20 @@
+{
+  "currentFocus": [
+    {
+      "value": 100,
+      "label": "Email or phone calls from the five largest causes should be reduced by 50% by October 2022 "
+    },
+    {
+      "value": 75,
+      "label": "The average turnover from D-customers should be doubled from 6000-12000"
+    },
+    {
+      "value": 20,
+      "label": "Increase NPS from X to Y"
+    },
+    {
+      "value": 45,
+      "label": "At least 100 applicants per job add"
+    }
+  ]
+}

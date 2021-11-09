@@ -1,22 +1,22 @@
-import FocusList from "./FocusList";
-import EventList from "./EventList";
+import DashboardResponsiveCirclePacking from "../molecules/DashboardResponsiveCirclePacking";
+import {generateChartData} from "../../utils/general";
 
-const DashboardCurrentFocus = ({focusData, eventData}) => {
+import {CHART_SCHEMES, CHART_THEME} from "../../theme/theme";
+
+const DashboardCurrentFocus = ({title, chartData}) => {
+  const currentFocusChartData = generateChartData({chartData, label: title});
   return (
     <div className="dashboard dashboard--focus">
       <div className="container u-p-md u-mr-md">
-        <section className="dashboard__grid grid grid--half">
+        <section className="dashboard__title">{title}</section>
+        <section className="dashboard__grid grid">
           <div className="grid-item">
-            <div className="panel panel--fill panel--px-1-rad-def u-p-md">
-              <div className="o-type-5">Focus areas</div>
-              <FocusList data={focusData} />
-            </div>
-          </div>
-          <div className="grid-item">
-            <div className="panel panel--fill panel--px-1-rad-def u-p-md">
-              <div className="o-type-5">Upcoming innovation events</div>
-              <EventList data={eventData} />
-            </div>
+            <DashboardResponsiveCirclePacking
+              data={currentFocusChartData}
+              height={800}
+              colorScheme={CHART_SCHEMES.four}
+              theme={CHART_THEME}
+            />
           </div>
         </section>
       </div>

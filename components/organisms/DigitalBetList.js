@@ -1,27 +1,23 @@
-import DigitalBetItem from "../molecules/DigitalBetItem";
+import DigitalBetItemSimple from "../molecules/DigitalBetItemSimple";
 
-const DigitalBetList = ({data, title, size}) => {
+const DigitalBetList = ({data, size, title, type}) => {
   return (
     <div className="digital-bet-list">
       <div className="digital-bet-list__title">{title}</div>
       <div className="digital-bet-list__list">
         {data.map((bet, idx) => {
-          {
-            /* const progress = parseInt(getRichText(properties.Progress)); */
-          }
           return (
-            <DigitalBetItem
-              key={`${idx}` + bet.project_name}
+            <DigitalBetItemSimple
               bigBet={bet.big_bet}
-              productTeam={bet.product_team}
-              // count={bet.count}
-              phase={bet.phase}
-              projectName={bet.project_name}
-              // progress={progress}
-              size={size}
+              dateResume={bet.date_resume}
               effort={bet.effort}
-              group={title}
-              stakeholder={bet.project_stakeholder}
+              feature={bet.feature}
+              key={`${idx}` + bet.title}
+              phase={bet.phase}
+              title={bet.title}
+              size={size}
+              status={bet.status}
+              type={type}
             />
           );
         })}
@@ -32,8 +28,9 @@ const DigitalBetList = ({data, title, size}) => {
 
 DigitalBetList.defaultProps = {
   data: [{}],
-  size: "",
+  size: "small",
   title: "Title",
+  type: "products",
 };
 
 export default DigitalBetList;
