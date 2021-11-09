@@ -5,9 +5,9 @@ import DashboardCurrentFocus from "../components/organisms/DashboardCurrentFocus
 import data from "../data/data";
 
 const {overviewPanelData, circlePackingOne, circlePackingTwo, cmsData} = data;
-const {ideas, products, overviewPanel} = cmsData;
+const {ideas, products, currentFocus, overviewPanel} = cmsData;
 
-export default function CurrentFocus({ideas, products, overviewPanel}) {
+export default function CurrentFocus({currentFocus, ideas, products, overviewPanel}) {
   return (
     <Layout
       sideCol={
@@ -16,10 +16,7 @@ export default function CurrentFocus({ideas, products, overviewPanel}) {
         </SidePanel>
       }
     >
-      <DashboardCurrentFocus
-        chartData={{circlePackingOne, circlePackingTwo}}
-        title="Current focus"
-      />
+      <DashboardCurrentFocus chartData={currentFocus} title="Current focus" />
     </Layout>
   );
 }
@@ -30,6 +27,7 @@ export const getStaticProps = async () => {
       ...{
         ideas: ideas.ideas,
         products: products.products,
+        currentFocus: currentFocus.currentFocus,
       },
       overviewPanel,
     },

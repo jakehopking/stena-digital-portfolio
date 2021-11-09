@@ -1,44 +1,28 @@
 import DigitalBetList from "./DigitalBetList";
 import DashboardResponsiveCirclePacking from "../molecules/DashboardResponsiveCirclePacking";
-import {filterFn} from "../../utils/general";
+import {filterFn, generateChartData} from "../../utils/general";
 
 import {CHART_SCHEMES, CHART_THEME} from "../../theme/theme";
 
-const DashboardCurrentFocus = ({rows, grid, chartData}) => {
+const DashboardCurrentFocus = ({title, chartData}) => {
+  const currentFocusChartData = generateChartData({chartData, label: title});
+  console.log(currentFocusChartData);
   // debugger;
   return (
-    <div
-      className={`dashboard-stage ${
-        rows ? "dashboard-stage--rows" : grid ? "dashboard-stage--grid" : ""
-      }`}
-    >
-      <section className="dashboard-stage__chart">
-        <div className="o-grid o-grid--fill">
-          <div className="o-grid__col u-1/2">
+    <div className="dashboard dashboard--focus">
+      <div className="container u-p-md u-mr-md">
+        <section className="dashboard__title">{title}</section>
+        <section className="dashboard__grid grid">
+          <div className="grid-item">
             <DashboardResponsiveCirclePacking
-              data={chartData.circlePackingOne}
-              height={700}
-              colorScheme={CHART_SCHEMES.one}
-              theme={CHART_THEME}
-            />
-          </div>
-          <div className="o-grid__col u-1/2">
-            <DashboardResponsiveCirclePacking
-              data={chartData.circlePackingTwo}
+              data={currentFocusChartData}
               height={700}
               colorScheme={CHART_SCHEMES.two}
               theme={CHART_THEME}
             />
           </div>
-        </div>
-      </section>
-      <section className="dashboard-stage__info">
-        <div className="o-grid">
-          <div className="o-grid__col u-1/3"></div>
-          <div className="o-grid__col u-1/3"></div>
-          <div className="o-grid__col u-1/3"></div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 };
