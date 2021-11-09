@@ -1,5 +1,3 @@
-import digital_bets from "../content/digital_bets.json"; // remove
-import focus_areas from "../content/focus_areas.json"; // remove
 import ideas from "../content/ideas.json";
 import products from "../content/products.json";
 import events from "../content/events.json";
@@ -10,8 +8,6 @@ import {digitalBets, digitalBetsWithCounts} from "./digitalBets";
 import {overviewPanelData} from "./overviewPanel";
 
 export const cmsData = {
-  digital_bets, // remove
-  focus_areas, // remove
   ideas,
   products,
   events,

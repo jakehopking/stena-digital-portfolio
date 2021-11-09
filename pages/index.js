@@ -5,7 +5,7 @@ import DashboardProducts from "../components/organisms/DashboardProducts";
 import data from "../data/data";
 
 const {overviewPanelData, cmsData} = data;
-const {digital_bets, overviewPanel, products, ideas} = cmsData;
+const {overviewPanel, products, ideas} = cmsData;
 
 export default function Products({ideas, products}) {
   return (
