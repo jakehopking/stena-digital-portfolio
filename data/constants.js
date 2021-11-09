@@ -2,7 +2,7 @@ require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`,
 });
 
-// Order to render the digital bets list on products page.
+// Order to render the digital bets lists on products page.
 export const productTitlesSortOrder = [
   "Future",
   "Next",
@@ -12,7 +12,7 @@ export const productTitlesSortOrder = [
   "Launched product",
 ];
 
-// Order to render the digital bets list on ideas page.
+// Order to render the digital bets lists on ideas page.
 export const ideaTitlesSortOrder = [
   "New ideas",
   "Test",
@@ -20,6 +20,21 @@ export const ideaTitlesSortOrder = [
   "Dragons den",
   "Transfer to product",
 ];
+
+// Overview panel title groups for filtering and counting results
+export const overviewPanelTitleGroups = {
+  ideas: {
+    new: ideaTitlesSortOrder,
+    validation: ["Test", "Deep test", "Dragons den"],
+    transfer: ["Transfer to product"],
+  },
+  products: {
+    future: ["Future"],
+    next: ["Next"],
+    onGoing: ["0%", "50%", "100%"],
+    launched: ["Launched product"],
+  },
+};
 
 // Deprecated
 export const productTeamsDigitalBets = ["Now", "Next", "Future"];

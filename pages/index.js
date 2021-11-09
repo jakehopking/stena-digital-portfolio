@@ -5,9 +5,9 @@ import DashboardProducts from "../components/organisms/DashboardProducts";
 import data from "../data/data";
 
 const {overviewPanelData, cmsData} = data;
-const {digital_bets, overviewPanel, products} = cmsData;
+const {digital_bets, overviewPanel, products, ideas} = cmsData;
 
-export default function Products({digital_bets, ideas}) {
+export default function Products({digital_bets, ideas, products}) {
   const {projects} = digital_bets;
 
   // debugger;
@@ -16,11 +16,18 @@ export default function Products({digital_bets, ideas}) {
     <Layout
       sideCol={
         <SidePanel>
-          <OverviewPanel {...overviewPanelData({projects, overviewPanel})} />
+          <OverviewPanel
+            {...overviewPanelData({
+              products,
+              ideas,
+              projects,
+              overviewPanel,
+            })}
+          />
         </SidePanel>
       }
     >
-      <DashboardProducts productsList={products.products} title="Products" />
+      <DashboardProducts productsList={products} title="Products" />
     </Layout>
   );
 }
@@ -28,7 +35,10 @@ export default function Products({digital_bets, ideas}) {
 export const getStaticProps = async () => {
   return {
     props: {
-      products,
+      ...{
+        ideas: ideas.ideas,
+        products: products.products,
+      },
       digital_bets,
       overviewPanel,
     },

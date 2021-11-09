@@ -161,8 +161,46 @@ collections:
         name: "overviewPanel"
         file: "content/overviewPanel.json"
         fields:
-          - label: "Innovation investments"
-            name: "innovationInvestments"
+          - label: "Ideas"
+            name: "overviewIdeas"
+            widget: "object"
+            fields:
+              - {label: Response time, name: responseTime, widget: number, default: 0}
+              - {
+                  label: Response time T-1,
+                  name: responseTimeT1,
+                  widget: number,
+                  default: 0,
+                  required: false,
+                }
+              - {
+                  label: Average evaluation time,
+                  name: evaluationTime,
+                  widget: number,
+                  default: 0,
+                }
+          - label: "Products"
+            name: "overviewProducts"
+            widget: "object"
+            fields:
+              - {label: Lead time, name: leadTime, widget: number, default: 0}
+              - {
+                  label: Lead time T-1,
+                  name: leadTimeT1,
+                  widget: number,
+                  default: 0,
+                  required: false,
+                }
+              - {label: Number of learnings, name: learnings, widget: number, default: 0}
+              - {
+                  label: Number of learnings T-1,
+                  name: learningsT1,
+                  widget: number,
+                  default: 0,
+                  required: false,
+                }
+          - label: "Transformation investments"
+            name: "transformationInvestments"
             widget: list
             max: 5
             min: 1

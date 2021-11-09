@@ -8,11 +8,11 @@ const OverviewSectionSimple = ({data}) => {
       </h3>
       <div className="overview-panel__content">
         <div className="o-grid">
-          {data.numbers.map((item, idx) => {
+          {data.counts.map((item, idx) => {
             return (
               <div
                 key={idx + item.label}
-                className={`o-grid__col u-1/${data.numbers.length}`}
+                className={`o-grid__col u-1/${data.counts.length}`}
               >
                 <LabelCount label={item.label} count={item.count} />
               </div>

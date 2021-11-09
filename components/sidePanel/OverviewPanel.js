@@ -6,6 +6,8 @@ import OverviewSectionTrends from "./OverviewSectionTrends";
 import {CHART_SCHEMES, OVERVIEW_PIE_THEME} from "../../theme/theme";
 
 const OverviewPanel = ({
+  ideas,
+  products,
   projects,
   team,
   investments,
@@ -15,7 +17,8 @@ const OverviewPanel = ({
 }) => {
   return (
     <div className="overview-panel">
-      {projects && <OverviewSectionSimple data={projects} />}
+      {ideas && <OverviewSectionSimple data={ideas} />}
+      {products && <OverviewSectionSimple data={products} />}
       {/* {team && <OverviewSectionSimple data={team} />} */}
       {/* {investments && <OverviewSectionInvestments data={investments} chartHeight={250} />} */}
       {innovation && (
