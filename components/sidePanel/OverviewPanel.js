@@ -8,7 +8,6 @@ import {CHART_SCHEMES, OVERVIEW_PIE_THEME} from "../../theme/theme";
 const OverviewPanel = ({
   ideas,
   products,
-  projects,
   team,
   investments,
   innovation,
