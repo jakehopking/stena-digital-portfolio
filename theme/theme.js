@@ -179,6 +179,7 @@ export const CHART_SCHEMES = {
     "rgba(236, 236, 236, 1)",
     "rgba(102, 199, 123, 1)",
   ],
+  four: ["rgba(50, 50, 50, 1.0)", "#EBE7E0"],
 };
 
 export const COLOUR_MAP = {
