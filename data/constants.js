@@ -36,7 +36,8 @@ export const overviewPanelTitleGroups = {
   },
 };
 
-export const pageRoutes = [
+// Used for carousel mode, and for main navbar links (excludes 'tools')
+export const mainNavPageRoutes = [
   {
     title: "Trends",
     route: "/trends",
