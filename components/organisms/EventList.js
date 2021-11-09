@@ -1,7 +1,6 @@
 import EventListItem from "../molecules/EventListItem";
 
 const EventList = ({data}) => {
-  // debugger;
   return (
     <ul className="event-list">
       {data.map((item, idx) => {

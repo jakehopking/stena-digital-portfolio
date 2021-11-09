@@ -14,7 +14,7 @@ const DashboardScreensaver = ({shortcutImage}) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <div className="dashboard dashboard--portfolio">
+    <div className="dashboard dashboard--screensaver">
       <div className="container">
         <section className="dashboard__title">All projects</section>
         <section className="dashboard__grid grid grid--250 grid--alt-cols">

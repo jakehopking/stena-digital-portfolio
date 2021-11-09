@@ -1,8 +1,11 @@
 .event-list {
   position: relative;
-  margin: var(--su-3) 0;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: var(--su-4) var(--su-5);
+  margin-bottom: 120px;
 }
 
 .event-list__item {
@@ -13,10 +16,6 @@
   padding: var(--su-3) var(--su-2);
   background-color: var(--background);
   border-radius: var(--radius-default);
-
-  & + & {
-    margin-top: var(--su-4);
-  }
 }
 
 .event-list__tag {

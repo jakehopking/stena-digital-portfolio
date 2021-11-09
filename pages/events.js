@@ -8,6 +8,7 @@ const {overviewPanelData, cmsData} = data;
 const {events, ideas, products, overviewPanel} = cmsData;
 
 export default function Events({events, ideas, products, overviewPanel}) {
+  // debugger;
   return (
     <Layout
       sideCol={
@@ -16,7 +17,7 @@ export default function Events({events, ideas, products, overviewPanel}) {
         </SidePanel>
       }
     >
-      <DashboardEvents eventData={events} title="Events" />
+      <DashboardEvents eventData={events} title={"Upcoming innovation events"} />
     </Layout>
   );
 }
