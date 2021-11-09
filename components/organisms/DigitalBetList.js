@@ -1,4 +1,4 @@
-import DigitalBetItemSimple from "../molecules/DigitalBetItemSimple";
+import DigitalBetItem from "../molecules/DigitalBetItem";
 
 const DigitalBetList = ({data, size, title, type}) => {
   return (
@@ -7,7 +7,7 @@ const DigitalBetList = ({data, size, title, type}) => {
       <div className="digital-bet-list__list">
         {data.map((bet, idx) => {
           return (
-            <DigitalBetItemSimple
+            <DigitalBetItem
               bigBet={bet.big_bet}
               dateResume={bet.date_resume}
               effort={bet.effort}
