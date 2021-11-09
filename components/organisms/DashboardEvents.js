@@ -5,7 +5,7 @@ const DashboardEvents = ({eventData, title}) => {
   const sortAccenting = eventData.sort(dynamicSort("date"));
   return (
     <div className="dashboard dashboard--focus">
-      <div className="container u-p-md u-mr-md">
+      <div className="container u-mr-2x">
         <section className="dashboard__title">{title}</section>
         <section className="dashboard__grid grid">
           <div className="grid-item">

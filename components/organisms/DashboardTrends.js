@@ -25,7 +25,7 @@ const DashboardTrends = ({techTrendsData, recyclingTrendsData}) => {
   return (
     <div className="dashboard dashboard--trends">
       <div className="container u-p-md u-mr-md">
-        <section className="dashboard__grid grid grid--half">
+        <section className="dashboard__grid grid grid--half u-pl-z">
           <div className="grid-item">
             <div className="panel panel--fill panel--px-1-rad-def u-p-md">
               <h3 className="u-weight-bold u-mb u-mt-sm">{techTrendsData.title}</h3>
