@@ -7,20 +7,15 @@ import data from "../data/data";
 const {overviewPanelData, cmsData} = data;
 const {digital_bets, overviewPanel, products, ideas} = cmsData;
 
-export default function Products({digital_bets, ideas, products}) {
-  const {projects} = digital_bets;
-
-  // debugger;
-
+export default function Products({ideas, products}) {
   return (
     <Layout
       sideCol={
         <SidePanel>
           <OverviewPanel
             {...overviewPanelData({
-              products,
               ideas,
-              projects,
+              products,
               overviewPanel,
             })}
           />
@@ -39,7 +34,6 @@ export const getStaticProps = async () => {
         ideas: ideas.ideas,
         products: products.products,
       },
-      digital_bets,
       overviewPanel,
     },
   };

@@ -8,7 +8,7 @@ import {phaseTitlesExploit} from "../data/constants";
 import {organiseListByKey} from "../utils/general";
 
 const {overviewPanelData, cmsData} = data;
-const {digital_bets, overviewPanel, shortcutImage} = cmsData;
+const {ideas, products, overviewPanel, shortcutImage} = cmsData;
 
 const DashboardScreensaver = ({shortcutImage}) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -46,8 +46,7 @@ const DashboardScreensaver = ({shortcutImage}) => {
   );
 };
 
-export default function Screensaver({digital_bets, shortcutImage}) {
-  const {projects} = digital_bets;
+export default function Screensaver({ideas, products, shortcutImage}) {
   const {shortcut_image} = shortcutImage;
 
   return (
@@ -55,7 +54,7 @@ export default function Screensaver({digital_bets, shortcutImage}) {
       home
       sideCol={
         <SidePanel>
-          <OverviewPanel {...overviewPanelData({projects, overviewPanel})} />
+          <OverviewPanel {...overviewPanelData({ideas, products, overviewPanel})} />
         </SidePanel>
       }
     >
@@ -67,7 +66,10 @@ export default function Screensaver({digital_bets, shortcutImage}) {
 export const getStaticProps = async () => {
   return {
     props: {
-      digital_bets,
+      ...{
+        ideas: ideas.ideas,
+        products: products.products,
+      },
       overviewPanel,
       shortcutImage,
     },

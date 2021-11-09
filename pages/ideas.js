@@ -7,20 +7,18 @@ import {phaseTitlesExploit} from "../data/constants";
 import {organiseListByKeyNew} from "../utils/general";
 
 const {overviewPanelData, cmsData} = data;
-const {digital_bets, ideas, overviewPanel} = cmsData;
+const {ideas, products, overviewPanel} = cmsData;
 
-export default function Ideas({digital_bets, ideas}) {
-  const {projects} = digital_bets;
-
+export default function Ideas({ideas, products}) {
   return (
     <Layout
       sideCol={
         <SidePanel>
-          <OverviewPanel {...overviewPanelData({projects, overviewPanel})} />
+          <OverviewPanel {...overviewPanelData({ideas, products, overviewPanel})} />
         </SidePanel>
       }
     >
-      <DashboardIdeas ideasList={ideas.ideas} title="Ideas" />
+      <DashboardIdeas ideasList={ideas} title="Ideas" />
     </Layout>
   );
 }
@@ -28,8 +26,10 @@ export default function Ideas({digital_bets, ideas}) {
 export const getStaticProps = async () => {
   return {
     props: {
-      ideas,
-      digital_bets,
+      ...{
+        ideas: ideas.ideas,
+        products: products.products,
+      },
       overviewPanel,
     },
   };

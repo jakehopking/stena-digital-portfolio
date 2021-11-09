@@ -5,16 +5,14 @@ import DashboardCurrentFocus from "../components/organisms/DashboardCurrentFocus
 import data from "../data/data";
 
 const {overviewPanelData, circlePackingOne, circlePackingTwo, cmsData} = data;
-const {digital_bets, focus_areas, events, overviewPanel} = cmsData;
+const {ideas, products, overviewPanel} = cmsData;
 
-export default function CurrentFocus({digital_bets, events, focus_areas, overviewPanel}) {
-  const {projects} = digital_bets;
-
+export default function CurrentFocus({ideas, products, overviewPanel}) {
   return (
     <Layout
       sideCol={
         <SidePanel>
-          <OverviewPanel {...overviewPanelData({projects, overviewPanel})} />
+          <OverviewPanel {...overviewPanelData({ideas, products, overviewPanel})} />
         </SidePanel>
       }
     >
@@ -29,9 +27,10 @@ export default function CurrentFocus({digital_bets, events, focus_areas, overvie
 export const getStaticProps = async () => {
   return {
     props: {
-      digital_bets,
-      events,
-      focus_areas,
+      ...{
+        ideas: ideas.ideas,
+        products: products.products,
+      },
       overviewPanel,
     },
   };

@@ -5,24 +5,20 @@ import DashboardRecycleBin from "../components/organisms/DashboardRecycleBin";
 import data from "../data/data";
 
 const {overviewPanelData, cmsData} = data;
-const {digital_bets, overviewPanel, products, ideas} = cmsData;
+const {ideas, products, overviewPanel} = cmsData;
 
-export default function Products({digital_bets, ideas, products}) {
-  const {projects} = digital_bets;
-
-  // debugger;
-
+export default function Products({ideas, products}) {
   return (
     <Layout
       sideCol={
         <SidePanel>
-          <OverviewPanel {...overviewPanelData({projects, overviewPanel})} />
+          <OverviewPanel {...overviewPanelData({ideas, products, overviewPanel})} />
         </SidePanel>
       }
     >
       <DashboardRecycleBin
-        productsList={products.products}
-        ideasList={ideas.ideas}
+        productsList={products}
+        ideasList={ideas}
         title="Recycle bin"
       />
     </Layout>
@@ -32,9 +28,10 @@ export default function Products({digital_bets, ideas, products}) {
 export const getStaticProps = async () => {
   return {
     props: {
-      ideas,
-      products,
-      digital_bets,
+      ...{
+        ideas: ideas.ideas,
+        products: products.products,
+      },
       overviewPanel,
     },
   };

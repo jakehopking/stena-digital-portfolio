@@ -5,24 +5,18 @@ import DashboardEvents from "../components/organisms/DashboardEvents";
 import data from "../data/data";
 
 const {overviewPanelData, cmsData} = data;
-const {digital_bets, focus_areas, events, overviewPanel} = cmsData;
+const {events, ideas, products, overviewPanel} = cmsData;
 
-export default function Events({digital_bets, events, focus_areas, overviewPanel}) {
-  const {projects} = digital_bets;
-
+export default function Events({events, ideas, products, overviewPanel}) {
   return (
     <Layout
       sideCol={
         <SidePanel>
-          <OverviewPanel {...overviewPanelData({projects, overviewPanel})} />
+          <OverviewPanel {...overviewPanelData({ideas, products, overviewPanel})} />
         </SidePanel>
       }
     >
-      <DashboardEvents
-        focusData={focus_areas.focus_areas}
-        eventData={events.events}
-        title="Events"
-      />
+      <DashboardEvents eventData={events} title="Events" />
     </Layout>
   );
 }
@@ -30,9 +24,11 @@ export default function Events({digital_bets, events, focus_areas, overviewPanel
 export const getStaticProps = async () => {
   return {
     props: {
-      digital_bets,
-      events,
-      focus_areas,
+      ...{
+        events: events.events,
+        ideas: ideas.ideas,
+        products: products.products,
+      },
       overviewPanel,
     },
   };

@@ -8,17 +8,14 @@ import {googleSheets, googleSheetsAuth} from "../data/constants";
 import {worksheetSurveyData, googleFormsUrl, googleSheetUrl} from "../utils/googleSheets";
 
 const {overviewPanelData, cmsData} = data;
-const {digital_bets, overviewPanel} = cmsData;
+const {ideas, products, overviewPanel} = cmsData;
 
-export default function ProductTeams({digital_bets, techTrends, recyclingTrends}) {
-  // debugger;
-  const {projects} = digital_bets;
-
+export default function ProductTeams({ideas, products, recyclingTrends, techTrends}) {
   return (
     <Layout
       sideCol={
         <SidePanel>
-          <OverviewPanel {...overviewPanelData({projects, overviewPanel})} />
+          <OverviewPanel {...overviewPanelData({ideas, products, overviewPanel})} />
         </SidePanel>
       }
     >
@@ -52,7 +49,10 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      digital_bets,
+      ...{
+        ideas: ideas.ideas,
+        products: products.products,
+      },
       overviewPanel,
       techTrends,
       recyclingTrends,
