@@ -1,5 +1,5 @@
 import {filterFn, multiplier} from "../utils/general";
-import {phaseTitlesExploit, overviewPanelTitleGroups} from "./constants";
+import {overviewPanelTitleGroups} from "./constants";
 
 export const overviewPanelData = ({
   products,

@@ -36,28 +36,6 @@ export const overviewPanelTitleGroups = {
   },
 };
 
-// Deprecated
-export const productTeamsDigitalBets = ["Now", "Next", "Future"];
-
-// Deprecated
-export const phaseTitles = [
-  "Ideation",
-  "Discovery",
-  "Validation",
-  "Confirmation",
-  "Transfer",
-  "Launch",
-  "Sustaining innovation",
-  "Efficiency",
-  "Mature business",
-  "Declining business",
-  "Renovation",
-];
-
-// Deprecated
-export const phaseTitlesExplore = phaseTitles.slice(0, 9);
-export const phaseTitlesExploit = phaseTitles.slice(9);
-
 export const googleSheets = {
   techTrends: {
     sheetId: "15Npplc138znewXEbyi_RX3DYxhNKuEpI0OiQ-H_LDEU",
