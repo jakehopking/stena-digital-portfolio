@@ -104,3 +104,24 @@ export const dynamicSort = (property) => {
     return result * sortOrder;
   };
 };
+
+export const calcPercentage = (value, total) => Math.round((value / total) * 100);
+
+export const calcChartLabelLength = (string, value, maxLength) => {
+  if (value === 100 && string.length <= maxLength) return string;
+  return string.substring(0, Math.round(maxLength * (value / 100))).trim() + "...";
+};
+
+export const generateChartData = ({chartData = [], label = "", maxLength = 60}) => {
+  return {
+    name: label,
+    children: chartData.map((item) => {
+      const {label, value} = item;
+      return {
+        name: calcChartLabelLength(label, value, maxLength),
+        detail: label,
+        loc: value,
+      };
+    }),
+  };
+};
