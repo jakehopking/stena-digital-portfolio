@@ -8,7 +8,13 @@ export const overviewPanelData = ({
   effortValueMultiplier = 1000000,
 }) => {
   // Overview panel data from netlify
-  const {progressData, recyclingTrends, transformationInvestments} = overviewPanel;
+  const {
+    progressData,
+    recyclingTrends,
+    transformationInvestments,
+    overviewIdeas,
+    overviewProducts,
+  } = overviewPanel;
 
   // Ideas
   const ideaCounts = Object.entries(overviewPanelTitleGroups.ideas).map((group) => {
@@ -30,10 +36,18 @@ export const overviewPanelData = ({
     ideas: {
       label: "Ideas",
       counts: ideaCounts,
+      meta: [
+        {label: "Response time on idea", value: `${overviewIdeas.responseTime} hours`},
+        {label: "Average evaluation time", value: `${overviewIdeas.evaluationTime} days`},
+      ],
     },
     products: {
       label: "Products",
       counts: productCounts,
+      meta: [
+        {label: "Lead time", value: `${overviewProducts.leadTime} weeks`},
+        {label: "Number of learnings", value: `${overviewProducts.learnings}/y`},
+      ],
     },
     innovation: {
       label: "Transformational investments",
