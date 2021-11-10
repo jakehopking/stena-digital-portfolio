@@ -1,33 +1,22 @@
-import {useEffect, useContext} from "react";
+import {useEffect, useContext, useState} from "react";
 import {useRouter} from "next/router";
-import {FiPause, FiPlay} from "react-icons/fi";
+import {ImMap} from "react-icons/im";
+import {IoGrid, IoPlay, IoPause} from "react-icons/io5";
 import {AppContext} from "../context/appContext";
+import {NetlifyCMSContext} from "../context/netlifyCmsContext";
 import {mainNavPageRoutes} from "../data/constants";
-
-const NavLink = ({route, title, isActive, router, type = "text", icon}) => {
-  let Icon;
-  icon ? (Icon = icon) : null;
-
-  return (
-    <div
-      onClick={() => router.push(route)}
-      className={`nav-main__item ${isActive(route)}`}
-    >
-      {!icon && <a>{title}</a>}
-      {icon && (
-        <a>
-          <Icon size="1.5em" />
-        </a>
-      )}
-    </div>
-  );
-};
+import NavLink from "./atoms/NavLink";
+import NavTools from "./molecules/NavTools";
+import Modal from "./molecules/Modal";
+import DashboardEvents from "./organisms/DashboardEvents";
 
 const Header = () => {
   const {state, dispatch} = useContext(AppContext);
+  const {shortcutImage, events} = useContext(NetlifyCMSContext);
   const {isPlaying, currentRoute} = state;
+  const [isMapShowing, setIsMapShowing] = useState(false);
+  const [isScreensaverShowing, setIsScreensaverShowing] = useState(false);
   const router = useRouter();
-
   const isActive = (path) => (router.pathname === path ? "nav-main__item--active" : "");
 
   const nextPage = () => {
@@ -43,12 +32,20 @@ const Header = () => {
     });
   };
 
+  const onToggleMap = () => {
+    setIsMapShowing(!isMapShowing);
+  };
+
+  const onToggleScreensaver = () => {
+    console.log({"screensaver showing": !isScreensaverShowing ? true : false});
+    setIsScreensaverShowing(!isScreensaverShowing);
+  };
+
   useEffect(() => {
     if (isPlaying) {
       setTimeout(() => {
         nextPage();
       }, 30000);
-      console.log(mainNavPageRoutes[currentRoute].route);
       router.push(mainNavPageRoutes[currentRoute].route);
     }
     return () => {
@@ -56,27 +53,45 @@ const Header = () => {
     };
   }, [currentRoute, isPlaying]);
 
-  console.log(state);
-
   return (
-    <header className="header-main">
+    <header
+      className={`header-main ${
+        (isMapShowing || isScreensaverShowing) && "header-main--withModal"
+      }`}
+    >
       <img className="header-main__logo" src="/logo_stena.svg" />
       <nav className="nav-main">
-        {mainNavPageRoutes.map((link, idx) => (
-          <NavLink
-            key={idx + "_" + link.title}
-            route={link.route}
-            title={link.title}
-            isActive={isActive}
-            router={router}
-          />
-        ))}
-        <div className="main-nav__tools u-ml-a u-mr-z">
-          <button className="button button--icon button--tool" onClick={onToggleCarousel}>
-            {isPlaying ? <FiPause /> : <FiPlay />}
-          </button>
-        </div>
+        {!isMapShowing &&
+          !isScreensaverShowing &&
+          mainNavPageRoutes.map((link, idx) => (
+            <NavLink
+              key={idx + "_" + link.title}
+              route={link.route}
+              title={link.title}
+              isActive={isActive}
+              router={router}
+            />
+          ))}
+        <NavTools
+          isPlaying={isPlaying}
+          isMapShowing={isMapShowing}
+          isScreensaverShowing={isScreensaverShowing}
+          onToggleCarousel={onToggleCarousel}
+          onToggleMap={onToggleMap}
+          onToggleScreensaver={onToggleScreensaver}
+        />
       </nav>
+      <div className="modal-container">
+        <Modal onClose={onToggleMap} open={isMapShowing} size="withNav" closeType={null}>
+          <img src={shortcutImage.shortcut_image} onClick={onToggleMap} />
+        </Modal>
+        <Modal onClose={onToggleScreensaver} open={isScreensaverShowing} size="withNav">
+          <DashboardEvents eventData={events.events} title="&nbsp;" />
+          <div className="modal__bg-image">
+            <img src="/images/photos/stena_photo_9.jpg" />
+          </div>
+        </Modal>
+      </div>
     </header>
   );
 };
