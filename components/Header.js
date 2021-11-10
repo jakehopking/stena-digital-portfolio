@@ -15,6 +15,7 @@ const Header = () => {
   const [isMapShowing, setIsMapShowing] = useState(false);
   const [isScreensaverShowing, setIsScreensaverShowing] = useState(false);
   const router = useRouter();
+
   const isActive = (path) => (router.pathname === path ? "nav-main__item--active" : "");
 
   const nextPage = () => {
