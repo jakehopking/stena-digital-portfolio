@@ -90,7 +90,9 @@ const Header = () => {
           <img src={shortcutImage.shortcut_image} onClick={onToggleMap} />
         </Modal>
         <Modal onClose={onToggleScreensaver} open={isScreensaverShowing} size="withNav">
-          <DashboardEvents eventData={events.events} title="&nbsp;" />
+          <div className="u-mh-5x u-mv-3x">
+            <DashboardEvents eventData={events.events} title="&nbsp;" />
+          </div>
           <div className="modal__bg-image">
             <img src="/images/photos/stena_photo_9.jpg" />
           </div>
