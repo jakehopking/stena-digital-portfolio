@@ -1,7 +1,5 @@
 import {useEffect, useContext, useState} from "react";
 import {useRouter} from "next/router";
-import {ImMap} from "react-icons/im";
-import {IoGrid, IoPlay, IoPause} from "react-icons/io5";
 import {AppContext} from "../context/appContext";
 import {NetlifyCMSContext} from "../context/netlifyCmsContext";
 import {mainNavPageRoutes} from "../data/constants";
@@ -34,11 +32,16 @@ const Header = () => {
 
   const onToggleMap = () => {
     setIsMapShowing(!isMapShowing);
+    dispatch({
+      type: "APP_CAROUSEL_STOP",
+    });
   };
 
   const onToggleScreensaver = () => {
-    console.log({"screensaver showing": !isScreensaverShowing ? true : false});
     setIsScreensaverShowing(!isScreensaverShowing);
+    dispatch({
+      type: "APP_CAROUSEL_STOP",
+    });
   };
 
   useEffect(() => {
