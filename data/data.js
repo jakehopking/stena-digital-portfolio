@@ -4,7 +4,6 @@ import events from "../content/events.json";
 import currentFocus from "../content/currentFocus.json";
 import overviewPanel from "../content/overviewPanel.json";
 import shortcutImage from "../content/shortcutImage.json";
-import {digitalBets, digitalBetsWithCounts} from "./digitalBets";
 import {overviewPanelData} from "./overviewPanel";
 
 export const cmsData = {
@@ -18,8 +17,6 @@ export const cmsData = {
 
 export const data = {
   overviewPanelData,
-  digitalBets,
-  digitalBetsWithCounts,
   cmsData,
 };
 

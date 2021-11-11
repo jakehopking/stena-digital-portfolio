@@ -36,6 +36,34 @@ export const overviewPanelTitleGroups = {
   },
 };
 
+// Used for carousel mode, and for main navbar links (excludes 'tools')
+export const mainNavPageRoutes = [
+  {
+    title: "Trends",
+    route: "/trends",
+  },
+  {
+    title: "Current Focus",
+    route: "/current-focus",
+  },
+  {
+    title: "Events",
+    route: "/events",
+  },
+  {
+    title: "Ideas",
+    route: "/ideas",
+  },
+  {
+    title: "Products",
+    route: "/",
+  },
+  {
+    title: "Recycle Bin",
+    route: "/recycle-bin",
+  },
+];
+
 export const googleSheets = {
   techTrends: {
     sheetId: "15Npplc138znewXEbyi_RX3DYxhNKuEpI0OiQ-H_LDEU",

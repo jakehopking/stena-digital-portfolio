@@ -1,6 +1,9 @@
 .button,
 button {
   --font-weight: var(--fw-3);
+  --height: 2.4em;
+  --width: 100px;
+  --gutter: var(--su-5);
   display: inline-flex;
   color: white;
   border: 1px solid var(--color-btn-nav-bg-active);
@@ -16,11 +19,17 @@ button {
   margin: 0 auto;
   padding-top: 0;
   padding-bottom: 0;
-  min-width: 100px;
   line-height: 2.4;
   padding-right: 1em;
   padding-left: 1em;
   touch-action: manipulation;
+  min-height: var(--height);
+  min-width: var(--width);
+
+  & + & {
+    margin-left: var(--gutter);
+  }
+
   &:hover {
     border: 1px solid;
     // background-color: var(--color-btn-nav-bg-active);
@@ -34,5 +43,9 @@ button {
     --font-weight: var(--fw-4);
     // background-color: var(--color-btn-nav-bg-active);
     border: 1px solid;
+  }
+
+  &--icon {
+    --width: 50px;
   }
 }

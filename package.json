@@ -10,6 +10,7 @@
     "deploy": "npm run build && npm run export"
   },
   "dependencies": {
+    "@auth0/nextjs-auth0": "^1.6.1",
     "@nivo/circle-packing": "latest",
     "@nivo/core": "latest",
     "@nivo/pie": "latest",

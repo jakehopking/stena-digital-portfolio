@@ -18,7 +18,7 @@ const DashboardIdeas = ({ideasList, title}) => {
       className="dashboard dashboard--ideas"
       style={{
         "--gridRepeatCount": "5",
-        "--gridColWidth": "270px",
+        "--gridColWidth": "279px",
       }}
     >
       <div className="container">

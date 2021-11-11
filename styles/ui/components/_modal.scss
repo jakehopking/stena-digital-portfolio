@@ -26,13 +26,16 @@
         transition-duration: 350ms;
       }
     }
+    &--withNav {
+      align-items: flex-start;
+    }
   }
 }
 
 .modal__close {
   position: absolute;
-  top: var(--su-6);
-  right: var(--su-7);
+  top: var(--su-4);
+  right: var(--su-6);
 }
 
 .modal__close-icon,
@@ -55,6 +58,10 @@
     transition-delay: 0ms;
     opacity: 1;
   }
+
+  &--withNav {
+    padding: 0;
+  }
 }
 
 .modal__content {
@@ -62,5 +69,25 @@
     width: calc(100vw - var(--su-6));
     height: calc(100vh - var(--su-6));
     overflow-y: auto;
+  }
+
+  &--withNav {
+    width: calc(100vw);
+    height: calc(100vh - 100px); // - Nav height
+    overflow-y: auto;
+  }
+}
+
+.modal__bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 100px); // - Nav height
+  @include z-index("below");
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }

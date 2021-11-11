@@ -1,99 +1,116 @@
-import {useState, useEffect, useRef} from "react";
-import {FiPause} from "react-icons/fi";
-
-import {useRouter} from "next/router";
-
-const pageRoutes = [
-  {
-    title: "Trends",
-    route: "/trends",
-  },
-  {
-    title: "Current Focus",
-    route: "/current-focus",
-  },
-  {
-    title: "Events",
-    route: "/events",
-  },
-  {
-    title: "Ideas",
-    route: "/ideas",
-  },
-  {
-    title: "Products",
-    route: "/",
-  },
-  {
-    title: "Recycle Bin",
-    route: "/recycle-bin",
-  },
-];
-
-const NavLink = ({route, title, isActive, router, type = "text", icon}) => {
-  let Icon;
-  icon ? (Icon = icon) : null;
-
-  return (
-    <div
-      onClick={() => router.push(route)}
-      className={`nav-main__item u-ml-a ${isActive(route)}`}
-    >
-      {!icon && <a>{title}</a>}
-      {icon && (
-        <a>
-          <Icon size="1.5em" />
-        </a>
-      )}
-    </div>
-  );
-};
+import { useEffect, useContext, useState } from "react";
+import { useRouter } from "next/router";
+import { AppContext } from "../context/appContext";
+import { NetlifyCMSContext } from "../context/netlifyCmsContext";
+import { mainNavPageRoutes } from "../data/constants";
+import NavLink from "./atoms/NavLink";
+import NavTools from "./molecules/NavTools";
+import Modal from "./molecules/Modal";
+import DashboardEvents from "./organisms/DashboardEvents";
 
 const Header = () => {
-  const router = useRouter();
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [current, setCurrent] = useState(0);
-  const length = pageRoutes.length;
-  // let currentCount = useRef(count);
-  const isActive = (path) => (router.pathname === path ? "nav-main__item--active" : "");
+	const { state, dispatch } = useContext(AppContext);
+	const { shortcutImage, events } = useContext(NetlifyCMSContext);
+	const { isPlaying, currentRoute } = state;
+	const [isMapShowing, setIsMapShowing] = useState(false);
+	const [isScreensaverShowing, setIsScreensaverShowing] = useState(false);
+	const router = useRouter();
 
-  // const nextPage = () => {
-  //   setCurrent(current === length - 1 ? 0 : current + 1);
-  // };
+	const isActive = (path) =>
+		router.pathname === path ? "nav-main__item--active" : "";
 
-  // const onToggleCarousel = () => {
-  //   setIsPlaying(!isPlaying);
-  // };
+	const nextPage = () => {
+		dispatch({
+			type: "APP_CAROUSEL_SET_ROUTE",
+			payload:
+				currentRoute === mainNavPageRoutes.length - 1 ? 0 : currentRoute + 1,
+		});
+	};
 
-  // useEffect(() => {
-  //   if (isPlaying) {
-  //     setTimeout(() => {
-  //       nextPage();
-  //     }, 5000);
-  //     console.log(pageRoutes[current].route);
-  //     router.push(pageRoutes[current].route);
-  //   }
-  // }, [current, isPlaying]);
+	const onToggleCarousel = () => {
+		dispatch({
+			type: isPlaying ? "APP_CAROUSEL_STOP" : "APP_CAROUSEL_START",
+		});
+	};
 
-  return (
-    <header className="header-main">
-      <img className="header-main__logo" src="/logo_stena.svg" />
-      <nav className="nav-main">
-        {pageRoutes.map((link, idx) => (
-          <NavLink
-            key={idx + "_" + link.title}
-            route={link.route}
-            title={link.title}
-            isActive={isActive}
-            router={router}
-          />
-        ))}
-        {/* <button className="button" onClick={onToggleCarousel}>
-          {isPlaying ? "Stop" : "Start"}
-        </button> */}
-      </nav>
-    </header>
-  );
+	const onToggleMap = () => {
+		setIsMapShowing(!isMapShowing);
+		dispatch({
+			type: "APP_CAROUSEL_STOP",
+		});
+	};
+
+	const onToggleScreensaver = () => {
+		setIsScreensaverShowing(!isScreensaverShowing);
+		dispatch({
+			type: "APP_CAROUSEL_STOP",
+		});
+	};
+
+	useEffect(() => {
+		if (isPlaying) {
+			setTimeout(() => {
+				nextPage();
+			}, 30000);
+			router.push(mainNavPageRoutes[currentRoute].route);
+		}
+		return () => {
+			clearTimeout();
+		};
+	}, [currentRoute, isPlaying]);
+
+	return (
+		<header
+			className={`header-main ${
+				(isMapShowing || isScreensaverShowing) && "header-main--withModal"
+			}`}
+		>
+			<img className="header-main__logo" src="/logo_stena.svg" />
+			<nav className="nav-main">
+				{!isMapShowing &&
+					!isScreensaverShowing &&
+					mainNavPageRoutes.map((link, idx) => (
+						<NavLink
+							key={idx + "_" + link.title}
+							route={link.route}
+							title={link.title}
+							isActive={isActive}
+							router={router}
+						/>
+					))}
+				<NavTools
+					isPlaying={isPlaying}
+					isMapShowing={isMapShowing}
+					isScreensaverShowing={isScreensaverShowing}
+					onToggleCarousel={onToggleCarousel}
+					onToggleMap={onToggleMap}
+					onToggleScreensaver={onToggleScreensaver}
+				/>
+			</nav>
+			<div className="modal-container">
+				<Modal
+					onClose={onToggleMap}
+					open={isMapShowing}
+					size="withNav"
+					closeType={null}
+				>
+					<img src={shortcutImage.shortcut_image} onClick={onToggleMap} />
+				</Modal>
+				<Modal
+					onClose={onToggleScreensaver}
+					open={isScreensaverShowing}
+					size="withNav"
+				>
+					<div className="u-mh-5x u-mv-3x">
+						<DashboardEvents eventData={events.events} title="&nbsp;" />
+					</div>
+					<div className="modal__bg-image">
+						<img src="/images/photos/stena_photo_9.jpg" />
+					</div>
+				</Modal>
+			</div>
+		</header>
+	);
 };
 
 export default Header;
