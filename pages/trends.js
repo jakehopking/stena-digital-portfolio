@@ -8,18 +8,14 @@ import {googleSheets, googleSheetsAuth} from "../data/constants";
 import {worksheetSurveyData, googleFormsUrl, googleSheetUrl} from "../utils/googleSheets";
 
 const {overviewPanelData, cmsData} = data;
-const {digital_bets, overviewPanel} = cmsData;
+const {ideas, products, overviewPanel} = cmsData;
 
-export default function ProductTeams({digital_bets, techTrends, recyclingTrends}) {
-  // debugger;
-  const {projects} = digital_bets;
-
+export default function ProductTeams({ideas, products, recyclingTrends, techTrends}) {
   return (
     <Layout
-      home
       sideCol={
         <SidePanel>
-          <OverviewPanel {...overviewPanelData({projects, overviewPanel})} />
+          <OverviewPanel {...overviewPanelData({ideas, products, overviewPanel})} />
         </SidePanel>
       }
     >
@@ -32,31 +28,34 @@ export default function ProductTeams({digital_bets, techTrends, recyclingTrends}
 }
 
 export const getStaticProps = async () => {
+  const auth = {
+    client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+    private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+  };
+
   // Tech
-  const googleTechSheet = new GoogleSpreadsheet(googleSheets.techTrends.sheetId);
   const techTrends = await worksheetSurveyData({
-    auth: googleSheetsAuth,
+    auth,
     sheet: googleSheets.techTrends,
-    googleSpreadsheet: googleTechSheet,
+    googleSpreadsheet: new GoogleSpreadsheet(googleSheets.techTrends.sheetId),
   });
 
   // Recycling
-  const googleRecyclingSheet = new GoogleSpreadsheet(
-    googleSheets.recyclingTrends.sheetId
-  );
   const recyclingTrends = await worksheetSurveyData({
-    auth: googleSheetsAuth,
+    auth,
     sheet: googleSheets.recyclingTrends,
-    googleSpreadsheet: googleRecyclingSheet,
+    googleSpreadsheet: new GoogleSpreadsheet(googleSheets.recyclingTrends.sheetId),
   });
 
   return {
     props: {
-      digital_bets,
+      ...{
+        ideas: ideas.ideas,
+        products: products.products,
+      },
       overviewPanel,
       techTrends,
       recyclingTrends,
     },
-    revalidate: 1,
   };
 };

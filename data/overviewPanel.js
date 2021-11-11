@@ -1,45 +1,57 @@
 import {filterFn, multiplier} from "../utils/general";
-import {phaseTitlesExploit} from "./constants";
+import {overviewPanelTitleGroups} from "./constants";
 
 export const overviewPanelData = ({
-  projects,
+  products,
+  ideas,
   overviewPanel,
   effortValueMultiplier = 1000000,
 }) => {
-  // Filter projects list, 'excluding' exploit entries
-  const exploreList = projects.filter((item) =>
-    filterFn(item.phase, phaseTitlesExploit, "exclude")
-  );
-  // Filter projects list for exploit entries
-  const exploitList = projects.filter((item) => filterFn(item.phase, phaseTitlesExploit));
-
-  // Filter by teams
-  const teamProduct = projects.filter((item) => item.product_team === "Product");
-  const teamExploration = projects.filter(
-    (item) => item.product_team === "Exploration hub"
-  );
-
   // Overview panel data from netlify
-  const {progressData, recyclingTrends, innovationInvestments} = overviewPanel;
+  const {
+    progressData,
+    recyclingTrends,
+    transformationInvestments,
+    overviewIdeas,
+    overviewProducts,
+  } = overviewPanel;
+
+  // Ideas
+  const ideaCounts = Object.entries(overviewPanelTitleGroups.ideas).map((group) => {
+    return {
+      label: group[0],
+      count: ideas.filter((item) => filterFn(item.phase, group[1])).length,
+    };
+  });
+
+  // Products
+  const productCounts = Object.entries(overviewPanelTitleGroups.products).map((group) => {
+    return {
+      label: group[0],
+      count: products.filter((item) => filterFn(item.phase, group[1])).length,
+    };
+  });
 
   return {
-    projects: {
-      label: "Projects",
-      numbers: [
-        {
-          label: "Explore",
-          count: exploreList.length,
-        },
-        {
-          label: "Exploit",
-          count: exploitList.length,
-        },
-        {label: "Total this year", count: projects.length},
+    ideas: {
+      label: "Ideas",
+      counts: ideaCounts,
+      meta: [
+        {label: "Response time on idea", value: `${overviewIdeas.responseTime} hours`},
+        {label: "Average evaluation time", value: `${overviewIdeas.evaluationTime} days`},
+      ],
+    },
+    products: {
+      label: "Products",
+      counts: productCounts,
+      meta: [
+        {label: "Lead time", value: `${overviewProducts.leadTime} weeks`},
+        {label: "Number of learnings", value: `${overviewProducts.learnings}/y`},
       ],
     },
     innovation: {
-      label: "Innovation investments",
-      chartData: innovationInvestments,
+      label: "Transformational investments",
+      chartData: transformationInvestments,
     },
     howMuchWeDo: {
       label: "How much do we do?",
@@ -54,38 +66,38 @@ export const overviewPanelData = ({
       trendData: recyclingTrends,
     },
     // No longer used
-    team: {
-      label: "Team members",
-      numbers: [
-        {
-          label: "Product team",
-          count: teamProduct.length,
-        },
-        {
-          label: "Exploration hub",
-          count: teamExploration.length,
-        },
-      ],
-    },
+    // team: {
+    //   label: "Team members",
+    //   numbers: [
+    //     {
+    //       label: "Product team",
+    //       count: teamProduct.length,
+    //     },
+    //     {
+    //       label: "Exploration hub",
+    //       count: teamExploration.length,
+    //     },
+    //   ],
+    // },
     // No longer used
-    investments: {
-      label: "Investments",
-      chartData: [
-        {
-          label: "Explore",
-          value: exploreList.reduce(
-            (acc, curr) => acc + multiplier(curr.effort, effortValueMultiplier),
-            0
-          ),
-        },
-        {
-          label: "Exploit",
-          value: exploitList.reduce(
-            (acc, curr) => acc + multiplier(curr.effort, effortValueMultiplier),
-            0
-          ),
-        },
-      ],
-    },
+    // investments: {
+    //   label: "Investments",
+    //   chartData: [
+    //     {
+    //       label: "Explore",
+    //       value: exploreList.reduce(
+    //         (acc, curr) => acc + multiplier(curr.effort, effortValueMultiplier),
+    //         0
+    //       ),
+    //     },
+    //     {
+    //       label: "Exploit",
+    //       value: exploitList.reduce(
+    //         (acc, curr) => acc + multiplier(curr.effort, effortValueMultiplier),
+    //         0
+    //       ),
+    //     },
+    //   ],
+    // },
   };
 };

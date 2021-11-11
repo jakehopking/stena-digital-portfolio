@@ -2,7 +2,7 @@ import {useState, useRef, useEffect} from "react";
 import {FiXCircle} from "react-icons/fi";
 import "wicg-inert";
 
-import Portal from "./portal";
+import Portal from "./Portal";
 
 const Modal = ({
   children,
@@ -61,22 +61,32 @@ const Modal = ({
         <Portal className="modal">
           <div
             ref={backdrop}
-            className={`modal__backdrop ${active && open && "modal__backdrop--active"}`}
+            className={`modal__backdrop 
+              ${active && open && "modal__backdrop--active"}
+              ${size ? "modal__backdrop--" + size : ""}
+            `}
           >
-            <div className={`modal__content-container`}>
-              <div className="modal__close">
-                {closeType === "button" ? (
-                  <button className="modal__close-button button" onClick={onClose}>
-                    {closeButtonText && closeButtonText}
-                  </button>
-                ) : (
-                  <Icon
-                    className="modal__close-icon icon icon--close"
-                    onClick={onClose}
-                    size="2em"
-                  />
-                )}
-              </div>
+            <div
+              className={`modal__content-container ${
+                size ? "modal__content-container--" + size : ""
+              }
+              `}
+            >
+              {closeType && (
+                <div className="modal__close">
+                  {closeType === "button" ? (
+                    <button className="modal__close-button button" onClick={onClose}>
+                      {closeButtonText && closeButtonText}
+                    </button>
+                  ) : (
+                    <Icon
+                      className="modal__close-icon icon icon--close"
+                      onClick={onClose}
+                      size="2em"
+                    />
+                  )}
+                </div>
+              )}
               <div className={`modal__content ${size ? "modal__content--" + size : ""}`}>
                 {children}
               </div>

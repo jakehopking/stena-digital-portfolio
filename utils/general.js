@@ -9,9 +9,9 @@ export const tryFn = (fn, fallback = null) => {
   }
 };
 
-export const filterFn = (check, filterArr, filterType) => {
-  if (filterType === "exclude") return filterArr.indexOf(check) < 0;
-  return filterArr.indexOf(check) !== -1;
+export const filterFn = (key, filterArr, filterType) => {
+  if (filterType === "exclude") return filterArr.indexOf(key) < 0;
+  return filterArr.indexOf(key) !== -1;
 };
 
 export const multiplier = (val, factor) => val * factor;
@@ -26,13 +26,13 @@ export const schemeType = (colorScheme) => {
 
 export const getGroupedListByKey = ({array = [], key = ""}) => {
   // debugger;
-  let data = {};
+  let result = {};
   array.map((item) => {
     const name = item[key];
-    if (!tryFn(() => data[name])) data[name] = [];
-    data[name].push(item);
+    if (!tryFn(() => result[name])) result[name] = [];
+    result[name].push(item);
   });
-  return data;
+  return result;
 };
 
 export const getTitleAndCount = ({object = {}}) =>
@@ -44,16 +44,16 @@ export const getTitleAndCount = ({object = {}}) =>
   });
 
 export const organiseListByKey = ({
-  categoryName = "explore",
-  filterList = [],
-  key = "phase",
+  key = "",
   listArray = [],
+  filterList = [],
+  filterType = "",
 }) => {
   let filtered;
   let grouped;
-  if (categoryName === "explore") {
+  if (filterType === "exclude") {
     filtered = listArray.filter((item) => filterFn(item[key], filterList, "exclude"));
-  } else if (categoryName === "exploit") {
+  } else if (filterType === "include") {
     filtered = listArray.filter((item) => filterFn(item[key], filterList));
   } else {
     filtered = listArray;
@@ -66,9 +66,62 @@ export const organiseListByKey = ({
 };
 
 export const serializeRow = (row, sheet) => {
-  let temp = {};
+  let result = {};
   sheet.headerValues.map((header) => {
-    temp[header] = row[header];
+    result[header] = row[header];
   });
-  return temp;
+  return result;
+};
+
+export const formatDateSimple = (date, yearLength) => {
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  let year = date.getFullYear();
+  yearLength === 2 ? (year = year.toString().slice(yearLength)) : year;
+  return `${year}/${month}/${day}`;
+};
+
+export const sliceArrayIntoChunks = (arr, chunkSize) => {
+  const result = [];
+  for (let i = 0; i < arr.length; i += chunkSize) {
+    const chunk = arr.slice(i, i + chunkSize);
+    result.push(chunk);
+  }
+  return result;
+};
+
+export const makeRepeatedArray = (arr, repeats) =>
+  [].concat(...Array.from({length: repeats}, () => arr));
+
+export const dynamicSort = (property) => {
+  let sortOrder = 1;
+  if (property[0] === "-") {
+    sortOrder = -1;
+    property = property.substr(1);
+  }
+  return (a, b) => {
+    let result = a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
+    return result * sortOrder;
+  };
+};
+
+export const calcPercentage = (value, total) => Math.round((value / total) * 100);
+
+export const calcChartLabelLength = (string, value, maxLength) => {
+  if (value === 100 && string.length <= maxLength) return string;
+  return string.substring(0, Math.round(maxLength * (value / 100))).trim() + "...";
+};
+
+export const generateChartData = ({chartData = [], label = "", maxLength = 60}) => {
+  return {
+    name: label,
+    children: chartData.map((item) => {
+      const {label, value} = item;
+      return {
+        name: calcChartLabelLength(label, value, maxLength),
+        detail: label,
+        loc: value,
+      };
+    }),
+  };
 };

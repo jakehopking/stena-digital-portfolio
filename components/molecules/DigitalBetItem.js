@@ -1,95 +1,105 @@
-import {useEffect, useState, useContext} from "react";
+import {useContext} from "react";
+import {IoPause, IoClose} from "react-icons/io5";
 import {NetlifyCMSContext} from "../../context/netlifyCmsContext";
-import {getGroupedListByKey} from "../../utils/general";
+import {getGroupedListByKey, formatDateSimple} from "../../utils/general";
 import Circle from "../atoms/Circle";
-import ProgressBar from "../atoms/ProgressBar";
 
 const DigitalBetItem = ({
   bigBet,
-  productTeam,
-  count,
-  group,
-  projectName,
-  progress,
-  size,
+  circleRadius,
+  dateResume,
   effort,
+  feature,
   phase,
-  stakeholder,
+  title,
+  size,
+  status,
+  type,
 }) => {
-  const [colors, setColors] = useState({});
-  const isSmall = Boolean(size === "small");
+  const {ideas, products} = useContext(NetlifyCMSContext);
   const bigBetText = "Big Bet";
-  const {digital_bets} = useContext(NetlifyCMSContext);
+  const featureText = "Feature";
+  const formattedDate = dateResume ? formatDateSimple(new Date(dateResume), 2) : null;
 
-  const maxEffort = Math.max(
-    ...Object.keys(getGroupedListByKey({array: digital_bets.projects, key: "effort"}))
-  );
+  const calcMaxEffort = (type) => {
+    return Math.max(
+      ...Object.keys(
+        getGroupedListByKey({
+          array: type === "products" ? products.products : ideas.ideas,
+          key: "effort",
+        })
+      )
+    );
+  };
 
-  const circleSizeScale = effort / maxEffort;
-  // debugger;
+  const calcCircleColor = () =>
+    phase === "New ideas"
+      ? "--color-grey-09"
+      : type === "products"
+      ? "--color-primary-0"
+      : "--color-secondary-0";
+
+  const StatusIcon = () => {
+    let Icon = null;
+    if (status !== "Ongoing") {
+      status === "Paused" ? (Icon = IoPause) : (Icon = IoClose);
+    }
+    return Icon;
+  };
+
+  const circleSizeScale = effort / calcMaxEffort(type);
 
   const BigBet = () =>
-    bigBet && (
-      <div className={`big-bet ${isSmall ? "u-mr" : "u-mt"}`}>
-        {bigBet ? bigBetText : ""}
-      </div>
-    );
+    bigBet && <div className="big-bet">{bigBet ? bigBetText : ""}</div>;
 
-  // Actually useEffect here is unnecessary. Was using getVar() prior, and hence referenced the window.
-  useEffect(() => {
-    setColors({
-      Now: "--color-primary-0",
-      Next: "--color-secondary-0",
-      Future: "--color-tertiary-0",
-    });
-    return () => {};
-  }, []);
-
+  // debugger;
   return (
-    <div
-      className={`o-media o-media--quarter digital-bet-item ${
-        size ? "digital-bet-item--" + size : ""
-      }`}
-    >
-      <div className="o-media__fixed digital-bet-item__icons">
-        <Circle
-          color={colors[group]}
-          text={count}
-          radius={isSmall ? 13 : 5}
-          scale={effort && isSmall ? circleSizeScale : 1}
-        />
-        {!isSmall && <BigBet />}
-      </div>
-      <div className="o-media__fluid digital-bet-item__content">
-        <div className="digital-bet-item__main">
-          {!isSmall && <div className="digital-bet-item__category">{productTeam}</div>}
-          <div className="digital-bet-item__label">{projectName}</div>
-          {!isSmall && progress && (
-            <ProgressBar value={progress} className="digital-bet-item__progress" />
-          )}
+    <>
+      <div
+        className={`
+          o-media o-media--quarter digital-bet-item
+          ${size ? "digital-bet-item--" + size : ""}
+          ${status === "Cancelled" ? "u-opacity-6" : ""}
+        `}
+        title={title}
+      >
+        <div className="o-media__fixed digital-bet-item__icons">
+          <Circle
+            color={calcCircleColor()}
+            icon={StatusIcon()}
+            radius={circleRadius}
+            scale={effort && status === "Ongoing" ? circleSizeScale : 1}
+          />
         </div>
-        <div className="digital-bet-item__aside">
-          {/* {isSmall && <BigBet />} */}
-          {!isSmall && phase && <div className="digital-bet-item__stage">{phase}</div>}
-          {!isSmall && stakeholder && (
-            <div className="digital-bet-item__stakeholder u-mt">{stakeholder}</div>
-          )}
+        <div className="o-media__fluid digital-bet-item__content">
+          <div className="digital-bet-item__main">
+            <div className="digital-bet-item__label">{title}</div>
+          </div>
+          <div className="digital-bet-item__aside">
+            <BigBet />
+          </div>
         </div>
       </div>
-    </div>
+      {(feature || dateResume) && (
+        <div className="digital-bet-item__meta">
+          {feature && <div className="feature">{featureText}</div>}
+          {formattedDate && <div className="dateResume">Resume: {formattedDate}</div>}
+        </div>
+      )}
+    </>
   );
 };
 
 DigitalBetItem.defaultProps = {
   bigBet: false,
-  productTeam: "Category",
-  count: null,
-  group: "Group",
-  projectName: "Project name",
-  progress: null,
-  size: "",
+  circleRadius: 13,
+  dateResume: "",
+  feature: false,
   phase: "Phase",
-  stakeholder: "Jacob Wilson",
+  title: "Missing title",
+  size: "small",
+  status: "ongoing",
+  type: "products",
 };
 
 export default DigitalBetItem;

@@ -1,26 +1,68 @@
-export const productTeamsDigitalBets = ["Now", "Next", "Future"];
+require("dotenv").config({
+  path: `./.env.${process.env.NODE_ENV}`,
+});
 
-export const phaseTitles = [
-  "Ideation",
-  "Discovery",
-  "Validation",
-  "Confirmation",
-  "Transfer",
-  "Launch",
-  "Sustaining innovation",
-  "Efficiency",
-  "Mature business",
-  "Declining business",
-  "Renovation",
+// Order to render the digital bets lists on products page.
+export const productTitlesSortOrder = [
+  "Future",
+  "Next",
+  "0%",
+  "50%",
+  "100%",
+  "Launched product",
 ];
 
-export const phaseTitlesExplore = phaseTitles.slice(0, 9);
-export const phaseTitlesExploit = phaseTitles.slice(9);
+// Order to render the digital bets lists on ideas page.
+export const ideaTitlesSortOrder = [
+  "New ideas",
+  "Test",
+  "Deep test",
+  "Dragons den",
+  "Transfer to product",
+];
 
-export const googleSheetsAuth = {
-  client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-  private_key: process.env.GOOGLE_PRIVATE_KEY,
+// Overview panel title groups for filtering and counting results
+export const overviewPanelTitleGroups = {
+  ideas: {
+    new: ideaTitlesSortOrder,
+    validation: ["Test", "Deep test", "Dragons den"],
+    transfer: ["Transfer to product"],
+  },
+  products: {
+    future: ["Future"],
+    next: ["Next"],
+    onGoing: ["0%", "50%", "100%"],
+    launched: ["Launched product"],
+  },
 };
+
+// Used for carousel mode, and for main navbar links (excludes 'tools')
+export const mainNavPageRoutes = [
+  {
+    title: "Trends",
+    route: "/trends",
+  },
+  {
+    title: "Current Focus",
+    route: "/current-focus",
+  },
+  {
+    title: "Events",
+    route: "/events",
+  },
+  {
+    title: "Ideas",
+    route: "/ideas",
+  },
+  {
+    title: "Products",
+    route: "/",
+  },
+  {
+    title: "Recycle Bin",
+    route: "/recycle-bin",
+  },
+];
 
 export const googleSheets = {
   techTrends: {

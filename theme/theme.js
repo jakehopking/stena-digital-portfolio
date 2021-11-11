@@ -4,6 +4,7 @@ const defaultSpacingUnit = 20;
 
 export const GREY = {
   _00: "#000000",
+  _01: "#1C1C20",
   _02: "#18181C",
   _03: "#1F1F22",
   _04: "#2A2A30",
@@ -12,6 +13,7 @@ export const GREY = {
   _08: "#3B3B44",
   _09: "#4B4B4B",
   _50: "#60625A",
+  _70: "#8B8B8B",
   _90: "#F2F2F2",
   _100: "#FFFFFF",
 };
@@ -29,6 +31,7 @@ export const BLUE = {
 
 export const ORANGE = {
   _00: "#FFBC10",
+  _20: "#D27429",
 };
 
 export const YELLOW = {
@@ -176,6 +179,7 @@ export const CHART_SCHEMES = {
     "rgba(236, 236, 236, 1)",
     "rgba(102, 199, 123, 1)",
   ],
+  four: ["rgba(50, 50, 50, 1.0)", "#EBE7E0"],
 };
 
 export const COLOUR_MAP = {

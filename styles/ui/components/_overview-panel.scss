@@ -1,0 +1,11 @@
+.overview-panel {
+  &__label {
+    margin-top: var(--su-4);
+  }
+  &__info {
+    & + & {
+      border-top: 1px solid var(--color-grey-08);
+      margin-top: var(--su-4);
+    }
+  }
+}

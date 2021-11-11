@@ -6,9 +6,16 @@
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-nav-bg);
+  @include z-index("above");
 
   &__logo {
     width: 87px;
     height: 32px;
+  }
+
+  &--withModal {
+    position: fixed;
+    width: 100vw;
+    bottom: 0px;
   }
 }

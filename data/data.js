@@ -1,26 +1,22 @@
-import digital_bets from "../content/digital_bets.json";
-import focus_areas from "../content/focus_areas.json";
+import ideas from "../content/ideas.json";
+import products from "../content/products.json";
 import events from "../content/events.json";
+import currentFocus from "../content/currentFocus.json";
 import overviewPanel from "../content/overviewPanel.json";
 import shortcutImage from "../content/shortcutImage.json";
-import {circlePackingOne, circlePackingTwo, chartTheme} from "./chartData";
-import {digitalBets, digitalBetsWithCounts} from "./digitalBets";
 import {overviewPanelData} from "./overviewPanel";
 
 export const cmsData = {
-  digital_bets,
+  ideas,
+  products,
   events,
-  focus_areas,
+  currentFocus,
   overviewPanel,
   shortcutImage,
 };
 
 export const data = {
   overviewPanelData,
-  digitalBets,
-  digitalBetsWithCounts,
-  circlePackingOne,
-  circlePackingTwo,
   cmsData,
 };
 
