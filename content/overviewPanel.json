@@ -51,10 +51,42 @@
   ],
   "overviewIdeas": {
     "responseTime": 8,
-    "evaluationTime": 5
+    "evaluationTime": 5,
+    "status": [
+      {
+        "label": "New",
+        "value": 7
+      },
+      {
+        "label": "Validation",
+        "value": 5
+      },
+      {
+        "label": "Transfer",
+        "value": 1
+      }
+    ]
   },
   "overviewProducts": {
     "leadTime": 8,
-    "learnings": 800
+    "learnings": 800,
+    "status": [
+      {
+        "label": "Future",
+        "value": 3
+      },
+      {
+        "label": "Next",
+        "value": 1
+      },
+      {
+        "label": "Ongoing",
+        "value": 4
+      },
+      {
+        "label": "Launched",
+        "value": 1
+      }
+    ]
   }
 }
